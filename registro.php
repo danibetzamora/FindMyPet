@@ -2,6 +2,7 @@
 
 include('config.php');
 if (isset($_POST['Registrarme'])) {
+    
 $nombre = $_POST['fnombre'];
 $apellidos = $_POST['fape'];
 $email = $_POST['fcorreo'];
@@ -52,19 +53,17 @@ if (mysqli_num_rows($r)> 0) {
             <div id = "form" style = "height:80%;display:flex;font-family:'Inter';font-size: 13px;">
                 <form method ="POST" action="" style="margin:auto; ">
                     <label for="fnombre">Nombre:</label><br>
-                    <input autocomplete="new-text" style = "font-size: 12px;font-family:'Inter';margin-top:1%;margin-bottom: 4%;border:none;border-radius:2px;background-color:EFEFEF;width:320px;padding:6px;outline:none;" type="text" id="fnombre" name="fnombre" placeholder="Introduzca su nombre"><br>
+                    <input required minlength="3" autocomplete="new-text" style = "font-size: 12px;font-family:'Inter';margin-top:1%;margin-bottom: 4%;border:none;border-radius:2px;background-color:EFEFEF;width:320px;padding:6px;outline:none;" type="text" id="fnombre" name="fnombre" placeholder="Introduzca su nombre"><br>
                     <label for="fape">Apellidos:</label><br>
-                    <input autocomplete="new-text" style = "font-size: 12px;font-family:'Inter';margin-top:1%;margin-bottom: 4%;border:none;border-radius:2px;background-color:EFEFEF;width:320px;padding:6px;outline:none;" type="text" id="fape" name="fape" placeholder="Introduzca sus apellidos"><br>
+                    <input required minlength="3" autocomplete="new-text" style = "font-size: 12px;font-family:'Inter';margin-top:1%;margin-bottom: 4%;border:none;border-radius:2px;background-color:EFEFEF;width:320px;padding:6px;outline:none;" type="text" id="fape" name="fape" placeholder="Introduzca sus apellidos"><br>
                     <label for="fcorreo">Correo:</label><br>
-                    <input autocomplete="new-text" style = "font-size: 12px;font-family:'Inter';margin-top:1%;margin-bottom: 4%;border:none;border-radius:2px;background-color:EFEFEF;width:320px;padding:6px;outline:none;" type="text" id="fcorreo" name="fcorreo" placeholder="Introduzca su correo"><br>
+                    <input required minlength="8" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" autocomplete="new-text" style = "font-size: 12px;font-family:'Inter';margin-top:1%;margin-bottom: 4%;border:none;border-radius:2px;background-color:EFEFEF;width:320px;padding:6px;outline:none;" type="text" id="fcorreo" name="fcorreo" placeholder="Introduzca su correo"><br>
                     <label for="fdir">Dirección:</label><br>
-                    <input autocomplete="new-text" style = "font-size: 12px;font-family:'Inter';margin-top:1%;margin-bottom: 4%;border:none;border-radius:2px;background-color:EFEFEF;width:320px;padding:6px;outline:none;" type="text" id="fdir" name="fdir" placeholder="Introduzca su dirección"><br>
+                    <input required minlength="8" autocomplete="new-text" style = "font-size: 12px;font-family:'Inter';margin-top:1%;margin-bottom: 4%;border:none;border-radius:2px;background-color:EFEFEF;width:320px;padding:6px;outline:none;" type="text" id="fdir" name="fdir" placeholder="Introduzca su dirección"><br>
                     <label for="ffecha">Fecha de nacimiento:</label><br>
                     <input autocomplete="new-text" style = "font-size: 12px;font-family:'Inter';margin-top:1%;margin-bottom: 4%;border:none;border-radius:2px;background-color:EFEFEF;width:320px;padding:4px;font-family:'Inter';outline:none;color: grey;" type="date" id="ffecha" name="ffecha" placeholder="dd/mm/aaaa"><br>
                     <label for="fcon">Contraseña:</label><br>
-                    <input autocomplete="new-password" style = "font-size: 12px;font-family:'Inter';margin-top:1%;margin-bottom: 4%;border:none;border-radius:2px;background-color:EFEFEF;width:320px;padding:6px;outline:none;" type="password" id="fcon" name="fcon" placeholder="Introduzca su contraseña"><br>
-                    <label for="fcon2">Repita su contraseña:</label><br>
-                    <input autocomplete="new-password" style = "font-size: 12px;font-family:'Inter';margin-top:1%;margin-bottom: 8%;border:none;border-radius:2px;background-color:EFEFEF;width:320px;padding:6px;outline:none;" type="password" id="fcon2" name="fcon2" placeholder="Introduzca su contraseña de nuevo"><br>
+                    <input pattern ="[0-9]+[A-Z]" required minlength="8"  alt="alphanumeric"  alt="strongPass" required autocomplete="new-password" style = "font-size: 12px;font-family:'Inter';margin-top:1%;margin-bottom: 10%;border:none;border-radius:2px;background-color:EFEFEF;width:320px;padding:6px;outline:none;" type="password" id="fcon" name="fcon" placeholder="Incluya una mayuscula y un número"><br>
                     <div style="text-align: center;">
                         <button style = "margin-bottom: 5%;border:none;border-radius:15px;width: 175px;background-color: #FCDA68;padding: 6px;color: #ffffff;font-family: 'Inter';font-size: 14px;" name="Registrarme" type="submit" value="Registrarme">Register</button><br>
                         <a href="login.php"><button style = "margin-bottom: 5%;border:solid 1px;border-radius:15px;border-color:#FCDA68;width: 175px;background-color: #ffffff;padding: 6px;color: #2D2B40;font-family: 'Inter';font-size: 13px;" name="Logear" type="submit" value="Iniciar sesión">Iniciar sesión</button></a>
