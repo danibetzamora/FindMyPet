@@ -66,11 +66,14 @@ if (mysqli_num_rows($r)> 0) {
                 <div style = "position:fixed;top:-4vh;right:45.2vw;width:10vw;height:10vh;transform: rotate(-30deg);"><img  style = "width:50%" src ="imagenes/huella.png"></div>
 
                 <div style="width: 100% ;height:50%;display: flex;justify-content: center;"><img style="max-width:50%" src="imagenes/FindMyPet.svg"></div>
+
                 <div style="width: 60%;margin:auto;"><h3 style="font-family:'Inter';color: #ffffff;text-align: center;font-size:1.5vw;font-weight:600">Ayuda a nuestros mas fieles compañeros a estar de vuelta con sus adorados dueños</h3></div>
+
             </div>
             <div style="width: 100% ;height:50%;display: flex;justify-content: center;margin-bottom: 0px;"><img style="max-width:80%" src="imagenes/perrosPortada.svg"></div>
         </div>
         <div id = "formulario"  style="background-color: #ffffff;width: 50%;  min-height: 100vh;  ">
+
             <div style="text-align: center;height:15vh">
                 <p style="font-family: 'Inter';font-weight:500;font-size: 1.4vw;color: #2D2B40;margin-top:6vh">Regístrese a la plataforma preferida de perros y gatos del mundo. </p>
             </div>
