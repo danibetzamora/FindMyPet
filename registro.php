@@ -41,14 +41,14 @@ if (mysqli_num_rows($r)> 0) {
         <div id ="principal" style="width: 50%; min-height: 100vh;background-color: #FCDA68;display: flex;justify-content: center;flex-direction: column;">
             <div style="height:50%;">
                 <div style="width: 100% ;height:50%;display: flex;justify-content: center;"><img style="max-width:50%" src="imagenes/FindMyPet.svg"></div>
-                <div style="width: 60%;margin:auto;"><h3 style="font-family:'Inter';color: #ffffff;text-align: center;">Ayuda a nuestros mas fieles compañeros a estar de vuelta con sus adorados dueños</h3></div>
+                <div style="width: 60%;margin:auto;"><h3 style="font-family:Inter;color: #ffffff;text-align: center;">Ayuda a nuestros mas fieles compañeros a estar de vuelta con sus adorados dueños</h3></div>
             </div>
             <div style="width: 100% ;height:50%;display: flex;justify-content: center;margin-bottom: 0px;"><img style="max-width:80%" src="imagenes/perrosPortada.svg"></div>
         </div>
         <div id = "formulario"  style="background-color: #ffffff;width: 50%;  min-height: 100vh;  ">
             <div style="text-align: center;">
                 <h3 style="font-family: 'Inter';color: #2D2B40">Te damos la bienvenida a nuestro portal</h3>
-                <p style="font-family: 'Inter';font-weight:500;font-size: 13px;color: #2D2B40">Regístrese a la plataforma preferida de perros y gatos del mundo. </p>
+                <p style="font-family: Inter;font-weight:500;font-size: 13px;color: #2D2B40">Regístrese a la plataforma preferida de perros y gatos del mundo. </p>
             </div>
             <div id = "form" style = "height:80%;display:flex;font-family:'Inter';font-size: 13px;">
                 <form method ="POST" action="" style="margin:auto; ">
