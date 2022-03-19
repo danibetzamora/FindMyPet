@@ -6,7 +6,7 @@ $error = false;
 
 if(isset($_POST['Login'])){
     $email = $_POST['fcorreo'];
-    $password = md5($_POST['fpass']);
+    $password = SHA1($_POST['fpass']);
 
     $query = "SELECT * FROM `usuario` WHERE `email` = '$email' AND `contrasena` = '$password';";
     $con = mysqli_query ($connection, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($connection));
@@ -14,7 +14,7 @@ if(isset($_POST['Login'])){
         $user = mysqli_fetch_array($con);
         session_start();
         $_SESSION["user"] = $user;
-        header('Location:homeinvitado.php');
+        header('Location:homeUsuarioWeb.php');
     }else{
         $error = true;
     }
