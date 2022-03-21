@@ -20,7 +20,7 @@
 <body>
     <div id="main-content">
         <div id="header">
-            <div id="logo"><a href="homeUsuarioWeb.php"><img id="imglogo" src="/imagenes/logo.png"></a></div>
+            <div id="logo"><a href="homeUsuarioWeb.php"><img id="imglogo" src="imagenes/logo.png"></a></div>
             <div id="navegacion">
                 <div class="nav"><a href="homeUsuarioWeb.php">Buscar</a></div>
                 <div class="nav"><a href="homeUsuarioWeb.php">Se Busca</a></div>
@@ -28,7 +28,7 @@
                 <div class="nav"><a href="homeUsuarioWeb.php">Estoy Buscando</a></div>
                 <div class="nav"><a href="homeUsuarioWeb.php">Chats</a></div>
             </div>
-            <div id="perfil"><a href="login.php"><img id="perfilimg" src="/imagenes/fotoperfil.png"></a></div>
+            <div id="perfil"><a href="login.php"><img id="perfilimg" src="imagenes/fotoperfil.png"></a></div>
         </div>
         <div id="container">
             <div id="aside">

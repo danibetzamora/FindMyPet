@@ -1,0 +1,159 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #2D2B40;
+    font-size: 1.3rem;
+    font-weight: bolder;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 12vh;
+    background-color: #FCDA68;
+}
+
+.header-title-logo {
+    margin-left: 1em;
+    margin-top: 0.4em;
+    height: 4em;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 2em;
+    width: 40em;
+}
+
+.line {
+    height: 3em;
+}
+
+.Login {
+    padding: 2%;
+    background-color: #ffff;
+    border-radius: 12px;
+}
+
+.reasons-FindMyPet{
+    margin-top: 4em;
+    margin-left: 3em;
+    margin-right: 3em;
+    display: flex;
+    justify-content: center;
+}
+
+.reasons {
+    padding: 2em;
+    background-color: #FCDA68;
+    border: 3px solid #EFEFEF;
+    border-right: transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+.reasons-title h1 {
+    font-size: 2.5em;
+}
+
+.reasons-title h3 {
+    margin-top: -0.5em;
+    font-size: 1.5em;
+    color: #2d2b40ce;
+}
+
+.reasons-content {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.reason {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight:600;
+}
+
+.check {
+    height: 1.5em;
+    padding: 0.5em;
+}
+
+.screenshot {
+    border: 3px solid #EFEFEF;
+}
+
+.new-FindMyPet {
+    width: 100vw;
+    min-height: 80vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+.new-images {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.new-images > * {
+    flex-basis: 40vh;
+}
+
+.new-text {
+    min-height: 70vh;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.new-titles h1 {
+    margin-left: -0.2em;
+    font-size: 2.5em;
+    font-weight: bolder;
+}
+
+.new-titles h2 {
+    font-size: 1.5em;
+    color: #2d2b40ce;
+    margin-top: -0.5em;
+}
+
+.new-content-title h4 {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.new-content-paragraph {
+    padding-bottom: 2em;
+}
+
+.new-content-paragraph p {
+    width: 35vw;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.new-content-button {
+    background-color: #FCDA68;
+    width: 15vw;
+    padding: 0.5em;
+    border-radius: 20px;
+    text-align: center;
+}
+
+
+
+

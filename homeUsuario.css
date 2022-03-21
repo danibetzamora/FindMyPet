@@ -98,3 +98,6 @@ a:hover { cursor: pointer; }
     font-family: 'Inter';
     font-size: 14px;
 }
+.botonamarillo:hover{
+    cursor:pointer;
+}
