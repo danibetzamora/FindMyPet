@@ -1,3 +1,13 @@
+<?php
+    include("config.php");
+    $sql="SELECT * FROM post_encontrado";
+    $result=$connection->query($sql);
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
