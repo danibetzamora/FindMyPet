@@ -2,7 +2,6 @@
     include("config.php");
     $sql="SELECT * FROM post_encontrado";
     $result=$connection->query($sql);
-
 ?>
 
 
@@ -64,15 +63,40 @@
                 </form>
             </div>
             <div id="list">
-                <div class="post"><?php include("postencontrado.html"); ?></div>
-                <div class="post"><?php include("postencontrado.html"); ?></div>
-                <div class="post"><?php include("postencontrado.html"); ?></div>
-                <div class="post"><?php include("postencontrado.html"); ?></div>
-                <div class="post"><?php include("postencontrado.html"); ?></div>
-                <div class="post"><?php include("postencontrado.html"); ?></div>
-                <div class="post"><?php include("postencontrado.html"); ?></div>
-                <div class="post"><?php include("postencontrado.html"); ?></div>
-                <div class="post"><?php include("postencontrado.html"); ?></div>
+                <?php
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                ?>
+
+
+                <div style="display: flex;flex-direction:column;width: 250px;height: 220px;border:solid 1px;border-radius: 4px ;border-color: #E5E5E5; padding: 0;">
+                    <div class="front">
+                        <div style="width: 100%;height: 60%;border-radius:4px 4px 0px 0px;margin:0;"><img style="object-fit: cover;width: 100%;height: 100%;border-radius:4px 4px 0px 0px;" src="imagenes/perro.jpg"></div>
+                        <div style="width: 100%;height: 40%;">
+                            <div style="width: 100%;height: 40%;padding: 2%;">
+                                <p><?php echo $row["ubicacion"];?></p>
+                                <div style="display: flex;flex-direction:row;">
+
+                                    <div style="width: 50%;">
+                                        <p style="font-size: 10px;"><?php echo $row["fecha"];?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="back" style="background-color: aqua;">
+
+                    </div>
+
+                </div>
+
+
+                <?php
+                    }
+                }
+                $connection->close();
+                ?>
+
             </div>
         </div>
 
