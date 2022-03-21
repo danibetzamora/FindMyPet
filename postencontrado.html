@@ -8,7 +8,12 @@
     <title>Document</title>
 </head>
 <style>
-    
+    .front:hover {
+        display:none;
+    }
+    .front:hover .back{
+        display:block;
+    }
 </style>
 <body style="font-family: 'Inter';">
     <div style="display: flex;flex-direction:column;width: 250px;height: 220px;border:solid 1px;border-radius: 4px ;border-color: #E5E5E5; padding: 0;">
@@ -30,7 +35,7 @@
             </div>
         </div>
         <div class="back" style="background-color: aqua;">
-            
+            <div style=" background-color:blue;display:none"></div>
         </div>
         
     </div>
