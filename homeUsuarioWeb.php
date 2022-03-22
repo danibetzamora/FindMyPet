@@ -1,7 +1,16 @@
 <?php
     include("config.php");
-    $sql="SELECT * FROM post_encontrado";
+    $sql="SELECT post_encontrado.ubicacion,  post_encontrado.fecha,
+                 post_encontrado.descripcion, usuario.nombre, usuario.apellidos,
+                 usuario.foto
+            FROM post_encontrado
+            JOIN usuario WHERE usuario.id=post_encontrado.usuario";
     $result=$connection->query($sql);
+
+    $sql2="SELECT * 
+            FROM post_encontrado
+            JOIN foto_post_encontrado WHERE post_encontrado.id=foto_post_encontrado.post";
+    $result2=$connection->query($sql2);
 ?>
 
 
@@ -66,37 +75,20 @@
                 <?php
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
-                ?>
-
-
-                <div style="display: flex;flex-direction:column;width: 250px;height: 220px;border:solid 1px;border-radius: 4px ;border-color: #E5E5E5; padding: 0;">
-                    <div class="front">
-                        <div style="width: 100%;height: 60%;border-radius:4px 4px 0px 0px;margin:0;"><img style="object-fit: cover;width: 100%;height: 100%;border-radius:4px 4px 0px 0px;" src="imagenes/perro.jpg"></div>
-                        <div style="width: 100%;height: 40%;">
-                            <div style="width: 100%;height: 40%;padding: 2%;">
-                                <p><?php echo $row["ubicacion"];?></p>
-                                <div style="display: flex;flex-direction:row;">
-
-                                    <div style="width: 50%;">
-                                        <p style="font-size: 10px;"><?php echo $row["fecha"];?></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="back" style="background-color: aqua;">
-
-                    </div>
-
-                </div>
-
-
-                <?php
+                        $row2 = $result2->fetch_assoc();
+                        $post = file_get_contents("post.html");
+                        $post = str_replace('[UBICACION]', $row["ubicacion"], $post);
+                        $post = str_replace('[FECHA]', $row["fecha"], $post);
+                        $post = str_replace('[DESCRIPCION]', $row["descripcion"], $post);
+                        $post = str_replace('[NOMBRE]', $row["nombre"], $post);
+                        $post = str_replace('[APELLIDO]', $row["apellidos"], $post);
+                        $post = str_replace('[FOTOPERFIL]', $row["foto"], $post);
+                        $post = str_replace('[FOTOANIMAL]', $row2["foto"], $post);
+                        echo $post;
                     }
                 }
                 $connection->close();
                 ?>
-
             </div>
         </div>
 
