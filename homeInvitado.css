@@ -3,6 +3,7 @@ body {
     width: 100vw;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 a {
@@ -96,7 +97,7 @@ nav {
 
 .new-FindMyPet {
     width: 100vw;
-    min-height: 80vh;
+    min-height: 100vh;
     display: flex;
     justify-content: space-around;
 }
@@ -111,6 +112,12 @@ nav {
     flex-basis: 40vh;
 }
 
+.image1 {
+    display: flex;
+    justify-content: center;
+    padding: 5%;
+}
+
 .new-text {
     min-height: 70vh;
     padding: 2em;
@@ -120,6 +127,7 @@ nav {
 }
 
 .new-titles h1 {
+    margin-top: 0em;
     margin-left: -0.2em;
     font-size: 2.5em;
     font-weight: bolder;
@@ -137,7 +145,7 @@ nav {
 }
 
 .new-content-paragraph {
-    padding-bottom: 2em;
+    padding-bottom: 1.5em;
 }
 
 .new-content-paragraph p {
@@ -154,6 +162,124 @@ nav {
     text-align: center;
 }
 
+footer {
+    background-image: url("http://localhost/FindMyPet/imagenes/homeInvitado/Footer-Background");
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-size: contain;
+    width: 100vw;
+    min-height: 50vh;
+    background-color: #FCDA68;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
+.main-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.direct-access {
+    display: flex;
+    flex-direction: column;
+}
+
+.direct-access-list {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 10em;
+    gap: 3em;
+}
+
+.direct-access-item {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1em;
+}
+
+.direct-access-item a {
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+.direct-access-item-icon img {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.contact-us {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-us-list {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 5em;
+    gap: 2em;
+    margin-top: 2em;
+    list-style: none;
+}
+
+.contact-us-street {
+    width: 20em;
+}
+
+.contact-us-list-item {
+    display: flex;
+    justify-content: flex-start;
+    gap: 2em;
+}
+
+.contact-us-list-item-icon {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.contact-us-list-item-icon img {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.bottom-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-bottom: 2em;
+    width: 95vw;
+    min-height: 15vh;
+}
+
+.logo-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1em;
+}
+
+.social-media {
+    width: 28vw;
+    display: flex;
+    justify-content: center;
+}
+
+.social-media-icons {
+    width: 15vw;
+    display: flex;
+    justify-content: space-around;
+}
+
+.social-media-icons img {
+    width: 1.5em;
+    height: 1.5em;
+}
 
 
