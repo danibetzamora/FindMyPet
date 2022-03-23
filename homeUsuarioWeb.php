@@ -13,9 +13,6 @@
     $result2=$connection->query($sql2);
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -40,15 +37,15 @@
         </div>
         <div id="container">
             <div id="aside">
-                <form id="filter" action="">
+                <form id="filter" action="homeUsuarioWeb.php" method="GET">
                     <div class="filtertext">
                         <label>Distancia</label><br>
-                        <input id="slidebar" type="range" min="1" max="100" value="50" class="slider"><br>
+                        <input id="slidebar" type="range" name="range" min="1" max="100" value="50" class="slider"><br>
                         <span id="demo"></span> Km<br>
                     </div>
                     <div class="filtertext">
                         <label>Animal</label><br>
-                        <select>
+                        <select name="animal">
                             <option>Perro</option>
                             <option>Gato</option>
                             <option>Pajaro</option>
@@ -57,7 +54,7 @@
                     </div>
                     <div class="filtertext">
                         <label>Raza</label><br>
-                        <select>
+                        <select name="raza">
                             <option>Raza 1</option>
                             <option>Raza 2</option>
                             <option>Raza 3</option>
@@ -66,12 +63,14 @@
                     </div>
                     <div class="filtertext">
                         <label>Fecha</label><br>
-                        <input type="date"><br>
+                        <input type="date" name="fecha"><br>
                     </div>
+                    <input type="submit">
                     <button class="botonamarillo" name="Filtrar" type="submit" value="Filtrar">Filtrar</button><br>
                 </form>
             </div>
             <div id="list">
+
                 <?php
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
@@ -89,12 +88,10 @@
                 }
                 $connection->close();
                 ?>
+
             </div>
         </div>
-
     </div>
-
-
 </body>
 
 <script>

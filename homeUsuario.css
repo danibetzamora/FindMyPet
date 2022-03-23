@@ -65,7 +65,11 @@ a:hover { cursor: pointer; }
 #aside{
     height: inherit;
     width: 20%;
-    display: flex;
+    display: inline-flex;
+}
+
+#filter{
+    margin-left: 10%;
 }
 
 .filtertext{
@@ -81,7 +85,8 @@ a:hover { cursor: pointer; }
     height: inherit;
     width: 80%;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: wrap;
+    align-content: flex-start;
 }
 
 .post{
