@@ -1,4 +1,4 @@
-*{
+body{
     overflow:hidden;
     height: 100%;
     width: 100%;
@@ -15,9 +15,8 @@
 
 
 .header{
-    height: 20%;
-    
-
+    height: 8%;
+    width: 100%;
 }
 
 body p{
@@ -26,14 +25,8 @@ body p{
 }
 
 .contentEncontrado{
-    
-    margin-left: 4rem;
     height: 80%;
-    margin-right: 4rem;
-    
-   
-    max-width: 88rem;
-    
+    width: 90%;
     
 }
 
@@ -141,7 +134,7 @@ body p{
 }
 
 .daySelect{
-    width: 1rem%;
+    width: 1rem;
 }
 
 .monthSelect{
