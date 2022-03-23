@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
 header {
-    /*min-height: 10vh;*/
     margin: 1em;
     display: flex;
     justify-content: space-between;
@@ -10,23 +9,7 @@ header {
     font-family: 'Poppins', sans-serif;
 }
 
-/*
-.header-first-part {
-    width: 67vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    padding-top: 0.2em;
-}
-*/ 
-
 nav {
-    /*width: 80%;*/
     display: flex;
     justify-content: flex-start;
     gap: 2.7rem;
