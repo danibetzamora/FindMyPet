@@ -20,21 +20,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="homeUsuario.css" rel="stylesheet">
+    <link rel="stylesheet" href="header.css">
     <title>FindMyPet Home</title>
 </head>
 <body>
     <div id="main-content">
-        <div id="header">
-            <div id="logo"><a href="homeUsuarioWeb.php"><img id="imglogo" src="imagenes/logo.png"></a></div>
-            <div id="navegacion">
-                <div class="nav"><a href="homeUsuarioWeb.php">Buscar</a></div>
-                <div class="nav"><a href="homeUsuarioWeb.php">Se Busca</a></div>
-                <div class="nav"><a href="homeUsuarioWeb.php">Encontre</a></div>
-                <div class="nav"><a href="homeUsuarioWeb.php">Estoy Buscando</a></div>
-                <div class="nav"><a href="homeUsuarioWeb.php">Chats</a></div>
+        <header>
+            <nav>
+                <a href="">Buscar</a>
+                <a href="">Se Busca</a>
+                <a href="">Encontre</a>
+                <a href="">Estoy Buscando</a>
+                <a href="">Chats</a>
+            </nav>
+
+            <div class="user-image">
+                <img src="http://localhost/FindMyPet/imagenes/fotoperfil.png" alt="User profile image">
             </div>
-            <div id="perfil"><a href="login.php"><img id="perfilimg" src="imagenes/fotoperfil.png"></a></div>
-        </div>
+        </header>
         <div id="container">
             <div id="aside">
                 <form id="filter" action="homeUsuarioWeb.php" method="GET">
@@ -65,7 +68,7 @@
                         <label>Fecha</label><br>
                         <input type="date" name="fecha"><br>
                     </div>
-                    <input type="submit">
+                    
                     <button class="botonamarillo" name="Filtrar" type="submit" value="Filtrar">Filtrar</button><br>
                 </form>
             </div>
