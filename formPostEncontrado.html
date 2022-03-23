@@ -67,7 +67,7 @@ body p{
     color:grey;
 }
 
-.datos input{
+.datos .inp{
     height: 1.7rem;
     width: 80%;
     border-radius: 4px;
@@ -162,9 +162,10 @@ body p{
 }
 
 .f3{
-    width: 100%;
+    width: 88%;
     height: 16rem;
     text-align: center;
+    margin: auto;
 }
 
 .f4{ 
@@ -232,11 +233,11 @@ body p{
             <div class="f2">
                 <div class="c1">
                     <p>Lugar de encuentro</p>
-                    <input type="text" placeholder="Introduzca aquí ">
+                    <input class ="inp" type="text" placeholder="Introduzca aquí ">
                 </div>
                 <div class="c2">
                     <p>Descripción de los hechos</p>
-                    <input type="new-message-input" placeholder="Introduzca aquí ">
+                    <input class ="inp" type="new-message-input" placeholder="Introduzca aquí ">
 
                 
                 </div>
@@ -265,8 +266,8 @@ body p{
                     </div>
                 </div>
             </div>
-            <div  class="f3">
-                <input style="width: 88%;height: 90%;border:1 solid #EFEFEF;text-align: center; " class="filefield" type="file" name="foto" value="">
+            <div   style="border:1px solid #EFEFEF;text-align: center" class="f3">
+                <input style="margin-top: 10%;"  type="file" multiple name="fotos" value="">
             </div>
             <div class="f4">
                 <button>Publicar</button>
