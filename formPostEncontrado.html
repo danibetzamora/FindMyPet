@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="header.css">
     <title>Document</title>
 </head>
 <style>
@@ -24,18 +25,6 @@
     
 }
 
-
-
-.header{
-    height: 8%;
-    width: 100%;
-   
-}
-#navegacion{
-     display: flex;
-    flex-direction: row;
-    background-color: #fcda69;
-}
 
 body p{
     margin-left: 5%;
@@ -197,17 +186,19 @@ body p{
 
 </style>
 <body>
-    <div class="header">
-        <div id="header">
-            <div id="navegacion">
-                <div class="nav"><a href="homeUsuarioWeb.php">Buscar</a></div>
-                <div class="nav"><a href="homeUsuarioWeb.php">Se Busca</a></div>
-                <div class="nav"><a href="homeUsuarioWeb.php">Encontre</a></div>
-                <div class="nav"><a href="homeUsuarioWeb.php">Estoy Buscando</a></div>
-                <div class="nav"><a href="homeUsuarioWeb.php">Chats</a></div>
-            </div>
+    <header>
+        <nav>
+            <a href="">Buscar</a>
+            <a href="">Se Busca</a>
+            <a href="">Encontre</a>
+            <a href="">Estoy Buscando</a>
+            <a href="">Chats</a>
+        </nav>
+
+        <div class="user-image">
+            <img src="http://localhost/FindMyPet/imagenes/fotoperfil.png" alt="User profile image">
         </div>
-    </div>
+    </header>
     <p>Introduzca los datos del animal que ha encontrado</p>
     <div class="contentEncontrado">
         <div class="datos">
