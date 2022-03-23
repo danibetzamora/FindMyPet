@@ -6,6 +6,16 @@ body {
     overflow-x: hidden;
 }
 
+a {all: unset;}
+
+a:hover {cursor: pointer;}
+
+nav a:hover {
+    padding: 2%;
+    background-color: #FFFF;
+    border-radius: 12px;
+}
+
 a {
     text-decoration: none;
     color: #2D2B40;
@@ -37,12 +47,6 @@ nav {
 
 .line {
     height: 3em;
-}
-
-.Login {
-    padding: 2%;
-    background-color: #ffff;
-    border-radius: 12px;
 }
 
 .reasons-FindMyPet{
@@ -93,6 +97,10 @@ nav {
 
 .screenshot {
     border: 3px solid #EFEFEF;
+}
+
+.new-FindMyPet a:hover {
+    color: #FFFF;
 }
 
 .new-FindMyPet {
@@ -160,6 +168,10 @@ nav {
     padding: 0.5em;
     border-radius: 20px;
     text-align: center;
+}
+
+footer a:hover {
+    color: #FFFF;
 }
 
 footer {
