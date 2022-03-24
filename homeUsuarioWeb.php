@@ -29,7 +29,7 @@
             <nav>
                 <a href="">Buscar</a>
                 <a href="">Se Busca</a>
-                <a href="">Encontre</a>
+                <a href="formPostEncontrado.php">Encontre</a>
                 <a href="">Estoy Buscando</a>
                 <a href="">Chats</a>
             </nav>
