@@ -76,7 +76,7 @@ if (move_uploaded_file($_FILES['fotos']['tmp_name'], $upload)) {
                 <div id = "menud" class="menu">
                     <a href="">Perfil</a>
                     <a href="">Mis Posts</a>
-                    <a href="">Cerrar Sesión</a>
+                    <a href="logout.php">Cerrar Sesión</a>
                 </div>
         </div>
     </header>
