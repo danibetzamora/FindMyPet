@@ -14,7 +14,7 @@ if(isset($_POST['Login'])){
         $user = mysqli_fetch_array($con);
         session_start();
         $_SESSION["user"] = $user;
-        
+
         header('Location:homeUsuarioWeb.php');
     }else{
         $error = true;
@@ -53,14 +53,14 @@ if(isset($_POST['Login'])){
             </h3>
             <p style="font-family: Inter;font-weight:500;font-size: 13px;color: #2D2B40">Acceda a la plataforma preferida de perros y gatos.</p>
         </div>
-        <div id="form-login" style = "height:40vh;width:100%;display:flex;font-family:'Inter';font-size: 0.8vw;align-content:center;">
+        <div id="form-login" style = "margin-top:18%;height:40vh;width:100%;display:flex;font-family:'Inter';font-size: 0.8vw;align-content:center;">
             <form method="post" style="margin: auto;margin-top: -6vh" action="">
                 <div id="error-login"><?php if ($error){echo '<p style="color: red; text-align: center"> Usuario o contraseña no son correctos.</p>';} ?></div>
                 <label for="fcorreo">Correo electrónico</label><br>
                 <input required minlength="8" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" autocomplete="new-text" style = "font-size:0.7vw;font-family:'Inter';margin-top:0.5vh;margin-bottom: 2vh;border:none;border-radius:6px;background-color:#EFEFEF;width: 40vw;padding:0.6vw;outline:none;" type="text" id="fcorreo" name="fcorreo" placeholder="Introduzca su correo"><br>
                 <label for="fpass">Contraseña</label><br>
                 <input pattern ="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required minlength="8"  required autocomplete="new-password" style = "font-size:0.7vw;font-family:'Inter';margin-top:0.5vh;margin-bottom: 2vh;border:none;border-radius:6px;background-color:#EFEFEF;width: 40vw;padding:0.6vw;outline:none;" type="password" id="fpass" name="fpass" placeholder="Incluya una mayuscula y un número"><br>
-                <div style="text-align: center;">
+                <div style="text-align: center;margin-top :15%">
                     <button style = "margin-bottom: 2vh;border:none;border-radius:15px;width: 20vw;background-color: #FCDA68;padding: 0.4vw;color: #ffffff;font-family: 'Inter';font-size: 0.90vw;" name="Login" type="submit" value="Login">Iniciar sesión</button><br>
                     <a href="registro.php"> <button style = "margin-bottom: 2vh;border:solid 0.1vw;border-radius:15px;border-color:#FCDA68;width: 20vw;background-color: #ffffff;padding: 0.4vw;color: #2D2B40;font-family: 'Inter';font-size: 0.80vw;" name="Register" type="button" value="Registrarse">Registrarme</button></a>
                 </div>
