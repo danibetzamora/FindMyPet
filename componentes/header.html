@@ -20,8 +20,22 @@
         </nav>
 
         <div class="user-image">
-            <img src="http://localhost/FindMyPet/imagenes/fotoperfil.png" alt="User profile image">
+            <img onclick="menu();"src= "imagenes/fotoPerfil.png" alt="User profile image">
+            <div id = "menud" class="menu">
+                <a href="">Perfil</a>
+                <a href="">Mis Posts</a>
+                <a href="">Cerrar Sesión</a>
+            </div>
         </div>
     </header>
 </body>
 </html>
+<script>
+    function menu (){
+        if (document.getElementById("menud").style.display==="flex"){
+            document.getElementById("menud").style.display="none";
+        }else {
+            document.getElementById("menud").style.display="flex";
+        }
+    }
+</script>

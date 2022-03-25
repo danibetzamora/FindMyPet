@@ -72,7 +72,12 @@ if (move_uploaded_file($_FILES['fotos']['tmp_name'], $upload)) {
         </nav>
 
         <div class="user-image">
-            <img src=<?php echo $fotoUsuario?> alt="User profile image">
+            <img  onclick="menu();" src=<?php echo $fotoUsuario?> alt="User profile image">
+                <div id = "menud" class="menu">
+                    <a href="">Perfil</a>
+                    <a href="">Mis Posts</a>
+                    <a href="">Cerrar Sesión</a>
+                </div>
         </div>
     </header>
     <p>Introduzca los datos del animal que ha encontrado</p>
@@ -135,4 +140,40 @@ if (move_uploaded_file($_FILES['fotos']['tmp_name'], $upload)) {
     </form>
 </body>
 </html>
+<script>
+    function menu (){
+        if (document.getElementById("menud").style.display==="flex"){
+            document.getElementById("menud").style.display="none";
+        }else {
+            document.getElementById("menud").style.display="flex";
+        }
+    }
+</script>
+<style>
+    
+.menu{
+    width: 120px;
+    height: 170px;
+    background-color: #EFEFEF;
+    border-radius: 10px;
+    display:flex ;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Inter';
+    display:none;
+    position:absolute;
+    margin-top:50px;
+}
+.menu a{
+    margin: auto;
+}
+.user-image{
+    width:120px;
+    display:flex;
+    flex-direction:column;
+    
+}
 
+</style>
+</html>
