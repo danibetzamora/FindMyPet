@@ -24,9 +24,7 @@ $idPost =$idPost["id"];
 if (move_uploaded_file($_FILES['fotos']['tmp_name'], $upload)) {
       $pathPhoto = $adress . $_FILES['fotos']['name'] ;
       ?>
-      <div style= "width:100%;display:flex;justify-content: center;align-items: center;">
-            <p>Suceful upload!</p>
-      </div>
+      
       <?php 
       $query = $connection->query("INSERT INTO foto_post_encontrado VALUES (null ,$idPost,'$pathPhoto') ");
 } 
@@ -250,7 +248,7 @@ body p{
             <div class="f1">
                 <div class="c1">
                     <p>Animal</p>
-                    <select name="animal">
+                    <select required name="animal">
                         <option>perro</option>
                         <option >gato</option>
                         <option >serpiente</option>
@@ -258,7 +256,7 @@ body p{
                 </div>
                 <div class="c2">
                     <p>Raza</p>
-                    <select name="raza">
+                    <select required name="raza">
                         <option>perro</option>
                         <option >gato</option>
                         <option >serpiente</option>
@@ -266,7 +264,7 @@ body p{
                 </div>
                 <div class="c3">
                     <p>Sexo</p>
-                    <select name="sexo">
+                    <select required name="sexo">
                         <option>macho</option>
                         <option >hembra</option>
                         
@@ -277,23 +275,23 @@ body p{
             <div class="f2">
                 <div class="c1">
                     <p>Lugar de encuentro</p>
-                    <input class ="inp" type="text" name="direccion" placeholder="Introduzca aquí ">
+                    <input required minlength="8" autocomplete="new-text" class ="inp" type="text" name="direccion" placeholder="Introduzca aquí ">
                 </div>
                 <div class="c2">
                     <p>Descripción de los hechos</p>
-                    <input class ="inp" type="new-message-input"  name="descripcion"placeholder="Introduzca aquí ">
+                    <input required minlength="8" autocomplete="new-text" class ="inp" type="new-message-input"  name="descripcion"placeholder="Introduzca aquí ">
 
                 
                 </div>
                 <div class="c3">
                     <p >Fecha</p>
                     <div  class="fechas">
-                        <input class="inp" name ="fecha" type="date">
+                        <input required  class="inp" name ="fecha" type="date">
                     </div>
                 </div>
             </div>
             <div   style="border:1px solid #EFEFEF;text-align: center" class="f3">
-                <input style="margin-top: 6%;"  type="file" multiple name="fotos" value="fotos">
+                <input  required style="margin-top: 6%;"  type="file" multiple name="fotos" value="fotos">
             </div>
             <div class="f4">
                 <button name="publicar" type="submit" value="publicar">publicar</button>
