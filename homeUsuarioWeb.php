@@ -28,8 +28,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="homeUsuario.css" rel="stylesheet">
-    <link rel="stylesheet" href="header.css">
+    <link href="estilos/homeUsuario.css" rel="stylesheet">
+    <link rel="stylesheet" href="componentes/header.css">
     <title>FindMyPet Home</title>
 </head>
 <body>
@@ -87,7 +87,7 @@
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
                         $row2 = $result2->fetch_assoc();
-                        $post = file_get_contents("post.html");
+                        $post = file_get_contents("componentes/post.html");
                         $post = str_replace('[UBICACION]', $row["ubicacion"], $post);
                         $post = str_replace('[FECHA]', $row["fecha"], $post);
                         $post = str_replace('[DESCRIPCION]', $row["descripcion"], $post);

@@ -3,9 +3,15 @@
 include('config.php');
 session_start();
 if(!isset($_SESSION["user"])) header("Location: homeInvitado.html");
+$idUsuario = $_SESSION["user"]["id"];
+$sql = "SELECT foto  FROM usuario WHERE id = '$idUsuario' ";
+$result=$connection->query($sql);
+$row = $result->fetch_assoc();
+$fotoUsuario = $row["foto"];
+
 if (isset($_POST['publicar'])) {
 
-$idUsuario = $_SESSION["user"]["id"];
+
 
 $animal = $_POST['animal'];
 $raza = $_POST['raza'];
@@ -51,188 +57,10 @@ if (move_uploaded_file($_FILES['fotos']['tmp_name'], $upload)) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="componentes/header.css">
+    <link rel="stylesheet" href="estilos/formPostEncontrado.css">
     <title>Document</title>
 </head>
-<style>
-    body{
-    overflow:hidden;
-    height: 100%;
-    width: 100%;
-    margin: 0%;
-    padding: 0%;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 900;
-    font-size: 1.23rem;
-    color: #2D2B40
-    
-}
-
-
-body p{
-    margin-left: 5%;
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom: 1%;
-
-}
-
-.contentEncontrado{
-    height: 92%;
-    width: 90%;
-    margin: auto;
-}
-
-
-
-.datos{
-    border: 1px solid rgb(206, 206, 206);
-    border-radius: 6px;
-    overflow: auto;
-}
-
-.datos p{
-    font-size: 1rem;
-    margin-left: 0;
-    font-weight: 400;
-    margin-bottom: 1%;
-}
-
-.datos select{
-    height: 1.8rem;
-    width: 81%;
-    border-radius: 4px;
-    border: none;
-    background-color: #EFEFEF;
-    font-size: 0.80rem;
-    font-weight: 400;
-    outline:none;
-    color:grey;
-}
-
-.datos .inp{
-    height: 1.7rem;
-    width: 80%;
-    border-radius: 4px;
-    border: none;
-    background-color: #EFEFEF;
-    font-size: 0.80rem;
-    font-weight: 400;
-    outline:none;
-    color:grey;
-}
-.f1{
-    height: 5rem;
-    margin: auto;
-    display: flex;
-
-    justify-content: center;
-}
-.f2{
-    height: 5rem;
-    
-    display: flex;
-}
-
-.c1{
-    width: 33%;
-    margin-left: 6%;
-}
-
-.c2{
-    width: 34%;
-    
-}
-
-.c3{
-    width: 33%;
-    
-    
-}
-
-.fechas{
-    
-    display: flex;
-    
-
-    
-}
-.fechas select{
-    margin-left: 0;
-    width: 60%;
-    margin-right: 20%;
-}
-.fechas p{
-    font-size: 00.80rem;
-    font-weight: 400;
-    width: 2rem;
-    margin-left: 0rem;
-    margin-top: 0.5rem;
-
-}
-
-.day{
-    width: 26%;
-    font-size: 0.80rem;
-    font-weight: 400;
-    display: flex;
-}
-
-.month{
-    width: 35%;
-    font-size: 0.80rem;
-    font-weight: 400;
-    display: flex;
-}
-
-.year{
-    width: 29%;
-    font-size: 0.80rem;
-    font-weight: 300;
-    display: flex;
-}
-
-.daySelect{
-    width: 10%;
-}
-
-.monthSelect{
-    width: 20%;
-}
-
-.yearSelect{
-    width: 15%;
-}
-
-.f3{
-    width: 88%;
-    height: 10rem;
-    text-align: center;
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.f4{ 
-    text-align: center;
-    height: 4rem;
-    justify-content: center;
-}
-.f4 button{
-    color: #fff;
-    background-color: #fcda69;
-    margin-top: 1.2rem;
-    width: 35rem;
-    height: 1.5rem;
-    border:none;
-    border-radius: 2rem;
-    cursor: pointer;
-}
-
-
-</style>
 <body>
     <header>
         <nav>
@@ -244,7 +72,7 @@ body p{
         </nav>
 
         <div class="user-image">
-            <img src="http://localhost/FindMyPet/imagenes/fotoperfil.png" alt="User profile image">
+            <img src=<?php echo $fotoUsuario?> alt="User profile image">
         </div>
     </header>
     <p>Introduzca los datos del animal que ha encontrado</p>
