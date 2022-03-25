@@ -31,6 +31,8 @@ if (move_uploaded_file($_FILES['fotos']['tmp_name'], $upload)) {
       
       <?php 
       $query = $connection->query("INSERT INTO foto_post_encontrado VALUES (null ,$idPost,'$pathPhoto') ");
+      header("Location: homeUsuarioWeb.php");
+
 } 
 
 
