@@ -1,8 +1,10 @@
 <?php
 
 include('config.php');
-if (isset($_POST['publicar'])) {
 session_start();
+if(!isset($_SESSION["user"])) header("Location: homeInvitado.html");
+if (isset($_POST['publicar'])) {
+
 $idUsuario = $_SESSION["user"]["id"];
 
 $animal = $_POST['animal'];
