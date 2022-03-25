@@ -11,6 +11,14 @@
             FROM post_encontrado
             JOIN foto_post_encontrado WHERE post_encontrado.id=foto_post_encontrado.post";
     $result2=$connection->query($sql2);
+    session_start();
+    $idUsuario = $_SESSION["user"]["id"];
+    $sql3 = "SELECT foto  FROM usuario WHERE id = '$idUsuario' ";
+    $result3=$connection->query($sql3);
+    $row3 = $result3->fetch_assoc();
+    $row3 = $row3["foto"];
+    
+    
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +43,7 @@
             </nav>
 
             <div class="user-image">
-                <img src="http://localhost/FindMyPet/imagenes/fotoperfil.png" alt="User profile image">
+                <img src=<?php echo $row3 ?> alt="User profile image">
             </div>
         </header>
         <div id="container">

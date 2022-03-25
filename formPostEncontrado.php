@@ -2,6 +2,8 @@
 
 include('config.php');
 if (isset($_POST['publicar'])) {
+session_start();
+$idUsuario = $_SESSION["user"]["id"];
 
 $animal = $_POST['animal'];
 $raza = $_POST['raza'];
@@ -14,9 +16,9 @@ $fecha= date('Y-m-d H:i:s');
 $adress = 'imagenes/postEncontrado/';
 $upload = $adress.basename($_FILES['fotos']['name']);
 
-$q="INSERT INTO post_encontrado(id,animal,raza,sexo,fecha,ubicacion,descripcion,usuario) VALUES (null,'$animal','$raza','$sexo','$fecha','$direccion','$descripcion',15)"; 
+$q="INSERT INTO post_encontrado(id,animal,raza,sexo,fecha,ubicacion,descripcion,usuario) VALUES (null,'$animal','$raza','$sexo','$fecha','$direccion','$descripcion','$idUsuario')"; 
 $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
-$qid ="SELECT id FROM post_encontrado WHERE usuario=15 and fecha ='$fecha'";
+$qid ="SELECT id FROM post_encontrado WHERE usuario='$idUsuario' and fecha ='$fecha'";
 $r = mysqli_query ($connection, $qid) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
 $idPost=$r->fetch_assoc();
 $idPost =$idPost["id"];

@@ -29,7 +29,7 @@ if (mysqli_num_rows($r)> 0) {
     echo '<div id ="ba" style ="width:30vw;height:18vh;background-color:#FFFFFF;border-radius:6px;border:solid 1.5px #E5E5E5;text-align:center;display:flex;flex-direction:column;justify-content:center;position:fixed;bottom:5vh;right:10vw;"><p style="font-family:Inter;color:#2D2B40;font-size: 1.2vw" class="error">Ese correo ya esta siendo utilizado </p><br><div><button style="width:13vw;padding:0.3vw;font-family:Inter;color:#2D2B40;font-size: 0.8vw;background-color:#FCDA68;#FCDA68;border-radius:12px;border:none;color:#ffffff" onclick= "borrarBoton()" >Intentar de nuevo</button></div></div>';
  }
  if (mysqli_num_rows($r)== 0) {
-     $q="INSERT INTO usuario(id,email,fecha_nacimiento,fecha_registro,contrasena,ubicacion,activo,rol,nombre,apellidos) VALUES (null,'$email','$fecha','$fecha_act','$con_hash','$dir',0,1,'$nombre','$apellidos')";  
+     $q="INSERT INTO usuario(id,email,fecha_nacimiento,fecha_registro,contrasena,ubicacion,foto,activo,rol,nombre,apellidos) VALUES (null,'$email','$fecha','$fecha_act','$con_hash','$dir','imagenes/fotoPerfilGenerica.png',0,1,'$nombre','$apellidos')";  
      $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection)); 
 
      if ($r) {
