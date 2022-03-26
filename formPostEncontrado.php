@@ -107,7 +107,8 @@ if (move_uploaded_file($_FILES['fotos']['tmp_name'], $upload)) {
                 <div class="c2">
                     <p>Raza</p>
                     <select required name="raza">
-                        <?php
+                        
+                        <?php/*
                         //'{"raza":bulldog,"id":1}'; Formato razas (id identifica el animal) 
                         
                         $dataRaza= file_get_contents("json/razas.json");
@@ -140,11 +141,16 @@ if (move_uploaded_file($_FILES['fotos']['tmp_name'], $upload)) {
 
                             //la opción de raza desconocida se debe cumplir siempre
 
-                            echo '<option>raza desconocida</option>'
+                            
 
                        
                         }
-                        ?>
+                        echo '<option>raza desconocida</option>';
+                        */?>
+
+                        <option>siames</option>
+                        <option>bulldog</option>
+                        <option>caniche</option>
                     </select>
                 </div>
                 <div class="c3">
