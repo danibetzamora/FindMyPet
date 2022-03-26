@@ -191,6 +191,7 @@
     user-select: none;
     text-align: left;
 }
+
 input{
     margin-top:6px;
     background-color: #f5f5f5;
@@ -198,6 +199,8 @@ input{
     border-radius:6px;
     padding:0.3vh;
     width: 170px;
+    outline:none;
+    color:grey;
 }
 select{
     margin-top:6px;
@@ -206,6 +209,8 @@ select{
     border-radius: 6px;
     padding:0.5vh;
     width: 175px;
+    outline:none;
+    color:grey;
 }
 label{
     

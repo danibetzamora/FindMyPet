@@ -53,7 +53,15 @@ if (mysqli_num_rows($r)> 0) {
         button:hover{
             cursor:pointer;
         }
-
+        input:invalid{
+            animation: shake 300ms;
+        }
+        @keyframes shake {
+            25%{ transform: translateX(4px); }
+            50%{ transform: translateX(-4px); }
+            75%{ transform: translateX(4px); }
+            
+        }
     </style>
 </head>
 <body style="overflow:hidden;height: 100%;width: 100%;margin: 0%;padding: 0%;">
@@ -94,7 +102,7 @@ if (mysqli_num_rows($r)> 0) {
                     <label for="fconn">Contraseña:</label><br>
                     <input pattern ="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required minlength="8"  required autocomplete="new-password" style = "font-size: 0.70vw;font-family:'Inter';margin-top:0.5vh;margin-bottom: 5vh;border:none;border-radius:6px;background-color:EFEFEF;width: 40vw;padding:0.6vw;outline:none;" type="password" id="fconn" name="fconn" placeholder="Repita la contraseña"><br>
                     <div style="text-align: center;">
-                        <button style = "margin-bottom: 2vh;border:none;border-radius:15px;width: 20vw;background-color: #FCDA68;padding: 0.4vw;color: #ffffff;font-family: 'Inter';font-size: 0.90vw;" name="Registrarme" type="submit" value="Registrarme">Register</button><br>
+                        <button style = "margin-bottom: 2vh;border:none;border-radius:15px;width: 20vw;background-color: #FCDA68;padding: 0.4vw;color: #ffffff;font-family: 'Inter';font-size: 0.90vw;" name="Registrarme" type="submit" value="Registrarme">Registrarme</button><br>
                         <a href="login.php"><button style = "margin-bottom: 2vh;border:solid 0.1vw;border-radius:15px;border-color:#FCDA68;width: 20vw;background-color: #ffffff;padding: 0.4vw;color: #2D2B40;font-family: 'Inter';font-size: 0.80vw;" name="Logear" type="button" value="Iniciar sesión">Iniciar sesión</button></a>
                     </div>
                   </form> 

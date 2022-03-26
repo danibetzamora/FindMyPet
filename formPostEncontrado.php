@@ -116,6 +116,7 @@ if (move_uploaded_file($_FILES['fotos']['tmp_name'], $upload)) {
                         <option>Salchicha</option>
                         <option>Shiba</option>
                         <option>Galgo</option>
+                        <option>Vizsla</option>
                         <option>Egipcio</option>
                         <option>Persa</option>
                         <option>Siamés</option>
@@ -214,6 +215,5 @@ if (move_uploaded_file($_FILES['fotos']['tmp_name'], $upload)) {
     flex-direction:column;
     
 }
-
 </style>
 </html>
