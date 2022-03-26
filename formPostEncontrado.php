@@ -87,18 +87,64 @@ if (move_uploaded_file($_FILES['fotos']['tmp_name'], $upload)) {
             <div class="f1">
                 <div class="c1">
                     <p>Animal</p>
-                    <select required name="animal">
-                        <option>perro</option>
-                        <option >gato</option>
-                        <option >serpiente</option>
+                    <select required name="animal" >
+                        <?php
+                        //'{"Animal":perro,"id":1}'; Formato animales 
+                        
+                        $data = file_get_contents("json/animals.json");
+                        $animals = json_decode($data, true);
+                        
+ 
+                        foreach ($animals as $animal) {
+                        echo '<option>';
+                        
+                        echo $animal["Animal"];
+                        echo '</option>';
+                        }
+                        ?>
                     </select>
                 </div>
                 <div class="c2">
                     <p>Raza</p>
                     <select required name="raza">
-                        <option>perro</option>
-                        <option >gato</option>
-                        <option >serpiente</option>
+                        <?php
+                        //'{"raza":bulldog,"id":1}'; Formato razas (id identifica el animal) 
+                        
+                        $dataRaza= file_get_contents("json/razas.json");
+                        $dataAnimal= file_get_contents("json/animals.json");
+                        $animalsid= json_decode($data, true);
+                        
+                        
+                        //bucle para encontrar id del animal
+                        //No tengo claro si se necesita hacer algun cambio para que se refreque la página o algo similar
+                        
+                        foreach ($animalsid as $animalid ){
+                            if($_POST['animal'] == $animalid["id"]){
+                                $idraza= $animalid["id"];
+                                break;
+
+                            }
+                        }
+
+                        //la idea es que aquí se vea el id y depende de si coincide o no el select cambia
+ 
+                        foreach ($razas as $raza) {
+                            if($idraza == $raza["id"])
+                                echo '<option>';
+                                echo $raza["raza"];
+                                echo '</option>';
+
+
+
+                            }
+
+                            //la opción de raza desconocida se debe cumplir siempre
+
+                            echo '<option>raza desconocida</option>'
+
+                       
+                        }
+                        ?>
                     </select>
                 </div>
                 <div class="c3">
