@@ -26,12 +26,23 @@
 .filtertext{
     margin-bottom: 20px;
     font-size: 20px;
-    font-family: Poppins;
-    font-weight: bold;
+    font-family: 'Inter';
+    font-weight: 550;
     color: #2D2B40;
     user-select: none;
+    text-align: left;
 }
+input{
+    background-color: #f5f5f5;
+    border:none;
 
+}
+select{
+    background-color: #f5f5f5;
+    border:none;
+    border-radius: 10px;
+    
+}
 #list{
     height: inherit;
     width: 80%;

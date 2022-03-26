@@ -57,8 +57,8 @@
                 <form id="filter" action="homeUsuarioWeb.php" method="GET">
                     <div class="filtertext">
                         <label>Distancia</label><br>
-                        <input id="slidebar" type="range" name="range" min="1" max="100" value="50" class="slider"><br>
-                        <span id="demo"></span> Km<br>
+                        <input  style ="font-size:10px;"id="slidebar" type="range" name="range" min="1" max="100" value="50" class="slider"><br>
+                        <span   style ="font-size:15px;font-weight:400" id="demo"></span> Km<br>
                     </div>
                     <div class="filtertext">
                         <label>Animal</label><br>
@@ -153,6 +153,88 @@
     flex-direction:column;
     
 }
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
 
+#main-content{
+    height: 100%;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+}
+
+
+#container{
+    height: 1000px;
+    display: flex;
+}
+
+#aside{
+    height: inherit;
+    width: 20%;
+    display: inline-flex;
+}
+
+#filter{
+    margin-top:1.8%;
+    margin-left: 10%;
+    border: 1.5px solid #e5e5e5e5;
+    padding:10px;
+    height:37%;
+    border-radius:6px;
+}
+
+.filtertext{
+    font-size: 20px;
+    font-family: 'Inter';
+    font-weight: 550;
+    color: #2D2B40;
+    user-select: none;
+    text-align: left;
+}
+input{
+    margin-top:6px;
+    background-color: #f5f5f5;
+    border:none;
+    border-radius:6px;
+    padding:0.3vh;
+    width: 170px;
+}
+select{
+    margin-top:6px;
+    background-color: #f5f5f5;
+    border:none;
+    border-radius: 6px;
+    padding:0.5vh;
+    width: 175px;
+}
+label{
+    
+}
+#list{
+    height: inherit;
+    width: 80%;
+    display: flex;
+    flex-flow: wrap;
+    align-content: flex-start;
+}
+
+.post{
+    margin: 0;
+}
+.botonamarillo{
+    margin-top:15px;
+    border:none;
+    border-radius:15px;
+    width: 175px;
+    background-color: #FCDA68;
+    padding: 2px;
+    color: #ffffff;
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight:500;
+}
+.botonamarillo:hover{
+    cursor:pointer;
+}
 </style>
 </html>
