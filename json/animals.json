@@ -1,6 +1,9 @@
-[{Animal:perro,id:1},
-{Animal:gato,id:2},
-{Animal:tortuga,id:3},
-{Animal:cobaya,id:4},
-{Animal:hamster,id:5}
-]
+
+
+'{"perro":1,
+"gato":2,
+"tortuga":3,
+"cobaya":4,
+"hamster":5}'
+
+

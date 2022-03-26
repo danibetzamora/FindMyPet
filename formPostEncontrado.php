@@ -2,7 +2,7 @@
 
 include('config.php');
 session_start();
-if(!isset($_SESSION["user"])) header("Location: homeInvitado.html");
+if(!isset($_SESSION["user"])) header("Location: homeInvitado.php");
 $idUsuario = $_SESSION["user"]["id"];
 $sql = "SELECT foto  FROM usuario WHERE id = '$idUsuario' ";
 $result=$connection->query($sql);
@@ -89,8 +89,14 @@ if (move_uploaded_file($_FILES['fotos']['tmp_name'], $upload)) {
                     <p>Animal</p>
                     <select required name="animal" >
                         <?php
+                        $data = file_get_contents("json/animals.json");
+                        //$jsonobj = '{"Peter":35,"Ben":37,"Joe":43}';
+
+
+                        $animals = json_decode($data, true);
+
                         //'{"Animal":perro,"id":1}'; Formato animales 
-                        
+                        /*
                         $data = file_get_contents("json/animals.json");
                         $animals = json_decode($data, true);
                         
@@ -100,8 +106,21 @@ if (move_uploaded_file($_FILES['fotos']['tmp_name'], $upload)) {
                         
                         echo $animal["Animal"];
                         echo '</option>';
+                        }*/
+
+                        //$jsonobj = '{"Peter":35,"Ben":37,"Joe":43}';
+
+                        $arr = json_decode($data, true);
+
+                        foreach($arr as $key => $value) {
+                             echo "<option>" . $key . "</option>";
                         }
+                        echo "<option> . $da . <option>";
+                        
                         ?>
+                        
+
+                
                     </select>
                 </div>
                 <div class="c2">
