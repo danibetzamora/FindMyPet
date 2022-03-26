@@ -2,7 +2,7 @@
 
 include('config.php');
 session_start();
-if(!isset($_SESSION["user"])) header("Location: homeInvitado.html");
+if(!isset($_SESSION["user"])) header("Location: homeInvitado.php");
 $idUsuario = $_SESSION["user"]["id"];
 $sql = "SELECT foto  FROM usuario WHERE id = '$idUsuario' ";
 $result=$connection->query($sql);
