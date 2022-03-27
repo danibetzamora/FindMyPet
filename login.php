@@ -28,6 +28,7 @@ if(isset($_POST['Login'])){
 <head>
     <meta charset="UTF-8">
     <title>Iniciar Sesión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
 </head>
 <body style="overflow:hidden;height: 100%;width: 100%;margin: 0%;padding: 0%;">
 <div id="main-container" style="height: 100%; width: 100%; display: flex; margin: 0; padding: 0;">

@@ -190,30 +190,5 @@ if (move_uploaded_file($_FILES['fotos']['tmp_name'], $upload)) {
         }
     }
 </script>
-<style>
-    
-.menu{
-    width: 120px;
-    height: 170px;
-    background-color: #EFEFEF;
-    border-radius: 10px;
-    display:flex ;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    font-family: 'Inter';
-    display:none;
-    position:absolute;
-    margin-top:50px;
-}
-.menu a{
-    margin: auto;
-}
-.user-image{
-    width:120px;
-    display:flex;
-    flex-direction:column;
-    
-}
-</style>
+
 </html>
