@@ -8,41 +8,33 @@ $sql = "SELECT foto  FROM usuario WHERE id = '$idUsuario' ";
 $result=$connection->query($sql);
 $row = $result->fetch_assoc();
 $fotoUsuario = $row["foto"];
-
 if (isset($_POST['publicar'])) {
+    $animal = $_POST['animal'];
+    $raza = $_POST['raza'];
+    $sexo = $_POST['sexo'];
+    $direccion = $_POST['direccion'];
+    $descripcion = $_POST['descripcion'];
+    $fecha = $_POST['fecha'];
+    $fechaGenerada= date('Y-m-d H:i:s'); 
+    $separarFecha= explode(" ",$fechaGenerada);
+    $horaSep = " " . $separarFecha[1];
+    $fecha = $fecha . $horaSep;
+    $adress = 'imagenes/postEncontrado/';
+    $upload = $adress.basename($_FILES['fotos']['name']);
 
+    $q="INSERT INTO post_encontrado(id,animal,raza,sexo,fecha,ubicacion,descripcion,usuario) VALUES (null,'$animal','$raza','$sexo','$fecha','$direccion','$descripcion','$idUsuario')"; 
+    $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
+    $qid ="SELECT id FROM post_encontrado WHERE usuario='$idUsuario' and fecha ='$fecha'";
+    $r = mysqli_query ($connection, $qid) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
+    $idPost=$r->fetch_assoc();
+    $idPost =$idPost["id"];
 
+    if (move_uploaded_file($_FILES['fotos']['tmp_name'], $upload)) {
+        $pathPhoto = $adress . $_FILES['fotos']['name'] ;
+        $query = $connection->query("INSERT INTO foto_post_encontrado VALUES (null ,$idPost,'$pathPhoto') ");
+        header("Location: homeUsuarioWeb.php");
 
-$animal = $_POST['animal'];
-$raza = $_POST['raza'];
-$sexo = $_POST['sexo'];
-$direccion = $_POST['direccion'];
-$descripcion = $_POST['descripcion'];
-$fecha = $_POST['fecha'];
-$fecha= date('Y-m-d H:i:s'); 
-
-$adress = 'imagenes/postEncontrado/';
-$upload = $adress.basename($_FILES['fotos']['name']);
-
-$q="INSERT INTO post_encontrado(id,animal,raza,sexo,fecha,ubicacion,descripcion,usuario) VALUES (null,'$animal','$raza','$sexo','$fecha','$direccion','$descripcion','$idUsuario')"; 
-$r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
-$qid ="SELECT id FROM post_encontrado WHERE usuario='$idUsuario' and fecha ='$fecha'";
-$r = mysqli_query ($connection, $qid) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
-$idPost=$r->fetch_assoc();
-$idPost =$idPost["id"];
-
-if (move_uploaded_file($_FILES['fotos']['tmp_name'], $upload)) {
-      $pathPhoto = $adress . $_FILES['fotos']['name'] ;
-      ?>
-      
-      <?php 
-      $query = $connection->query("INSERT INTO foto_post_encontrado VALUES (null ,$idPost,'$pathPhoto') ");
-      header("Location: homeUsuarioWeb.php");
-
-} 
-
-
-
+    } 
 
 }
 
@@ -64,9 +56,9 @@ if (move_uploaded_file($_FILES['fotos']['tmp_name'], $upload)) {
 <body>
     <header>
         <nav>
-            <a href="homeUsuarioWeb.php">Buscar</a>
-            <a href="">Se Busca</a>
-            <a href="">Encontre</a>
+            <a href="homeUsuarioWeb.php">Animales encontrados</a>
+            <a href="">Animales buscados</a>
+            <a href="">Encontré</a>
             <a href="">Estoy Buscando</a>
             <a href="">Chats</a>
         </nav>
