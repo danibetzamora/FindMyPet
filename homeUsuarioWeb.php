@@ -1,7 +1,6 @@
 <?php
     session_start();
     if(!isset($_SESSION["user"])) header("Location: homeInvitado.php");
-    echo $_SESSION["user"]["id"];
 
     include("config.php");
     $sql="SELECT post_encontrado.ubicacion,  post_encontrado.fecha,
