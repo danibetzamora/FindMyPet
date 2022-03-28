@@ -1,5 +1,5 @@
 body{
-    overflow:hidden;
+    
     height: 100%;
     width: 100%;
     margin: 0%;
@@ -169,4 +169,27 @@ body p{
     border:none;
     border-radius: 2rem;
     cursor: pointer;
+}
+.menu{
+    width: 120px;
+    height: 170px;
+    background-color: #EFEFEF;
+    border-radius: 10px;
+    display:flex ;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Inter';
+    display:none;
+    position:absolute;
+    margin-top:50px;
+}
+.menu a{
+    margin: auto;
+}
+.user-image{
+    width:120px;
+    display:flex;
+    flex-direction:column;
+    
 }

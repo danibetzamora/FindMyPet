@@ -6,13 +6,13 @@
     $sql="SELECT post_encontrado.ubicacion,  post_encontrado.fecha,
                  post_encontrado.descripcion, usuario.nombre, usuario.apellidos,
                  usuario.foto
-            FROM post_encontrado
-            JOIN usuario WHERE usuario.id=post_encontrado.usuario";
+            FROM post_encontrado 
+            JOIN usuario WHERE usuario.id=post_encontrado.usuario ORDER BY post_encontrado.fecha desc ";
     $result=$connection->query($sql);
 
     $sql2="SELECT * 
             FROM post_encontrado
-            JOIN foto_post_encontrado WHERE post_encontrado.id=foto_post_encontrado.post";
+            JOIN foto_post_encontrado WHERE post_encontrado.id=foto_post_encontrado.post ORDER BY post_encontrado.fecha desc";
     $result2=$connection->query($sql2);
     $idUsuario = $_SESSION["user"]["id"];
     $sql3 = "SELECT foto  FROM usuario WHERE id = '$idUsuario' ";
@@ -36,9 +36,9 @@
     <div id="main-content">
         <header>
             <nav>
-                <a href="">Buscar</a>
-                <a href="">Se Busca</a>
-                <a href="formPostEncontrado.php">Encontre</a>
+                <a href="">Encontrados</a>
+                <a href="">Buscados</a>
+                <a href="formPostEncontrado.php">Encontré</a>
                 <a href="">Estoy Buscando</a>
                 <a href="">Chats</a>
             </nav>
@@ -57,25 +57,62 @@
                 <form id="filter" action="homeUsuarioWeb.php" method="GET">
                     <div class="filtertext">
                         <label>Distancia</label><br>
-                        <input id="slidebar" type="range" name="range" min="1" max="100" value="50" class="slider"><br>
-                        <span id="demo"></span> Km<br>
+                        <input  style ="font-size:10px;"id="slidebar" type="range" name="range" min="1" max="100" value="50" class="slider"><br>
+                        <span   style ="font-size:15px;font-weight:400" id="demo"></span> Km<br>
                     </div>
                     <div class="filtertext">
                         <label>Animal</label><br>
                         <select name="animal">
+                            <option disabled selected>Selecciona una opción</option>
                             <option>Perro</option>
                             <option>Gato</option>
-                            <option>Pajaro</option>
-                            <option>Dinosaurio</option>
+                            <option>Pájaro</option>
+                            <option>Caballo</option>
+                            <option>Tortuga</option>
+                            <option>Conejo</option>
+                            <option>Reptil</option>
                         </select><br>
                     </div>
                     <div class="filtertext">
                         <label>Raza</label><br>
                         <select name="raza">
-                            <option>Raza 1</option>
-                            <option>Raza 2</option>
-                            <option>Raza 3</option>
-                            <option>Raza 4</option>
+                            <option disabled selected>Selecciona una opción</option>
+                            <option>Indefinido</option>
+                            <option>Terrier</option>
+                            <option>Husky</option>
+                            <option>Pit bull</option>
+                            <option>Stafford</option>
+                            <option>Beagle</option>
+                            <option>Doberman</option>
+                            <option>Labrador</option>
+                            <option>San bernardo</option>
+                            <option>Caniche</option>
+                            <option>Yorkshire</option>
+                            <option>Salchicha</option>
+                            <option>Shiba</option>
+                            <option>Galgo</option>
+                            <option>Vizsla</option>
+                            <option>Egipcio</option>
+                            <option>Persa</option>
+                            <option>Siamés</option>
+                            <option>Siberiano</option>
+                            <option>Bengala</option>
+                            <option>Periquito</option>
+                            <option>Canario</option>
+                            <option>Mirlo</option>
+                            <option>Agaporni</option>
+                            <option>Ninfa</option>
+                            <option>Cacatua</option>
+                            <option>Loro</option>
+                            <option>Mini Lop</option>
+                            <option>Holandés</option>
+                            <option>Arlequín</option>
+                            <option>Gigante</option>
+                            <option>Lagarto</option>
+                            <option>Serpiente</option>
+                            <option>Iguana</option>
+                            <option>Camaleón</option>
+                            <option>Anolis</option>
                         </select><br>
                     </div>
                     <div class="filtertext">
@@ -92,9 +129,14 @@
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
                         $row2 = $result2->fetch_assoc();
+                        $separarFecha= explode(" ",$row["fecha"]);
+                        $fechaSep = $separarFecha[0];
+                        $horaSep = $separarFecha[1];
+                        $horaSep = str_split($horaSep,5)[0];
                         $post = file_get_contents("componentes/post.html");
                         $post = str_replace('[UBICACION]', $row["ubicacion"], $post);
-                        $post = str_replace('[FECHA]', $row["fecha"], $post);
+                        $post = str_replace('[FECHA]', $fechaSep, $post);
+                        $post = str_replace('[HORA]', $horaSep, $post);
                         $post = str_replace('[DESCRIPCION]', $row["descripcion"], $post);
                         $post = str_replace('[NOMBRE]', $row["nombre"], $post);
                         $post = str_replace('[APELLIDO]', $row["apellidos"], $post);
@@ -128,31 +170,5 @@
         }
     }
 </script>
-<style>
-    
-.menu{
-    width: 120px;
-    height: 170px;
-    background-color: #EFEFEF;
-    border-radius: 10px;
-    display:flex ;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    font-family: 'Inter';
-    display:none;
-    position:absolute;
-    margin-top:50px;
-}
-.menu a{
-    margin: auto;
-}
-.user-image{
-    width:120px;
-    display:flex;
-    flex-direction:column;
-    
-}
 
-</style>
 </html>
