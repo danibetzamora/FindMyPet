@@ -36,8 +36,8 @@
     <div id="main-content">
         <header>
             <nav>
-                <a href="">Animales encontrados</a>
-                <a href="">Animales buscados</a>
+                <a href="">Encontrados</a>
+                <a href="">Buscados</a>
                 <a href="formPostEncontrado.php">Encontré</a>
                 <a href="">Estoy Buscando</a>
                 <a href="">Chats</a>

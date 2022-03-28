@@ -56,8 +56,8 @@ if (isset($_POST['publicar'])) {
 <body>
     <header>
         <nav>
-            <a href="homeUsuarioWeb.php">Animales encontrados</a>
-            <a href="">Animales buscados</a>
+            <a href="homeUsuarioWeb.php">Encontrados</a>
+            <a href="">Buscados</a>
             <a href="">Encontré</a>
             <a href="">Estoy Buscando</a>
             <a href="">Chats</a>
