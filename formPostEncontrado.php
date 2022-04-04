@@ -85,56 +85,36 @@ if (isset($_POST['publicar'])) {
 =======
                     <select required name="animal">
                         <option disabled selected>Selecciona una opción</option>
-                        <option>Perro</option>
-                        <option>Gato</option>
-                        <option>Pájaro</option>
-                        <option>Caballo</option>
-                        <option>Tortuga</option>
-                        <option>Conejo</option>
-                        <option>Reptil</option>
->>>>>>> fd079b82d532513ad94f7b7cf9f17429d84a08d2
+                        <?php
+                        $animalListJson = '{"Perro":0,"Gato":1,"Pájaro":2,"Caballo":3,"Conejo":4,"Reptil":5}';
+                        
+                        $animalList = json_decode($animalListJson);
+                        
+
+                        foreach($animalList as $key => $value) {
+                        echo "<option>" . $key . "</option>" ;
+                        }
+                        
+                        ?>
+
                     </select>
                 </div>
                 <div class="c2">
                     <p>Raza</p>
                     <select required name="raza" >
-                        <option disabled selected>Selecciona una opción</option>
-                        <option>Indefinido</option>
-                        <option>Terrier</option>
-                        <option>Husky</option>
-                        <option>Pit bull</option>
-                        <option>Stafford</option>
-                        <option>Beagle</option>
-                        <option>Doberman</option>
-                        <option>Labrador</option>
-                        <option>San bernardo</option>
-                        <option>Caniche</option>
-                        <option>Yorkshire</option>
-                        <option>Salchicha</option>
-                        <option>Shiba</option>
-                        <option>Galgo</option>
-                        <option>Vizsla</option>
-                        <option>Egipcio</option>
-                        <option>Persa</option>
-                        <option>Siamés</option>
-                        <option>Siberiano</option>
-                        <option>Bengala</option>
-                        <option>Periquito</option>
-                        <option>Canario</option>
-                        <option>Mirlo</option>
-                        <option>Agaporni</option>
-                        <option>Ninfa</option>
-                        <option>Cacatua</option>
-                        <option>Loro</option>
-                        <option>Mini Lop</option>
-                        <option>Holandés</option>
-                        <option>Arlequín</option>
-                        <option>Gigante</option>
-                        <option>Lagarto</option>
-                        <option>Serpiente</option>
-                        <option>Iguana</option>
-                        <option>Camaleón</option>
-                        <option>Anolis</option>
+                    <option disabled selected>Selecciona una opción</option>
+                    <option>Indefinido</option>
+                    <?php
+                        $razaListJson = '{"Indefinido":0,"Terrier":1,"Husky":2,"Pitbull":3,"Stafford":4,"Beagle":5,"Doberman":0,"Labrador":0,"San Bernardo":0,"Caniche":0,"Yorkshire":0,"Salchicha":0,"Shiba":0,"Galgo":0,"Viszla":0,"Sphynx":1,"Persa":1, "Siamés":1}';
+                        
+                        $razaList = json_decode($razaListJson);
+                        
+
+                        foreach($razaList as $key => $value) {
+                        echo "<option>" . $key . "</option>" ;
+                        }
+                        
+                        ?>
                     </select>
                 </div>
                 <div class="c3">
