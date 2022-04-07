@@ -40,6 +40,7 @@ if (isset($_POST['publicar'])) {
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +52,9 @@ if (isset($_POST['publicar'])) {
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="componentes/header.css">
     <link rel="stylesheet" href="estilos/formPostEncontrado.css">
+    <script src="scripts/select.js"> </script>
     <title>Document</title>
+    
 </head>
 <body>
     <header>
@@ -83,8 +86,10 @@ if (isset($_POST['publicar'])) {
 
                 
 =======
-                    <select required name="animal">
+                    <select required name="animal" id="selectAnimales">
                         <option disabled selected>Selecciona una opción</option>
+
+                        
                         <?php
                         $animalListJson = '{"Perro":0,"Gato":1,"Pájaro":2,"Caballo":3,"Conejo":4,"Reptil":5}';
                         
@@ -101,11 +106,11 @@ if (isset($_POST['publicar'])) {
                 </div>
                 <div class="c2">
                     <p>Raza</p>
-                    <select required name="raza" >
+                    <select required name="raza" id="selectRazas" >
                     <option disabled selected>Selecciona una opción</option>
                     <option>Indefinido</option>
                     <?php
-                        $razaListJson = '{"Indefinido":0,"Terrier":1,"Husky":2,"Pitbull":3,"Stafford":4,"Beagle":5,"Doberman":0,"Labrador":0,"San Bernardo":0,"Caniche":0,"Yorkshire":0,"Salchicha":0,"Shiba":0,"Galgo":0,"Viszla":0,"Sphynx":1,"Persa":1, "Siamés":1}';
+                        $razaListJson = '{"Indefinido":"perro","Terrier":0,"Husky":0,"Pitbull":0,"Stafford":4,"Beagle":5,"Doberman":0,"Labrador":0,"San Bernardo":0,"Caniche":0,"Yorkshire":0,"Salchicha":0,"Shiba":0,"Galgo":0,"Viszla":0,"Sphynx":1,"Persa":1, "Siamés":1}';
                         
                         $razaList = json_decode($razaListJson);
                         
