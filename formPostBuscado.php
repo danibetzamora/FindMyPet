@@ -8,37 +8,9 @@ $sql = "SELECT foto  FROM usuario WHERE id = '$idUsuario' ";
 $result=$connection->query($sql);
 $row = $result->fetch_assoc();
 $fotoUsuario = $row["foto"];
-if (isset($_POST['publicar'])) {
-    $animal = $_POST['animal'];
-    $raza = $_POST['raza'];
-    $sexo = $_POST['sexo'];
-    $direccion = $_POST['direccion'];
-    $descripcion = $_POST['descripcion'];
-    $fecha = $_POST['fecha'];
-    $fechaGenerada= date('Y-m-d H:i:s'); 
-    $separarFecha= explode(" ",$fechaGenerada);
-    $horaSep = " " . $separarFecha[1];
-    $fecha = $fecha . $horaSep;
-    $adress = 'imagenes/postEncontrado/';
-    $upload = $adress.basename($_FILES['fotos']['name']);
-
-    $q="INSERT INTO post_encontrado(id,animal,raza,sexo,fecha,ubicacion,descripcion,usuario) VALUES (null,'$animal','$raza','$sexo','$fecha','$direccion','$descripcion','$idUsuario')"; 
-    $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
-    $qid ="SELECT id FROM post_encontrado WHERE usuario='$idUsuario' and fecha ='$fecha'";
-    $r = mysqli_query ($connection, $qid) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
-    $idPost=$r->fetch_assoc();
-    $idPost =$idPost["id"];
-
-    if (move_uploaded_file($_FILES['fotos']['tmp_name'], $upload)) {
-        $pathPhoto = $adress . $_FILES['fotos']['name'] ;
-        $query = $connection->query("INSERT INTO foto_post_encontrado VALUES (null ,$idPost,'$pathPhoto') ");
-        header("Location: homeUsuarioWeb.php");
-
-    } 
-
-}
 
 ?>
+
 
 
 <!DOCTYPE html>
@@ -51,7 +23,7 @@ if (isset($_POST['publicar'])) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="componentes/header.css">
-    <link rel="stylesheet" href="estilos/formPostEncontrado.css">
+    <link rel="stylesheet" href="estilos/formPostBuscado.css">
     <script src="scripts/select.js"> </script>
     <title>Document</title>
     
@@ -75,7 +47,7 @@ if (isset($_POST['publicar'])) {
                 </div>
         </div>
     </header>
-    <p>Introduzca los datos del animal que ha encontrado</p>
+    <p>Introduzca los datos del animal que ha perdido</p>
     <form  enctype="multipart/form-data" method ="POST" action="" name ="publicar">
     <div class="contentEncontrado">
         <div class="datos">
@@ -122,7 +94,8 @@ if (isset($_POST['publicar'])) {
                         ?>
                     </select>
                 </div>
-                <div class="c3">
+                <div class="c3f1">
+                    <div class="c3f1c1">
                     <p>Sexo</p>
                     <select required name="sexo" >
                         <option disabled selected>Selecciona una opción</option>
@@ -131,6 +104,11 @@ if (isset($_POST['publicar'])) {
                         <option >Hembra</option>
                         
                     </select>
+                    </div>
+                    <div class="c3f1c2">
+                    <p>Nombre</p>
+                    <input required minlength="3" autocomplete="new-text" class ="inp" type="new-message-input"  name="nombre"placeholder="Introduzca el nombre del animal ">
+                    </div>
                 </div>
 
             </div>
