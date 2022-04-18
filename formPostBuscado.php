@@ -8,6 +8,35 @@ $sql = "SELECT foto  FROM usuario WHERE id = '$idUsuario' ";
 $result=$connection->query($sql);
 $row = $result->fetch_assoc();
 $fotoUsuario = $row["foto"];
+if (isset($_POST['publicar'])){
+    $animal = $_POST['animal'];
+    $raza = $_POST['raza'];
+    $sexo = $_POST['sexo'];
+    $nombre = $_POST['nombre'];
+    $direccion = $_POST['direccion'];
+    $descripcion = $_POST['descripcion'];
+    $fecha = $_POST['fecha'];
+    $fechaGenerada= date('Y-m-d H:i:s'); 
+    $separarFecha= explode(" ",$fechaGenerada);
+    $horaSep = " " . $separarFecha[1];
+    $fecha = $fecha . $horaSep;
+    $adress = 'imagenes/postBuscado/';
+    $upload = $adress.basename($_FILES['fotos']['name']);
+
+    $q="INSERT INTO post_buscar(id,animal,raza,nombre,sexo,fecha,ubicacion,descripcion,usuario) VALUES (null,'$animal','$raza','$nombre','$sexo','$fecha','$direccion','$descripcion','$idUsuario')"; 
+    $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
+    $qid ="SELECT id FROM post_encontrado WHERE usuario='$idUsuario' and fecha ='$fecha'";
+    $r = mysqli_query ($connection, $qid) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
+    $idPost=$r->fetch_assoc();
+    $idPost =$idPost["id"];
+
+    if (move_uploaded_file($_FILES['fotos']['tmp_name'], $upload)) {
+        $pathPhoto = $adress . $_FILES['fotos']['name'] ;
+        $query = $connection->query("INSERT INTO foto_post_buscado VALUES (null ,$idPost,'$pathPhoto') ");
+        header("Location: homeUsuarioWeb.php");
+
+    } 
+}
 
 ?>
 
@@ -57,7 +86,7 @@ $fotoUsuario = $row["foto"];
 
 
                 
-=======
+
                     <select required name="animal" id="selectAnimales">
                         <option disabled selected>Selecciona una opción</option>
 
@@ -94,18 +123,18 @@ $fotoUsuario = $row["foto"];
                         ?>
                     </select>
                 </div>
-                <div class="c3f1">
-                    <div class="c3f1c1">
+                <div class="c3f1" style= "display:flex;width:33%" >
+                    <div   >
                     <p>Sexo</p>
                     <select required name="sexo" >
-                        <option disabled selected>Selecciona una opción</option>
+                        <option disabled selected>Sexo</option>
                         <option>Indefinido</option>
                         <option>Macho</option>
                         <option >Hembra</option>
                         
                     </select>
                     </div>
-                    <div class="c3f1c2">
+                    <div style= "width:67%">
                     <p>Nombre</p>
                     <input required minlength="3" autocomplete="new-text" class ="inp" type="new-message-input"  name="nombre"placeholder="Introduzca el nombre del animal ">
                     </div>
