@@ -60,9 +60,9 @@ if (isset($_POST['publicar'])) {
     <header>
         <nav>
             <a href="homeUsuarioWeb.php">Encontrados</a>
-            <a href="formPostBuscado.php">Buscados</a>
+            <a href="buscados.php">Buscados</a>
             <a href="">Encontré</a>
-            <a href="">Estoy Buscando</a>
+            <a href="formPostBuscado.php">Estoy Buscando</a>
             <a href="">Chats</a>
         </nav>
 
