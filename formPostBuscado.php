@@ -25,7 +25,7 @@ if (isset($_POST['publicar'])){
 
     $q="INSERT INTO post_buscar(id,animal,raza,nombre,sexo,fecha,ubicacion,descripcion,usuario) VALUES (null,'$animal','$raza','$nombre','$sexo','$fecha','$direccion','$descripcion','$idUsuario')"; 
     $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
-    $qid ="SELECT id FROM post_encontrado WHERE usuario='$idUsuario' and fecha ='$fecha'";
+    $qid ="SELECT id FROM post_buscar WHERE usuario='$idUsuario' and fecha ='$fecha'";
     $r = mysqli_query ($connection, $qid) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
     $idPost=$r->fetch_assoc();
     $idPost =$idPost["id"];
