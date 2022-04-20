@@ -33,7 +33,7 @@ if (isset($_POST['publicar'])){
     if (move_uploaded_file($_FILES['fotos']['tmp_name'], $upload)) {
         $pathPhoto = $adress . $_FILES['fotos']['name'] ;
         $query = $connection->query("INSERT INTO foto_post_buscado VALUES (null ,$idPost,'$pathPhoto') ");
-        header("Location: homeUsuarioWeb.php");
+        header("Location: buscados.php");
 
     } 
 }
