@@ -83,9 +83,6 @@ if (isset($_POST['publicar'])) {
                 <div class="c1">
                     <p>Animal</p>
 
-
-                
-=======
                     <select required name="animal" id="selectAnimales">
                         <option disabled selected>Selecciona una opción</option>
 
