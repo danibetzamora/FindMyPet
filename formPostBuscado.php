@@ -60,11 +60,11 @@ if (isset($_POST['publicar'])){
 <body>
     <header>
         <nav>
-            <a href="homeUsuarioWeb.php">Encontrados</a>
-            <a href="formPostBuscado.php">Buscados</a>
-            <a href="">Encontré</a>
-            <a href="">Estoy Buscando</a>
-            <a href="">Chats</a>
+                <a href="homeUsuarioWeb.php">Encontrados</a>
+                <a href="buscados.php">Buscados</a>
+                <a href="formPostEncontrado.php">Encontré</a>
+                <a href="formPostBuscado.php">Estoy Buscando</a>
+                <a href="">Chats</a>
         </nav>
 
         <div class="user-image">
