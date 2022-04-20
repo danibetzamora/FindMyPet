@@ -11,7 +11,7 @@ $fotoUsuario = "../" . $row["foto"];
 
 
 
-$sql="SELECT post_encontrado.ubicacion,  post_encontrado.fecha,
+$sql="SELECT post_encontrado.ubicacion,  post_encontrado.fecha, post_encontrado.id,
 post_encontrado.descripcion, usuario.nombre, usuario.apellidos,
 usuario.foto
 FROM post_encontrado 
@@ -79,6 +79,7 @@ $row3 = $row3["foto"];
                         $post = str_replace('[APELLIDO]', $row["apellidos"], $post);
                         $post = str_replace('[FOTOPERFIL]',"../" .  $row["foto"], $post);
                         $post = str_replace('[FOTOANIMAL]',"../" .  $row2["foto"], $post);
+                        $post = str_replace('[ID]', $row["id"], $post);
                         echo $post;
                     }
                 }

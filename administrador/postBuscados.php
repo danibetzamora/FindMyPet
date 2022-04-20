@@ -9,7 +9,7 @@ $result=$connection->query($sql);
 $row = $result->fetch_assoc();
 $fotoUsuario = "../" . $row["foto"];
 
-$sql="SELECT post_buscar.ubicacion,  post_buscar.fecha,
+$sql="SELECT post_buscar.ubicacion,  post_buscar.fecha, post_buscar.id,
 post_buscar.descripcion,post_buscar.nombre, usuario.nombre, usuario.apellidos,
 usuario.foto
 FROM post_buscar 
@@ -79,6 +79,7 @@ $row3 = $row3["foto"];
                         $postBack = str_replace('[APELLIDO]', $row["apellidos"], $postBack);
                         $postBack= str_replace('[FOTOPERFIL]', "../" . $row["foto"], $postBack);
                         $postBack = str_replace('[FOTOANIMAL]',"../" .  $row2["foto"], $postBack);
+                        $postBack = str_replace('[ID]', $row["id"], $postBack);
                         echo $postBack;
                     }
                 }
