@@ -69,7 +69,7 @@ if (isset($_POST['publicar'])) {
         <div class="user-image">
             <img  onclick="menu();" src=<?php echo $fotoUsuario?> alt="User profile image">
                 <div id = "menud" class="menu">
-                    <a href="">Perfil</a>
+                    <a href="perfilUsuario.php">Perfil</a>
                     <a href="">Mis Posts</a>
                     <a href="logout.php">Cerrar Sesión</a>
                 </div>
