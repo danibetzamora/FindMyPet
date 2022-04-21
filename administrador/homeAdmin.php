@@ -40,11 +40,15 @@ $fotoUsuario = "../" . $row["foto"];
             <img  onclick="menu();" src=<?php echo $fotoUsuario?> alt="User profile image">
                 <div id = "menud" class="menu">
                     <a href="">Perfil</a>
+                    <a href="../homeUsuarioWeb">Modo Usuario</a>
                     <a href="../logout.php">Cerrar Sesión</a>
                 </div>
         </div>
     </header>
+    <p>Aquí va la lista de denuncias</p>
+    <div style= "display:flex;flex-direction:column;aling-content:center;justify-content:center;flex:wrap:wrap;align-items:center;">
 
+    </div>
 </body>
 </html>
 <script>

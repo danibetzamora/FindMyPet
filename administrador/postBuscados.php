@@ -56,6 +56,7 @@ $row3 = $row3["foto"];
             <img  onclick="menu();" src=<?php echo $fotoUsuario?> alt="User profile image">
                 <div id = "menud" class="menu">
                     <a href="">Perfil</a>
+                    <a href="../homeUsuarioWeb">Modo Usuario</a>
                     <a href="../logout.php">Cerrar Sesión</a>
                 </div>
         </div>

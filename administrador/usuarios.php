@@ -5,6 +5,8 @@ session_start();
 if(!isset($_SESSION["user"])) header("Location: homeInvitado.php");
 $idUsuario = $_SESSION["user"]["id"];
 $sql = "SELECT foto  FROM usuario WHERE id = '$idUsuario' ";
+$sql2 = "SELECT *  FROM usuario  ";
+$result2=$connection->query($sql2);
 $result=$connection->query($sql);
 $row = $result->fetch_assoc();
 $fotoUsuario = "../" . $row["foto"];
@@ -40,11 +42,28 @@ $fotoUsuario = "../" . $row["foto"];
             <img  onclick="menu();" src=<?php echo $fotoUsuario?> alt="User profile image">
                 <div id = "menud" class="menu">
                     <a href="">Perfil</a>
+                    <a href="../homeUsuarioWeb">Modo Usuario</a>
                     <a href="../logout.php">Cerrar Sesión</a>
                 </div>
         </div>
     </header>
+    <div style= "display:flex;flex-direction:column;aling-content:center;justify-content:center;flex:wrap:wrap;align-items:center;">
+    <?php
+    if ($result2->num_rows > 0) {
+        while($row2= $result2->fetch_assoc()) {
+            $user = file_get_contents("../componentes/usuario.html");
+                        $user = str_replace('[ID]', $row2["id"], $user);
+                        $user= str_replace('[NOMBRE]',$row2["nombre"], $user);
+                        $user = str_replace('[APELLIDO]',$row2["apellidos"], $user);
+                        $user= str_replace('[EMAIL]', $row2["email"], $user);
+                        echo $user;
+                        
 
+        }
+        
+    }
+    ?>
+    </div>
 </body>
 </html>
 <script>
