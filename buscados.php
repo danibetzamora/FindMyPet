@@ -5,12 +5,12 @@
     include("config.php");
     $sql="SELECT post_buscar.ubicacion,  post_buscar.fecha,
                  post_buscar.descripcion,post_buscar.nombre, usuario.nombre, usuario.apellidos,
-                 usuario.foto
+                 usuario.foto, post_buscar.id
             FROM post_buscar 
             JOIN usuario WHERE usuario.id=post_buscar.usuario ORDER BY post_buscar.fecha desc ";
     $result=$connection->query($sql);
 
-    $sql2="SELECT * 
+    $sql2="SELECT *
             FROM post_buscar
             JOIN foto_post_buscado WHERE post_buscar.id=foto_post_buscado.post ORDER BY post_buscar.fecha desc";
     $result2=$connection->query($sql2);
@@ -152,6 +152,8 @@
                         $postBack = str_replace('[APELLIDO]', $row["apellidos"], $postBack);
                         $postBack= str_replace('[FOTOPERFIL]', $row["foto"], $postBack);
                         $postBack = str_replace('[FOTOANIMAL]', $row2["foto"], $postBack);
+                        $postBack = str_replace('[IDPOST]', $row["id"], $postBack);
+                        $postBack = str_replace('[IDUSUARIO]', $idUsuario, $postBack);
                         echo $postBack;
                     }
                 }
