@@ -63,14 +63,14 @@ body p{
     color:grey;
 }
 .f1{
-    height: 5rem;
+    height: 10rem;
     margin: auto;
     display: flex;
 
     justify-content: center;
 }
 .f2{
-    height: 5rem;
+    height: 14rem;
     
     display: flex;
 }
@@ -81,15 +81,11 @@ body p{
 }
 
 .c2{
-    width: 34%;
+    width: 67%;
     
 }
 
-.c3{
-    width: 33%;
-    
-    
-}
+
 
 .fechas{
     
@@ -145,31 +141,8 @@ body p{
     width: 15%;
 }
 
-.f3{
-    width: 88%;
-    height: 10rem;
-    text-align: center;
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
-    margin-left: auto;
-    margin-right: auto;
-}
 
-.f4{ 
-    text-align: center;
-    height: 4rem;
-    justify-content: center;
-}
-.f4 button{
-    color: #fff;
-    background-color: #fcda69;
-    margin-top: 1.2rem;
-    width: 35rem;
-    height: 1.5rem;
-    border:none;
-    border-radius: 2rem;
-    cursor: pointer;
-}
+
 .menu{
     width: 120px;
     height: 170px;

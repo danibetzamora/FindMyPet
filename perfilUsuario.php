@@ -9,6 +9,12 @@ $sql = "SELECT foto  FROM usuario WHERE id = '$idUsuario' ";
 $result=$connection->query($sql);
 $row = $result->fetch_assoc();
 $fotoUsuario = $row["foto"];
+
+$sql = "SELECT nombre  FROM usuario WHERE id = '$idUsuario' ";
+$result=$connection->query($sql);
+$row = $result->fetch_assoc();
+
+$nombreUsuario = $row["nombre"];
 if (isset($_POST['publicar'])) {
     $nombre = $_POST['fnombre'];
     $dir = $_POST['fdir'];
@@ -72,59 +78,19 @@ if (isset($_POST['publicar'])) {
     <form  enctype="multipart/form-data" method ="POST" action="" name ="actualizar">
     <div class="contentEncontrado">
         <div class="datos">
-            <div class="f1">
-                <div class="c1">
-                    <p>Animal</p>
-
-                    <select required name="animal" id="selectAnimales">
-                        <option disabled selected>Selecciona una opción</option>
-
-                        
-                        <?php
-                        $animalListJson = '{"Perro":0,"Gato":1,"Pájaro":2,"Caballo":3,"Conejo":4,"Reptil":5}';
-                        
-                        $animalList = json_decode($animalListJson);
-                        
-
-                        foreach($animalList as $key => $value) {
-                        echo "<option>" . $key . "</option>" ;
-                        }
-                        
-                        ?>
-
-                    </select>
-                </div>
-                <div class="c2">
-                    <p>Raza</p>
-                    <select required name="raza" id="selectRazas" >
-                    <option disabled selected>Selecciona una opción</option>
-                    <option>Indefinido</option>
-                    <?php
-                        $razaListJson = '{"Indefinido":"perro","Terrier":0,"Husky":0,"Pitbull":0,"Stafford":4,"Beagle":5,"Doberman":0,"Labrador":0,"San Bernardo":0,"Caniche":0,"Yorkshire":0,"Salchicha":0,"Shiba":0,"Galgo":0,"Viszla":0,"Sphynx":1,"Persa":1, "Siamés":1}';
-                        
-                        $razaList = json_decode($razaListJson);
-                        
-
-                        foreach($razaList as $key => $value) {
-                        echo "<option>" . $key . "</option>" ;
-                        }
-                        
-                        ?>
-                    </select>
-                </div>
-                <div class="c3">
-                    <p>Sexo</p>
-                    <select required name="sexo" >
-                        <option disabled selected>Selecciona una opción</option>
-                        <option>Indefinido</option>
-                        <option>Macho</option>
-                        <option >Hembra</option>
-                        
-                    </select>
-                </div>
-
+            <div class="f1" style="height: 10rem; margin-top: 2rem">
+            <div class="c1" style="width: 20%">
+            <img  onclick="menu();" src=<?php echo $fotoUsuario?> alt="User profile image" style="max-width:40% !important">
             </div>
-            <div class="f2">
+            <div class="c2" style="width: 80%">
+                <?php echo "<p>" . $nombreUsuario . "</p>"?>
+        
+            </div>
+            
+            
+                
+            </div>
+            <div class="f2" style="height: 14rem">
                 <div class="c1">
                     <p>Lugar de encuentro</p>
                     <input required minlength="8" autocomplete="new-text" class ="inp" type="text" name="direccion" placeholder="Introduzca aquí ">
@@ -142,13 +108,7 @@ if (isset($_POST['publicar'])) {
                     </div>
                 </div>
             </div>
-            <div   style="border:1px solid #EFEFEF;text-align: center" class="f3">
-                <input  required style="margin-top: 6%;"  type="file" multiple name="fotos" value="fotos">
-            </div>
-            <div class="f4">
-                <button name="publicar" type="submit" value="publicar">publicar</button>
-
-            </div>
+            
     </div>
     </form>
 </body>
