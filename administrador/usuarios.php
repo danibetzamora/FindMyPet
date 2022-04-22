@@ -33,6 +33,7 @@ $fotoUsuario = "../" . $row["foto"];
 <body>
     <header>
         <nav>
+            <a href="homeAdmin.php">Denuncias</a>
             <a href="postEncontrados.php">Encontrados</a>
             <a href="postBuscados.php">Buscados</a>
             <a href="usuarios.php">Usuarios</a>
@@ -68,6 +69,8 @@ $fotoUsuario = "../" . $row["foto"];
 </html>
 <script>
     function menu (){
+        document.getElementById("menud").style.position="absolute";
+        document.getElementById("menud").style.top="10%";
         if (document.getElementById("menud").style.display==="flex"){
             document.getElementById("menud").style.display="none";
         }else {

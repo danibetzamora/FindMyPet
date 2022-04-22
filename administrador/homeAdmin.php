@@ -33,6 +33,7 @@ $result=$connection->query($sql);
 <body>
     <header>
         <nav>
+            <a href="homeAdmin.php">Denuncias</a>
             <a href="postEncontrados.php">Encontrados</a>
             <a href="postBuscados.php">Buscados</a>
             <a href="usuarios.php">Usuarios</a>
@@ -40,7 +41,7 @@ $result=$connection->query($sql);
 
         <div class="user-image">
             <img  onclick="menu();" src=<?php echo $fotoUsuario?> alt="User profile image">
-                <div id = "menud" class="menu">
+                <div id = "menud" class="menu" >
                     <a href="">Perfil</a>
                     <a href="../homeUsuarioWeb">Modo Usuario</a>
                     <a href="../logout.php">Cerrar Sesión</a>
@@ -59,13 +60,14 @@ $result=$connection->query($sql);
                             $sql2="SELECT email,id from usuario where usuario.id in (select usuario from post_encontrado where id ='$postDenunciado') ";
                             $result2=$connection->query($sql2);
                             $row2 = $result2->fetch_assoc();
+                            
+
                         }else {
                             $sql2="SELECT email,id from usuario where usuario.id in (select usuario from post_buscar where id ='$postDenunciado') ";
                             $result2=$connection->query($sql2);
                             $row2 = $result2->fetch_assoc();
-                        }
-                        
 
+                        }
                         $denuncia= file_get_contents("../componentes/denuncia.html");
                         $denuncia = str_replace('[ID]', $row["id"], $denuncia);
                         $denuncia = str_replace('[FECHA]', $row["date_upload"], $denuncia);
@@ -74,14 +76,19 @@ $result=$connection->query($sql);
                         $denuncia = str_replace('[CORREOUSUARIO]', $row1["email"], $denuncia);
                         $denuncia = str_replace('[IDDENUNCIADO]', $row["id"], $denuncia);
                         $denuncia = str_replace('[CORREODENUNCIADO]', $row2["email"], $denuncia);
+                        $denuncia = str_replace('[TIPOPOST]', $row["tipo_post"], $denuncia);
                         echo $denuncia;
+
                     }
+                    
         ?>  
     </div>
 </body>
 </html>
 <script>
     function menu (){
+        document.getElementById("menud").style.position="absolute";
+        document.getElementById("menud").style.top="10%";
         if (document.getElementById("menud").style.display==="flex"){
             document.getElementById("menud").style.display="none";
         }else {

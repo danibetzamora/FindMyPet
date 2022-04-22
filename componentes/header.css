@@ -50,6 +50,7 @@ nav a:hover{
     text-align: center;
     font-family: 'Inter';
     display:none;
+    position: absolute;
 }
 .menu a{
     margin: auto;
