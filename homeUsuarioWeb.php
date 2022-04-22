@@ -142,6 +142,8 @@
                         $post = str_replace('[APELLIDO]', $row["apellidos"], $post);
                         $post = str_replace('[FOTOPERFIL]', $row["foto"], $post);
                         $post = str_replace('[FOTOANIMAL]', $row2["foto"], $post);
+                        $post = str_replace('[IDPOST]', $row2["id"], $post);
+                        $post = str_replace('[IDUSUARIO]', $idUsuario, $post);
                         echo $post;
                     }
                 }
