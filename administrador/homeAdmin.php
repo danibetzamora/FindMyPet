@@ -9,6 +9,8 @@ $result=$connection->query($sql);
 $row = $result->fetch_assoc();
 $fotoUsuario = "../" . $row["foto"];
 
+$sql="SELECT * from denuncia";
+$result=$connection->query($sql);
 
 ?>
 
@@ -45,9 +47,36 @@ $fotoUsuario = "../" . $row["foto"];
                 </div>
         </div>
     </header>
-    <p>Aquí va la lista de denuncias</p>
     <div style= "display:flex;flex-direction:column;aling-content:center;justify-content:center;flex:wrap:wrap;align-items:center;">
+        <?php
+        while($row = $result->fetch_assoc()) {
+                        $idUsuarioDenunciante= $row['id_usuario'];
+                        $postDenunciado= $row['id_post'];
+                        $sql1="SELECT email FROM usuario WHERE id = '$idUsuarioDenunciante'";
+                        $result1=$connection->query($sql1);
+                        $row1 = $result1->fetch_assoc();
+                        if ($row["tipo_post"]== 0){
+                            $sql2="SELECT email,id from usuario where usuario.id in (select usuario from post_encontrado where id ='$postDenunciado') ";
+                            $result2=$connection->query($sql2);
+                            $row2 = $result2->fetch_assoc();
+                        }else {
+                            $sql2="SELECT email,id from usuario where usuario.id in (select usuario from post_buscar where id ='$postDenunciado') ";
+                            $result2=$connection->query($sql2);
+                            $row2 = $result2->fetch_assoc();
+                        }
+                        
 
+                        $denuncia= file_get_contents("../componentes/denuncia.html");
+                        $denuncia = str_replace('[ID]', $row["id"], $denuncia);
+                        $denuncia = str_replace('[FECHA]', $row["date_upload"], $denuncia);
+                        $denuncia = str_replace('[IDPOST]',$row["id_post"], $denuncia);
+                        $denuncia = str_replace('[IDUSUARIO]', $row["id_usuario"], $denuncia);
+                        $denuncia = str_replace('[CORREOUSUARIO]', $row1["email"], $denuncia);
+                        $denuncia = str_replace('[IDDENUNCIADO]', $row["id"], $denuncia);
+                        $denuncia = str_replace('[CORREODENUNCIADO]', $row2["email"], $denuncia);
+                        echo $denuncia;
+                    }
+        ?>  
     </div>
 </body>
 </html>
