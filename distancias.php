@@ -46,7 +46,7 @@ function getDistance($addressFrom, $addressTo, $unit = ''){
     }
 }
 
-$addressFrom = 'Gáldar';
+$addressFrom = 'Las Canteras';
 $addressTo = 'Mogan';
 
 $distance = getDistance($addressFrom, $addressTo, "K");

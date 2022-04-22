@@ -14,7 +14,8 @@ if(isset($_POST['Login'])){
         $user = mysqli_fetch_array($con);
         session_start();
         $_SESSION["user"] = $user;
-        header('Location:homeUsuarioWeb.php');
+        if ($user["rol"]==1)header('Location:homeUsuarioWeb.php');
+        header('Location:administrador/homeAdmin.php');
     }else{
         $error = true;
     }

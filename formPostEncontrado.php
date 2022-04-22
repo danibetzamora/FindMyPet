@@ -60,16 +60,16 @@ if (isset($_POST['publicar'])) {
     <header>
         <nav>
             <a href="homeUsuarioWeb.php">Encontrados</a>
-            <a href="formPostBuscado.php">Buscados</a>
+            <a href="buscados.php">Buscados</a>
             <a href="">Encontré</a>
-            <a href="">Estoy Buscando</a>
+            <a href="formPostBuscado.php">Estoy Buscando</a>
             <a href="">Chats</a>
         </nav>
 
         <div class="user-image">
             <img  onclick="menu();" src=<?php echo $fotoUsuario?> alt="User profile image">
                 <div id = "menud" class="menu">
-                    <a href="">Perfil</a>
+                    <a href="perfilUsuario.php">Perfil</a>
                     <a href="">Mis Posts</a>
                     <a href="logout.php">Cerrar Sesión</a>
                 </div>
@@ -83,9 +83,6 @@ if (isset($_POST['publicar'])) {
                 <div class="c1">
                     <p>Animal</p>
 
-
-                
-=======
                     <select required name="animal" id="selectAnimales">
                         <option disabled selected>Selecciona una opción</option>
 
