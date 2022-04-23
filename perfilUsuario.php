@@ -74,7 +74,7 @@ if (isset($_POST['publicar'])) {
                 </div>
         </div>
     </header>
-    <p>Introduzca los datos del animal que ha encontrado</p>
+    
     <form  enctype="multipart/form-data" method ="POST" action="" name ="actualizar">
     <div class="contentEncontrado">
         <div class="datos">
@@ -83,7 +83,15 @@ if (isset($_POST['publicar'])) {
                 <?php echo "<p>" . $nombreUsuario . "</p>"?>
             </div>
             <div class="f2" >
+                <div class="nombre">
+                    <p>Nombre</p>
+                    <input required minlength="3" autocomplete="nex-text" class="inp" type="text" name="name" >
+                </div>
             </div>
+            <div class="f3"></div>
+            <div class="f4"></div>
+            <div class="f5"></div>
+            <div class="f6"></div>
             
     </div>
     </form>

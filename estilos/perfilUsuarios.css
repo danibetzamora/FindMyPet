@@ -91,12 +91,37 @@ body p{
     margin-left: 3rem;
 }
 .f2{
-    height: 22rem;
+    height: 4rem;
     
     display: flex;
+    align-content: center;
 }
 
+.nombre{
+    display: flex;
+    align-items: center;
+}
 
+.f3{height: 4rem;
+    
+    display: flex;
+
+}
+.f4{height: 4rem;
+    
+    display: flex;
+
+}
+.f5{height: 4rem;
+    
+    display: flex;
+
+}
+.f6{height: 4rem;
+    
+    display: flex;
+
+}
 
 
 
