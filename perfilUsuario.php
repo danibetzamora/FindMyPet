@@ -85,11 +85,33 @@ if (isset($_POST['publicar'])) {
             <div class="f2" >
                 <div class="nombre">
                     <p>Nombre</p>
-                    <input required minlength="3" autocomplete="nex-text" class="inp" type="text" name="name" >
+                    <input required minlength="3" autocomplete="new-text" class="inp" type="text" name="name" >
+                </div>
+                <div class="direccion">
+                    <p>Dirección</p>
+                    <input required minlength="8" autocomplete="new-text" class="inp" type="text" name="name" >
                 </div>
             </div>
-            <div class="f3"></div>
-            <div class="f4"></div>
+            <div class="f3">
+                <div class="apellidos">
+                    <p>Apellidos</p>
+                    <input required minlength="5" autocomplete="new-text" class="inp" type="text" name="name" >
+                </div>
+                <div class="fecha">
+                    <p>Fecha</p>
+                    <input required  class="inp" name ="fecha" type="date">
+                </div>
+            </div>
+            <div class="f4">
+            <div class="email">
+                    <p>Correo Electrónico</p>
+                    <input required minlength="3" autocomplete="new-text" class="inp" type="text" name="name" >
+                </div>
+                <div class="contraseña">
+                    <p>Contraseña</p>
+                    <input required minlength="8" autocomplete="new-text" class="inp" type="text" name="name" >
+                </div>
+            </div>
             <div class="f5"></div>
             <div class="f6"></div>
             

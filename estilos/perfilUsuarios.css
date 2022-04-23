@@ -34,22 +34,13 @@ body p{
 
 .datos p{
     font-size: 1rem;
-    margin-left: 0;
+    margin-left: 4rem;
     font-weight: 400;
     margin-bottom: 0%;
+    margin-right: 2rem;
 }
 
-.datos select{
-    height: 1.8rem;
-    width: 81%;
-    border-radius: 4px;
-    border: none;
-    background-color: #EFEFEF;
-    font-size: 0.80rem;
-    font-weight: 400;
-    outline:none;
-    color:grey;
-}
+
 
 .datos .inp{
     height: 1.7rem;
@@ -61,6 +52,8 @@ body p{
     font-weight: 400;
     outline:none;
     color:grey;
+    margin-right: 4rem;
+
 }
 .f1{
     height: 18rem;
@@ -94,13 +87,69 @@ body p{
     height: 4rem;
     
     display: flex;
-    align-content: center;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .nombre{
     display: flex;
     align-items: center;
+    width: 50%;
 }
+.nombre p{
+    margin-right: 4.5rem;
+}
+
+.nombre input{
+    width: 60% !important;;
+}
+
+
+.apellidos input{
+    width: 60% !important;;
+}
+
+
+.apellidos p{
+    margin-right: 4.01rem;
+}
+
+.email p{
+    margin-right: 3.8rem;
+
+}
+
+.direccion{
+    display: flex;
+    align-items: center;
+    width: 50%;
+
+}
+.apellidos{
+    display: flex;
+    align-items: center;
+    width: 50%;
+
+}
+.fecha{
+    display: flex;
+    align-items: center;
+    width: 50%;
+
+}
+.email{
+    display: flex;
+    align-items: center;
+    width: 50%;
+
+}
+.contraseña{
+    display: flex;
+    align-items: center;
+    width: 50%;
+
+}
+
 
 .f3{height: 4rem;
     
