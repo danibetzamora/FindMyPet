@@ -78,35 +78,11 @@ if (isset($_POST['publicar'])) {
     <form  enctype="multipart/form-data" method ="POST" action="" name ="actualizar">
     <div class="contentEncontrado">
         <div class="datos">
-            <div class="f1" style="height: 10rem; margin-top: 2rem">
-            <div class="c1" style="width: 20%">
-            <img  onclick="menu();" src=<?php echo $fotoUsuario?> alt="User profile image" style="max-width:40% !important">
-            </div>
-            <div class="c2" style="width: 80%">
+            <div class="f1">
+                <img  onclick="menu();" src=<?php echo $fotoUsuario?> alt="User profile image" >
                 <?php echo "<p>" . $nombreUsuario . "</p>"?>
-        
             </div>
-            
-            
-                
-            </div>
-            <div class="f2" style="height: 14rem">
-                <div class="c1">
-                    <p>Lugar de encuentro</p>
-                    <input required minlength="8" autocomplete="new-text" class ="inp" type="text" name="direccion" placeholder="Introduzca aquí ">
-                </div>
-                <div class="c2">
-                    <p>Descripción de los hechos</p>
-                    <input required minlength="8" autocomplete="new-text" class ="inp" type="new-message-input"  name="descripcion"placeholder="Introduzca aquí ">
-
-                
-                </div>
-                <div class="c3">
-                    <p >Fecha</p>
-                    <div  class="fechas">
-                        <input required  class="inp" name ="fecha" type="date">
-                    </div>
-                </div>
+            <div class="f2" >
             </div>
             
     </div>

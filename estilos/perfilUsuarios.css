@@ -36,7 +36,7 @@ body p{
     font-size: 1rem;
     margin-left: 0;
     font-weight: 400;
-    margin-bottom: 1%;
+    margin-bottom: 0%;
 }
 
 .datos select{
@@ -63,27 +63,40 @@ body p{
     color:grey;
 }
 .f1{
-    height: 10rem;
+    height: 18rem;
     margin: auto;
     display: flex;
 
-    justify-content: center;
+    justify-content: flex-start;
+
+    align-items: center;
+}
+
+
+.f1 p{
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: #2B2C3E;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+
+
+}
+
+.f1 img{
+
+    max-height: 80%;
+    margin-left: 3rem;
 }
 .f2{
-    height: 14rem;
+    height: 22rem;
     
     display: flex;
 }
 
-.c1{
-    width: 33%;
-    margin-left: 6%;
-}
 
-.c2{
-    width: 67%;
-    
-}
 
 
 
