@@ -5,42 +5,9 @@
     include("api/postEncontrados.php");
     include("api/usuarios.php");
 
-
     include("config.php");
     include("distancias.php");
-    $sql = "SELECT post_encontrado.*, usuario.nombre, usuario.apellidos,
-                 usuario.foto AS UsuarioFoto, foto_post_encontrado.foto AS PostFoto
-            FROM post_encontrado 
-            JOIN usuario ON usuario.id=post_encontrado.usuario 
-            JOIN foto_post_encontrado WHERE post_encontrado.id=foto_post_encontrado.post";
-    $filters = [];
-    $param = "";
-    if(isset($_POST["animal"])) {
-        $animal = $_POST["animal"];
-        $filters[] = $animal;
-        $param.="s";
-        $sql.=" AND post_encontrado.animal=? ";
-    }
-    if(isset($_POST["raza"])) {
-        $raza = $_POST["raza"];
-        $filters[] = $raza;
-        $param.="s";
-        $sql.=" AND post_encontrado.raza=? ";
-    }
-    if(isset($_POST["fecha"]) && $_POST["fecha"]!="") {
-        $fecha = $_POST["fecha"];
-        $filters[] = $fecha;
-        $param.="s";
-        $sql.=" AND post_encontrado.fecha > ? ORDER BY post_encontrado.fecha asc";
-    }
-    else $sql.=" ORDER BY post_encontrado.fecha desc";
-
-    $stmt = $connection->prepare($sql);
-    if ($filters) {
-        $stmt->bind_param($param, ...$filters);
-    }
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $result = getListPost();
 
     if(isset($_POST["range"]) && $_POST["range"]!=0){
         $distancia_flag=1;
@@ -155,15 +122,14 @@
             <div id="list">
 
                 <?php
-                $result = getListPost();
                 if ($result->num_rows > 0) {
                     $table = [];
                     $delete_row_flag = 0;
                     while($row = $result->fetch_assoc()) {
                         if(isset($distancia_flag)){
                             $distancia=getDistance($row['ubicacion'], $_SESSION["user"]["ubicacion"]);
-                            $distancia_explode=explode(".", "$distancia");
-                            $distancia=$distancia_explode[0];
+                            $distancia_explode=explode(" ", "$distancia");
+                            $distancia=ceil($distancia_explode[0]);
                             $row["distancia"]=$distancia;
                         }
                         $table[] = $row;
