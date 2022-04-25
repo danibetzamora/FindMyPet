@@ -1,10 +1,11 @@
 
 <?php
     session_start();
-    if(!isset($_SESSION["user"])) header("Location: homeInvitado.php");
+    //if(!isset($_SESSION["user"])) header("Location: homeInvitado.php");
 
 
     include("config.php");
+    include("distancias.php");
     $sql = "SELECT post_encontrado.*, usuario.nombre, usuario.apellidos,
                  usuario.foto AS UsuarioFoto, foto_post_encontrado.foto AS PostFoto
             FROM post_encontrado 
@@ -38,6 +39,10 @@
     }
     $stmt->execute();
     $result = $stmt->get_result();
+
+    if(isset($_POST["range"]) && $_POST["range"]!=0){
+        $distancia_flag=1;
+    }
 
     $idUsuario = $_SESSION["user"]["id"];
     $sql2 = "SELECT foto  FROM usuario WHERE id = '$idUsuario' ";
@@ -152,13 +157,31 @@
 
                 <?php
                 if ($result->num_rows > 0) {
+                    $table = [];
+                    $delete_row_flag = 0;
                     while($row = $result->fetch_assoc()) {
+                        if(isset($distancia_flag)){
+                            $distancia=getDistance($row['ubicacion'], $_SESSION["user"]["ubicacion"]);
+                            $distancia_explode=explode(".", "$distancia");
+                            $distancia=$distancia_explode[0];
+                            $row["distancia"]=$distancia;
+                        }
+                        $table[] = $row;
+                    }
+                    if(isset($distancia_flag)) {
+                        $columna_distancia = array_column($table, 'distancia');
+                        array_multisort($columna_distancia, SORT_ASC, $table);
+                    }
+                    foreach ($table as &$row) {
+                        if(isset($distancia_flag) && $row["distancia"] > $_POST['range']+2) continue;
                         $separarFecha= explode(" ",$row["fecha"]);
                         $fechaSep = $separarFecha[0];
                         $horaSep = $separarFecha[1];
                         $horaSep = str_split($horaSep,5)[0];
                         $post = file_get_contents("componentes/post.html");
-                        $post = str_replace('[UBICACION]', $row["ubicacion"], $post);
+                        $post_distancia=$row["ubicacion"];
+                        if(isset($distancia_flag)) $post_distancia.=" - ".$row['distancia']." Km";
+                        $post = str_replace('[UBICACION]', $post_distancia, $post);
                         $post = str_replace('[FECHA]', $fechaSep, $post);
                         $post = str_replace('[HORA]', $horaSep, $post);
                         $post = str_replace('[DESCRIPCION]', $row["descripcion"], $post);
