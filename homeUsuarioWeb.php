@@ -2,48 +2,10 @@
 <?php
     session_start();
     if(!isset($_SESSION["user"])) header("Location: homeInvitado.php");
-
-
-    include("config.php");
-    $sql = "SELECT post_encontrado.*, usuario.nombre, usuario.apellidos,
-                 usuario.foto AS UsuarioFoto, foto_post_encontrado.foto AS PostFoto
-            FROM post_encontrado 
-            JOIN usuario ON usuario.id=post_encontrado.usuario 
-            JOIN foto_post_encontrado WHERE post_encontrado.id=foto_post_encontrado.post";
-    $filters = [];
-    $param = "";
-    if(isset($_POST["animal"])) {
-        $animal = $_POST["animal"];
-        $filters[] = $animal;
-        $param.="s";
-        $sql.=" AND post_encontrado.animal=? ";
-    }
-    if(isset($_POST["raza"])) {
-        $raza = $_POST["raza"];
-        $filters[] = $raza;
-        $param.="s";
-        $sql.=" AND post_encontrado.raza=? ";
-    }
-    if(isset($_POST["fecha"]) && $_POST["fecha"]!="") {
-        $fecha = $_POST["fecha"];
-        $filters[] = $fecha;
-        $param.="s";
-        $sql.=" AND post_encontrado.fecha > ? ORDER BY post_encontrado.fecha asc";
-    }
-    else $sql.=" ORDER BY post_encontrado.fecha desc";
-
-    $stmt = $connection->prepare($sql);
-    if ($filters) {
-        $stmt->bind_param($param, ...$filters);
-    }
-    $stmt->execute();
-    $result = $stmt->get_result();
-
+    include("api/postEncontrados.php");
+    include("api/usuarios.php");
     $idUsuario = $_SESSION["user"]["id"];
-    $sql2 = "SELECT foto  FROM usuario WHERE id = '$idUsuario' ";
-    $result2=$connection->query($sql2);
-    $row2 = $result2->fetch_assoc();
-    $row2 = $row2["foto"];
+    $fotoUsuario= getFotoUsuario($idUsuario);
     
 ?>
 
@@ -70,7 +32,7 @@
             </nav>
 
             <div class="user-image">
-                <img onclick="menu();" src=<?php echo $row2 ?> alt="User profile image">
+                <img onclick="menu();" src=<?php echo $fotoUsuario ?> alt="User profile image">
                 <div id = "menud" class="menu">
                     <a href="perfilUsuario.php">Perfil</a>
                     <a href="">Mis Posts</a>
@@ -151,6 +113,7 @@
             <div id="list">
 
                 <?php
+                $result = getListPost();
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
                         $separarFecha= explode(" ",$row["fecha"]);
@@ -171,7 +134,7 @@
                         echo $post;
                     }
                 }
-                $connection->close();
+                
                 ?>
 
             </div>
