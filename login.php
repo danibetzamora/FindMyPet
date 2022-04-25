@@ -15,7 +15,7 @@ if(isset($_POST['Login'])){
         session_start();
         $_SESSION["user"] = $user;
         if ($user["rol"]==1)header('Location:homeUsuarioWeb.php');
-        header('Location:administrador/homeAdmin.php');
+        else header('Location:administrador/homeAdmin.php');
     }else{
         $error = true;
     }
