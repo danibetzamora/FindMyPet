@@ -1,7 +1,9 @@
 
 <?php
     session_start();
-    //if(!isset($_SESSION["user"])) header("Location: homeInvitado.php");
+    if(!isset($_SESSION["user"])) header("Location: homeInvitado.php");
+    include("api/postEncontrados.php");
+    include("api/usuarios.php");
 
 
     include("config.php");
@@ -45,10 +47,7 @@
     }
 
     $idUsuario = $_SESSION["user"]["id"];
-    $sql2 = "SELECT foto  FROM usuario WHERE id = '$idUsuario' ";
-    $result2=$connection->query($sql2);
-    $row2 = $result2->fetch_assoc();
-    $row2 = $row2["foto"];
+    $fotoUsuario= getFotoUsuario($idUsuario);
     
 ?>
 
@@ -75,7 +74,7 @@
             </nav>
 
             <div class="user-image">
-                <img onclick="menu();" src=<?php echo $row2 ?> alt="User profile image">
+                <img onclick="menu();" src=<?php echo $fotoUsuario ?> alt="User profile image">
                 <div id = "menud" class="menu">
                     <a href="perfilUsuario.php">Perfil</a>
                     <a href="">Mis Posts</a>
@@ -156,6 +155,7 @@
             <div id="list">
 
                 <?php
+                $result = getListPost();
                 if ($result->num_rows > 0) {
                     $table = [];
                     $delete_row_flag = 0;
@@ -194,7 +194,7 @@
                         echo $post;
                     }
                 }
-                $connection->close();
+                
                 ?>
 
             </div>

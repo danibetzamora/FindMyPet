@@ -1,8 +1,12 @@
 <?php
     session_start();
     if(!isset($_SESSION["user"])) header("Location: homeInvitado.php");
-
     include("config.php");
+    include("api/usuarios.php");
+
+    $idUsuario = $_SESSION["user"]["id"];
+    $fotoUsuario= getFotoUsuario($idUsuario);
+
     $sql="SELECT post_buscar.ubicacion,  post_buscar.fecha,
                  post_buscar.descripcion,post_buscar.nombre, usuario.nombre, usuario.apellidos,
                  usuario.foto, post_buscar.id
@@ -14,11 +18,6 @@
             FROM post_buscar
             JOIN foto_post_buscado WHERE post_buscar.id=foto_post_buscado.post ORDER BY post_buscar.fecha desc";
     $result2=$connection->query($sql2);
-    $idUsuario = $_SESSION["user"]["id"];
-    $sql3 = "SELECT foto  FROM usuario WHERE id = '$idUsuario' ";
-    $result3=$connection->query($sql3);
-    $row3 = $result3->fetch_assoc();
-    $row3 = $row3["foto"];
     
 ?>
 
@@ -52,7 +51,7 @@
             </nav>
 
             <div class="user-image">
-                <img onclick="menu();" src=<?php echo $row3 ?> alt="User profile image">
+                <img onclick="menu();" src=<?php echo $fotoUsuario ?> alt="User profile image">
                 <div id = "menud" class="menu">
                     <a href="perfilUsuario.php">Perfil</a>
                     <a href="">Mis Posts</a>

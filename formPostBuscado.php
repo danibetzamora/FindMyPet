@@ -1,13 +1,14 @@
 <?php
 
-include('config.php');
 session_start();
 if(!isset($_SESSION["user"])) header("Location: homeInvitado.php");
+
+include('config.php');
+include("api/usuarios.php");
+
 $idUsuario = $_SESSION["user"]["id"];
-$sql = "SELECT foto  FROM usuario WHERE id = '$idUsuario' ";
-$result=$connection->query($sql);
-$row = $result->fetch_assoc();
-$fotoUsuario = $row["foto"];
+$fotoUsuario= getFotoUsuario($idUsuario);
+
 if (isset($_POST['publicar'])){
     $animal = $_POST['animal'];
     $raza = $_POST['raza'];
