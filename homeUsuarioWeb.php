@@ -2,25 +2,19 @@
 <?php
     session_start();
     if(!isset($_SESSION["user"])) header("Location: homeInvitado.php");
+    include("api/postEncontrados.php");
+    include("api/usuarios.php");
 
     include("config.php");
-    $sql = "SELECT post_encontrado.*, usuario.nombre, usuario.apellidos,
-                 usuario.foto AS UsuarioFoto, foto_post_encontrado.foto AS PostFoto
-            FROM post_encontrado 
-            JOIN usuario ON usuario.id=post_encontrado.usuario 
-            JOIN foto_post_encontrado WHERE post_encontrado.id=foto_post_encontrado.post";
-    if(isset($_POST["animal"])) $sql.=' AND post_encontrado.animal="'.$_POST["animal"].'"';
-    if(isset($_POST["raza"])) $sql.=' AND post_encontrado.raza="'.$_POST["raza"].'"';
-    if(isset($_POST["fecha"]) && $_POST["fecha"]!="")
-        $sql.=' AND post_encontrado.fecha > "'.$_POST["fecha"].'" ORDER BY post_encontrado.fecha asc';
-    else $sql.=" ORDER BY post_encontrado.fecha desc";
-    $result = $connection->query($sql);
+    include("distancias.php");
+    $result = getListPost();
+
+    if(isset($_POST["range"]) && $_POST["range"]!=0){
+        $distancia_flag=1;
+    }
 
     $idUsuario = $_SESSION["user"]["id"];
-    $sql2 = "SELECT foto  FROM usuario WHERE id = '$idUsuario' ";
-    $result2=$connection->query($sql2);
-    $row2 = $result2->fetch_assoc();
-    $row2 = $row2["foto"];
+    $fotoUsuario= getFotoUsuario($idUsuario);
     
 ?>
 
@@ -47,7 +41,7 @@
             </nav>
 
             <div class="user-image">
-                <img onclick="menu();" src=<?php echo $row2 ?> alt="User profile image">
+                <img onclick="menu();" src=<?php echo $fotoUsuario ?> alt="User profile image">
                 <div id = "menud" class="menu">
                     <a href="perfilUsuario.php">Perfil</a>
                     <a href="">Mis Posts</a>
@@ -129,13 +123,31 @@
 
                 <?php
                 if ($result->num_rows > 0) {
+                    $table = [];
+                    $delete_row_flag = 0;
                     while($row = $result->fetch_assoc()) {
+                        if(isset($distancia_flag)){
+                            $distancia=getDistance($row['ubicacion'], $_SESSION["user"]["ubicacion"]);
+                            $distancia_explode=explode(" ", "$distancia");
+                            $distancia=ceil($distancia_explode[0]);
+                            $row["distancia"]=$distancia;
+                        }
+                        $table[] = $row;
+                    }
+                    if(isset($distancia_flag)) {
+                        $columna_distancia = array_column($table, 'distancia');
+                        array_multisort($columna_distancia, SORT_ASC, $table);
+                    }
+                    foreach ($table as &$row) {
+                        if(isset($distancia_flag) && $row["distancia"] > $_POST['range']+2) continue;
                         $separarFecha= explode(" ",$row["fecha"]);
                         $fechaSep = $separarFecha[0];
                         $horaSep = $separarFecha[1];
                         $horaSep = str_split($horaSep,5)[0];
                         $post = file_get_contents("componentes/post.html");
-                        $post = str_replace('[UBICACION]', $row["ubicacion"], $post);
+                        $post_distancia=$row["ubicacion"];
+                        if(isset($distancia_flag)) $post_distancia.=" - ".$row['distancia']." Km";
+                        $post = str_replace('[UBICACION]', $post_distancia, $post);
                         $post = str_replace('[FECHA]', $fechaSep, $post);
                         $post = str_replace('[HORA]', $horaSep, $post);
                         $post = str_replace('[DESCRIPCION]', $row["descripcion"], $post);
@@ -148,7 +160,7 @@
                         echo $post;
                     }
                 }
-                $connection->close();
+                
                 ?>
 
             </div>

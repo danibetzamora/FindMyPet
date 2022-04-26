@@ -5,17 +5,17 @@ include('config.php');
 session_start();
 if(!isset($_SESSION["user"])) header("Location: homeInvitado.php");
 $idUsuario = $_SESSION["user"]["id"];
-$sql = "SELECT foto  FROM usuario WHERE id = '$idUsuario' ";
+$sql = "SELECT foto, nombre  FROM usuario WHERE id = '$idUsuario' ";
 $result=$connection->query($sql);
 $row = $result->fetch_assoc();
 $fotoUsuario = $row["foto"];
 
-$sql = "SELECT nombre  FROM usuario WHERE id = '$idUsuario' ";
-$result=$connection->query($sql);
-$row = $result->fetch_assoc();
+
+
+
 
 $nombreUsuario = $row["nombre"];
-if (isset($_POST['publicar'])) {
+if (isset($_POST['modificar'])) {
     $nombre = $_POST['fnombre'];
     $dir = $_POST['fdir'];
     $apellidos = $_POST['fape'];
@@ -23,14 +23,12 @@ if (isset($_POST['publicar'])) {
     $email = $_POST['fcorreo'];
     $con = $_POST['fcon'];
     
-    $upload = $adress.basename($_FILES['fotos']['name']);
+    
+    
 
-    $q="SELECT * FROM usuario WHERE email='$email'"; 
+    $q="UPDATE usuario SET nombre = '$nombre' WHERE id = '$idUsuario'"; 
     $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
-    $qid ="SELECT id FROM post_encontrado WHERE usuario='$idUsuario' and fecha ='$fecha'";
-    $r = mysqli_query ($connection, $qid) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
-    $idPost=$r->fetch_assoc();
-    $idPost =$idPost["id"];
+    
 
     
 
@@ -85,36 +83,42 @@ if (isset($_POST['publicar'])) {
             <div class="f2" >
                 <div class="nombre">
                     <p>Nombre</p>
-                    <input required minlength="3" autocomplete="new-text" class="inp" type="text" name="name" >
+                    <input required minlength="3" autocomplete="new-text" class="inp" type="text" name="fnombre" >
                 </div>
                 <div class="direccion">
                     <p>Dirección</p>
-                    <input required minlength="8" autocomplete="new-text" class="inp" type="text" name="name" >
+                    <input  autocomplete="new-text" class="inp" type="text" name="fdir" >
                 </div>
             </div>
             <div class="f3">
                 <div class="apellidos">
                     <p>Apellidos</p>
-                    <input required minlength="5" autocomplete="new-text" class="inp" type="text" name="name" >
+                    <input  autocomplete="new-text" class="inp" type="text" name="fape" >
                 </div>
                 <div class="fecha">
                     <p>Fecha</p>
-                    <input required  class="inp" name ="fecha" type="date">
+                    <input  class="inp" name ="ffecha" type="date">
                 </div>
             </div>
             <div class="f4">
             <div class="email">
                     <p>Correo Electrónico</p>
-                    <input required minlength="3" autocomplete="new-text" class="inp" type="text" name="name" >
+                    <input  autocomplete="new-text" class="inp" type="text" name="fcorreo" >
                 </div>
                 <div class="contraseña">
                     <p>Contraseña</p>
-                    <input required minlength="8" autocomplete="new-text" class="inp" type="text" name="name" >
+                    <input  autocomplete="new-text" class="inp" type="text" name="fcon" >
                 </div>
             </div>
             <div class="f5"></div>
             <div class="f6"></div>
             
+    </div>
+
+    <div class="f7">
+    <button name="modificar" type="submit" value="modificar">Modificar</button>
+
+
     </div>
     </form>
 </body>
