@@ -23,11 +23,52 @@ if (isset($_POST['modificar'])) {
     $email = $_POST['fcorreo'];
     $con = $_POST['fcon'];
     
-    
-    
 
+    
+    
+    if($nombre != null){
+        
     $q="UPDATE usuario SET nombre = '$nombre' WHERE id = '$idUsuario'"; 
     $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
+
+    }
+
+    if($dir != null){
+        
+        $q="UPDATE usuario SET ubicacion = '$dir' WHERE id = '$idUsuario'"; 
+        $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
+    
+    }
+
+    if($apellidos != null){
+        
+        $q="UPDATE usuario SET apellidos = '$apellidos' WHERE id = '$idUsuario'"; 
+        $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
+        
+    }
+    
+    if($fecha != null){
+        
+        $q="UPDATE usuario SET fecha_nacimiento = '$fecha' WHERE id = '$idUsuario'"; 
+        $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
+            
+    }
+
+    if($email != null){
+        
+        $q="UPDATE usuario SET email = '$email' WHERE id = '$idUsuario'"; 
+        $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
+                
+    }
+
+    if($con != null){
+        $con_hash = SHA1($con);
+        
+        $q="UPDATE usuario SET contrasena = '$con_hash' WHERE id = '$idUsuario'"; 
+        $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
+                    
+    }
+
     
 
     
@@ -83,7 +124,7 @@ if (isset($_POST['modificar'])) {
             <div class="f2" >
                 <div class="nombre">
                     <p>Nombre</p>
-                    <input required minlength="3" autocomplete="new-text" class="inp" type="text" name="fnombre" >
+                    <input  autocomplete="new-text" class="inp" type="text" name="fnombre" >
                 </div>
                 <div class="direccion">
                     <p>Dirección</p>
