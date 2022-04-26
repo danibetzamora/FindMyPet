@@ -32,7 +32,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Iniciar Sesión</title>
+    <title>Chat</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilos/chat.css">
     <link rel="stylesheet" href="componentes/header.css">
@@ -54,7 +54,7 @@
         setInterval(function (){ajax();}, 1000);
     </script>
 </head>
-<body style="overflow:hidden;height: 100%;width: 100%;margin: 0%;padding: 0%;" onLoad="ajax();">
+<body onLoad="ajax();">
 
     <header>
         <nav>
@@ -74,60 +74,66 @@
             </div>
         </div>
     </header>
-    <div class="container-users">
-        <?php
-            if ($users->num_rows > 0) {
-                while ($row = $users->fetch_assoc()) {
-                    echo '<a href="chat.php?id='.$row['id'].'">
-                                <div class="details">
-                                    <p>'.$row['nombre']." ". $row['apellidos'].'</p>
-                                </div>
-                          </a>';
+    <div class="main-container">
+    
+        <div class="container-users">
+            <?php
+                if ($users->num_rows > 0) {
+                    while ($row = $users->fetch_assoc()) {
+                        echo '<a href="chat.php?id='.$row['id'].'">
+                                    <div class="details">
+                                        <p>'.$row['nombre']." ". $row['apellidos'].'</p>
+                                    </div>
+                            </a>';
+                    }
                 }
-            }
-        ?>
-    </div>
-
-    <div id="container">
-        <div id="caja-chat">
-            <div id="chat">
-
-            </div>
+            ?>
         </div>
-        <!-- action="chat.php" -->
-        <?php
-            if(isset($_GET['id'])){
-        ?>
-            <form method="post" >
-                <textarea name="mensaje", placeholder="Escribe el mensaje..."></textarea>
-                <input type="submit", name="enviar", value="Enviar">
-            </form>
-        <?php
-            }else{
-                $_SESSION['chat_id'] = null;
-            }
-        ?>
+                
+        <div id="container-chat">
+            <div id="caja-chat">
+                <div id="chat">
 
-        <?php
-            if (isset($_POST['enviar'])){
-                $msg = $_POST['mensaje'];
-
-                $ejecutar = $connection->query($sql_get_chat);
-
-                while ($row = $ejecutar -> fetch_array()){
-                    $id_chat = $row['id'];
+                </div>
+            </div>
+            <!-- action="chat.php" -->
+            <?php
+                if(isset($_GET['id'])){
+            ?>
+                <div class="caja-enviar-mensaje">
+                    <form method="post" >
+                        <input type="text" name="mensaje", placeholder="Escribe el mensaje..." class="input-text"></textarea>
+                        <input type="submit", name="enviar", value="Enviar" class="button-send">
+                    </form>
+                </div>
+            <?php
+                }else{
+                    $_SESSION['chat_id'] = null;
                 }
-                $date = date('Y-m-d h:i:s', time());
-                $sql = "INSERT INTO mensaje (date, texto, emisor, chat) VALUES ('$date', '$msg',
-                                                       '$user[0]', '$_GET[id]')";
+            ?>
 
-                $ejecutar = $connection->query($sql);
-                if($ejecutar){
-                    header("location: chat.php?id=".$_GET['id']);
+            <?php
+                if (isset($_POST['enviar'])){
+                    $msg = $_POST['mensaje'];
+
+                    $ejecutar = $connection->query($sql_get_chat);
+
+                    while ($row = $ejecutar -> fetch_array()){
+                        $id_chat = $row['id'];
+                    }
+                    $date = date('Y-m-d h:i:s', time());
+                    $sql = "INSERT INTO mensaje (date, texto, emisor, chat) VALUES ('$date', '$msg',
+                                                        '$user[0]', '$_GET[id]')";
+
+                    $ejecutar = $connection->query($sql);
+                    if($ejecutar){
+                        header("location: chat.php?id=".$_GET['id']);
+                    }
+
                 }
+            ?>
+        </div>
 
-            }
-        ?>
     </div>
 
 </body>
