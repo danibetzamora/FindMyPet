@@ -95,10 +95,19 @@
             </div>
         </div>
         <!-- action="chat.php" -->
-        <form method="post" >
-            <textarea name="mensaje", placeholder="Escribe el mensaje..."></textarea>
-            <input type="submit", name="enviar", value="Enviar">
-        </form>
+        <?php
+            if(isset($_GET['id'])){
+        ?>
+            <form method="post" >
+                <textarea name="mensaje", placeholder="Escribe el mensaje..."></textarea>
+                <input type="submit", name="enviar", value="Enviar">
+            </form>
+        <?php
+            }else{
+                $_SESSION['chat_id'] = null;
+            }
+        ?>
+
         <?php
             if (isset($_POST['enviar'])){
                 $msg = $_POST['mensaje'];
