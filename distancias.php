@@ -1,6 +1,6 @@
 <?php
 
-function getDistance($addressFrom, $addressTo, $unit = ''){
+function getDistance($addressFrom, $addressTo, $unit = 'K'){
     // Google API key
     $apiKey = 'AIzaSyDDzbQPxWXD9YHmwC2WnAeGcnQsIgSoPa8';
     
@@ -21,12 +21,15 @@ function getDistance($addressFrom, $addressTo, $unit = ''){
     if(!empty($outputTo->error_message)){
         return $outputTo->error_message;
     }
-    
+
+    $current_error_reporting = error_reporting();
+    error_reporting(0);
     // Get latitude and longitude from the geodata
     $latitudeFrom    = $outputFrom->results[0]->geometry->location->lat;
     $longitudeFrom    = $outputFrom->results[0]->geometry->location->lng;
     $latitudeTo        = $outputTo->results[0]->geometry->location->lat;
     $longitudeTo    = $outputTo->results[0]->geometry->location->lng;
+    error_reporting($current_error_reporting);
     
     // Calculate distance between latitude and longitude
     $theta    = $longitudeFrom - $longitudeTo;
@@ -45,10 +48,4 @@ function getDistance($addressFrom, $addressTo, $unit = ''){
         return round($miles, 2).' miles';
     }
 }
-
-$addressFrom = 'Las Canteras';
-$addressTo = 'Mogan';
-
-$distance = getDistance($addressFrom, $addressTo, "K");
-echo $distance;
 ?>

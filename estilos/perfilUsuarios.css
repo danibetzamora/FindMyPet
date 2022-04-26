@@ -91,6 +91,21 @@ body p{
     align-items: center;
 }
 
+
+.f7 button{
+    color: #fff;
+    background-color: #fcda69;
+    margin-top: 1.2rem;
+    width: 35rem;
+    height: 1.5rem;
+    border:none;
+    border-radius: 2rem;
+    cursor: pointer;
+
+
+
+}
+
 .nombre{
     display: flex;
     align-items: center;
@@ -169,6 +184,13 @@ body p{
 .f6{height: 4rem;
     
     display: flex;
+
+}
+
+.f7{height: 4rem;
+    
+    display: flex;
+    justify-content: flex-end;
 
 }
 

@@ -3,35 +3,35 @@
     function getListPost(){
         include('config.php');
         $sql = "SELECT post_encontrado.*, usuario.nombre, usuario.apellidos,
-        usuario.foto AS UsuarioFoto, foto_post_encontrado.foto AS PostFoto
-        FROM post_encontrado 
-        JOIN usuario ON usuario.id=post_encontrado.usuario 
-        JOIN foto_post_encontrado WHERE post_encontrado.id=foto_post_encontrado.post";
+                 usuario.foto AS UsuarioFoto, foto_post_encontrado.foto AS PostFoto
+            FROM post_encontrado 
+            JOIN usuario ON usuario.id=post_encontrado.usuario 
+            JOIN foto_post_encontrado WHERE post_encontrado.id=foto_post_encontrado.post";
         $filters = [];
         $param = "";
         if(isset($_POST["animal"])) {
-        $animal = $_POST["animal"];
-        $filters[] = $animal;
-        $param.="s";
-        $sql.=" AND post_encontrado.animal=? ";
+            $animal = $_POST["animal"];
+            $filters[] = $animal;
+            $param.="s";
+            $sql.=" AND post_encontrado.animal=? ";
         }
         if(isset($_POST["raza"])) {
-        $raza = $_POST["raza"];
-        $filters[] = $raza;
-        $param.="s";
-        $sql.=" AND post_encontrado.raza=? ";
+            $raza = $_POST["raza"];
+            $filters[] = $raza;
+            $param.="s";
+            $sql.=" AND post_encontrado.raza=? ";
         }
         if(isset($_POST["fecha"]) && $_POST["fecha"]!="") {
-        $fecha = $_POST["fecha"];
-        $filters[] = $fecha;
-        $param.="s";
-        $sql.=" AND post_encontrado.fecha > ? ORDER BY post_encontrado.fecha asc";
+            $fecha = $_POST["fecha"];
+            $filters[] = $fecha;
+            $param.="s";
+            $sql.=" AND post_encontrado.fecha > ? ORDER BY post_encontrado.fecha asc";
         }
         else $sql.=" ORDER BY post_encontrado.fecha desc";
 
         $stmt = $connection->prepare($sql);
         if ($filters) {
-        $stmt->bind_param($param, ...$filters);
+            $stmt->bind_param($param, ...$filters);
         }
         $stmt->execute();
         $result = $stmt->get_result();
