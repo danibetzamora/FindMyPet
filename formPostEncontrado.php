@@ -63,7 +63,7 @@ if (isset($_POST['publicar'])) {
             <a href="buscados.php">Buscados</a>
             <a href="">Encontré</a>
             <a href="formPostBuscado.php">Estoy Buscando</a>
-            <a href="">Chats</a>
+            <a href="chat.php">Chats</a>
         </nav>
 
         <div class="user-image">
