@@ -12,6 +12,7 @@ $fotoUsuario= getFotoUsuario($idUsuario);
 
 
 if (isset($_POST['publicar'])) {
+    $fecha = $_POST['fecha'];
     $fechaGenerada= date('Y-m-d H:i:s'); 
     $separarFecha= explode(" ",$fechaGenerada);
     $horaSep = " " . $separarFecha[1];
