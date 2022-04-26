@@ -1,33 +1,17 @@
 <?php
     session_start();
     if(!isset($_SESSION["user"])) header("Location: homeInvitado.php");
-    include("config.php");
     include("api/usuarios.php");
+    include("api/PostBuscados.php");
 
     $idUsuario = $_SESSION["user"]["id"];
     $fotoUsuario= getFotoUsuario($idUsuario);
 
-    $sql="SELECT post_buscar.ubicacion,  post_buscar.fecha,
-                 post_buscar.descripcion,post_buscar.nombre, usuario.nombre, usuario.apellidos,
-                 usuario.foto, post_buscar.id
-            FROM post_buscar 
-            JOIN usuario WHERE usuario.id=post_buscar.usuario ORDER BY post_buscar.fecha desc ";
-    $result=$connection->query($sql);
-
-    $sql2="SELECT *
-            FROM post_buscar
-            JOIN foto_post_buscado WHERE post_buscar.id=foto_post_buscado.post ORDER BY post_buscar.fecha desc";
-    $result2=$connection->query($sql2);
+    $respuestaApi= getListPost();
+    $result=$respuestaApi[0];
+    $result2=$respuestaApi[1];
     
 ?>
-
-
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="es">
@@ -156,7 +140,7 @@
                         echo $postBack;
                     }
                 }
-                $connection->close();
+            
                 ?>
 
             </div>
