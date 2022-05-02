@@ -93,17 +93,43 @@ if (isset($_POST['publicar'])){
                     <select required name="raza" id="selectRazas" >
                     <option disabled selected>Selecciona una opción</option>
                     <option>Indefinido</option>
-                    <?php
-                        $razaListJson = '{"Indefinido":"perro","Terrier":0,"Husky":0,"Pitbull":0,"Stafford":4,"Beagle":5,"Doberman":0,"Labrador":0,"San Bernardo":0,"Caniche":0,"Yorkshire":0,"Salchicha":0,"Shiba":0,"Galgo":0,"Viszla":0,"Sphynx":1,"Persa":1, "Siamés":1}';
-                        
-                        $razaList = json_decode($razaListJson);
-                        
-
-                        foreach($razaList as $key => $value) {
-                        echo "<option>" . $key . "</option>" ;
-                        }
-                        
-                        ?>
+                    <option disabled selected>Selecciona una opción</option>
+                            <option>Indefinido</option>
+                            <option>Terrier</option>
+                            <option>Husky</option>
+                            <option>Pit bull</option>
+                            <option>Stafford</option>
+                            <option>Beagle</option>
+                            <option>Doberman</option>
+                            <option>Labrador</option>
+                            <option>San bernardo</option>
+                            <option>Caniche</option>
+                            <option>Yorkshire</option>
+                            <option>Salchicha</option>
+                            <option>Shiba</option>
+                            <option>Galgo</option>
+                            <option>Vizsla</option>
+                            <option>Egipcio</option>
+                            <option>Persa</option>
+                            <option>Siamés</option>
+                            <option>Siberiano</option>
+                            <option>Bengala</option>
+                            <option>Periquito</option>
+                            <option>Canario</option>
+                            <option>Mirlo</option>
+                            <option>Agaporni</option>
+                            <option>Ninfa</option>
+                            <option>Cacatua</option>
+                            <option>Loro</option>
+                            <option>Mini Lop</option>
+                            <option>Holandés</option>
+                            <option>Arlequín</option>
+                            <option>Gigante</option>
+                            <option>Lagarto</option>
+                            <option>Serpiente</option>
+                            <option>Iguana</option>
+                            <option>Camaleón</option>
+                            <option>Anolis</option>
                     </select>
                 </div>
                 <div class="c3f1" style= "display:flex;width:33%" >
@@ -126,7 +152,7 @@ if (isset($_POST['publicar'])){
             </div>
             <div class="f2">
                 <div class="c1">
-                    <p>Lugar de encuentro</p>
+                    <p>Lugar de pérdida</p>
                     <input required minlength="8" autocomplete="new-text" class ="inp" type="text" name="direccion" placeholder="Introduzca aquí ">
                 </div>
                 <div class="c2">

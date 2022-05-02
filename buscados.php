@@ -103,6 +103,7 @@
                             <option>Serpiente</option>
                             <option>Iguana</option>
                             <option>Camaleón</option>
+                            <option>Tortuga</option>
                             <option>Anolis</option>
                         </select><br>
                     </div>
@@ -130,7 +131,7 @@
                         $postBack= str_replace('[FECHA]', $fechaSep, $postBack);
                         $postBack = str_replace('[HORA]', $horaSep, $postBack);
                         $postBack= str_replace('[DESCRIPCION]', $row["descripcion"], $postBack);
-                        $postBack = str_replace('[NOMBREANIMAL]', $row["nombre"], $postBack);
+                        $postBack = str_replace('[NOMBREANIMAL]', $row2["nombre"], $postBack);
                         $postBack = str_replace('[NOMBRE]', $row["nombre"], $postBack);
                         $postBack = str_replace('[APELLIDO]', $row["apellidos"], $postBack);
                         $postBack= str_replace('[FOTOPERFIL]', $row["foto"], $postBack);
