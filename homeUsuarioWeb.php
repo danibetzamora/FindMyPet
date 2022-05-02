@@ -12,7 +12,7 @@
     if(isset($_POST["range"]) && $_POST["range"]!=0){
         $distancia_flag=1;
     }
-
+    $_SESSION['urlChat'] = "post_encontrado";
     $idUsuario = $_SESSION["user"]["id"];
     $fotoUsuario= getFotoUsuario($idUsuario);
     

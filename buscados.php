@@ -7,7 +7,8 @@
     $idUsuario = $_SESSION["user"]["id"];
     $fotoUsuario= getFotoUsuario($idUsuario);
 
-    $respuestaApi= getListPost();
+$_SESSION['urlChat'] = "post_buscar";
+$respuestaApi= getListPost();
     $result=$respuestaApi[0];
     $result2=$respuestaApi[1];
     
