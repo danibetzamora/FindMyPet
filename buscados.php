@@ -12,6 +12,7 @@
         $distancia_flag=1;
     }
     $_SESSION['urlChat'] = "post_buscar";
+
     $idUsuario = $_SESSION["user"]["id"];
     $fotoUsuario= getFotoUsuario($idUsuario);
     
