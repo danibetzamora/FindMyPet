@@ -4,7 +4,8 @@
 
     $user = $_SESSION['user'];
     $idpost =  $_GET["idpost"];
-    $sql_id_usuario_post = "SELECT usuario FROM post_encontrado WHERE id = '$idpost';";
+    $tabla = $_SESSION['urlChat'];
+    $sql_id_usuario_post = "SELECT usuario FROM $tabla WHERE id = '$idpost';";
     $result = $connection->query($sql_id_usuario_post);
     while ($row = $result -> fetch_array()){
         $id_usuario = $row['usuario'];
