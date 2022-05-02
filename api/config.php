@@ -13,4 +13,6 @@ if (!$connection) {
 } 
 mysqli_select_db($connection,$BD) or die(mysqli_error($connection)); 
 
+
+
 ?>
