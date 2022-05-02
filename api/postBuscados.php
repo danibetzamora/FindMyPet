@@ -2,19 +2,40 @@
     if(!isset($_SESSION["user"])) header("Location: homeInvitado.php");
     function getListPost(){
         include('config.php');
-        $sql="SELECT post_buscar.ubicacion,  post_buscar.fecha,
-                 post_buscar.descripcion,post_buscar.nombre, usuario.nombre, usuario.apellidos,
-                 usuario.foto, post_buscar.id
+        $sql = "SELECT post_buscar.*, usuario.nombre, usuario.apellidos,
+                 usuario.foto AS UsuarioFoto, foto_post_buscado.foto AS PostFoto
             FROM post_buscar 
-            JOIN usuario WHERE usuario.id=post_buscar.usuario ORDER BY post_buscar.fecha desc ";
-        $result=$connection->query($sql);
+            JOIN usuario ON usuario.id=post_buscar.usuario 
+            JOIN foto_post_buscado WHERE post_buscar.id=foto_post_buscado.post";
+        $filters = [];
+        $param = "";
+        if(isset($_POST["animal"])) {
+            $animal = $_POST["animal"];
+            $filters[] = $animal;
+            $param.="s";
+            $sql.=" AND post_buscar.animal=? ";
+        }
+        if(isset($_POST["raza"])) {
+            $raza = $_POST["raza"];
+            $filters[] = $raza;
+            $param.="s";
+            $sql.=" AND post_buscar.raza=? ";
+        }
+        if(isset($_POST["fecha"]) && $_POST["fecha"]!="") {
+            $fecha = $_POST["fecha"];
+            $filters[] = $fecha;
+            $param.="s";
+            $sql.=" AND post_buscar.fecha > ? ORDER BY post_buscar.fecha asc";
+        }
+        else $sql.=" ORDER BY post_buscar.fecha desc";
 
-        $sql2="SELECT *
-            FROM post_buscar
-            JOIN foto_post_buscado WHERE post_buscar.id=foto_post_buscado.post ORDER BY post_buscar.fecha desc";
-        $result2=$connection->query($sql2);
-        return [$result,$result2];
-       
+        $stmt = $connection->prepare($sql);
+        if ($filters) {
+            $stmt->bind_param($param, ...$filters);
+        }
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result;
     }
     function getPost(){
 
