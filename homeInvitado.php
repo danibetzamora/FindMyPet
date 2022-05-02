@@ -14,15 +14,15 @@
 <body>
     <header>
         <div class="header-title">
-            <img src="http://localhost/FindMyPet/imagenes/homeInvitado/FindMyPet.svg" alt="Logo FindMyPet" class="header-title-logo">
+            <img src="imagenes/homeInvitado/FindMyPet.svg" alt="Logo FindMyPet" class="header-title-logo">
             <!--img src="/imagenes/homeInvitado/FindMyPet.svg" alt="Logo FindMyPet" class="header-title-logo"-->
         </div>
 
         <nav>
             <a href="#new-FindMyPet">¿Nuevo en FindMyPet?</a>
-            <img src="http://localhost/FindMyPet/imagenes/homeInvitado/Line.png" alt="Línea Separadora" class="line">
-            <a href="http://localhost/FindMyPet/registro.php">Registrarse</a>
-            <a href="http://localhost/FindMyPet/login.php" class="Login">Iniciar Sesión</a>
+            <img src="imagenes/homeInvitado/Line.png" alt="Línea Separadora" class="line">
+            <a href="registro.php">Registrarse</a>
+            <a href="login.php" class="Login">Iniciar Sesión</a>
         </nav>
     </header>
 
@@ -35,22 +35,22 @@
 
             <div class="reasons-content">
                 <div class="reason">
-                    <img src="http://localhost/FindMyPet/imagenes/homeInvitado/check.svg" alt="Check Lista" class="check">
+                    <img src="imagenes/homeInvitado/check.svg" alt="Check Lista" class="check">
                     <p>En FindMyPet encontrarás cientos de posts para encontrar a tu animal.</p>
                 </div>
 
                 <div class="reason">
-                    <img src="http://localhost/FindMyPet/imagenes/homeInvitado/check.svg" alt="Check Lista" class="check">
+                    <img src="imagenes/homeInvitado/check.svg" alt="Check Lista" class="check">
                     <p>Usa filtros que faciliten tu búsqueda. </p>
                 </div>
 
                 <div class="reason">
-                    <img src="http://localhost/FindMyPet/imagenes/homeInvitado/check.svg" alt="Check Lista" class="check">
+                    <img src="imagenes/homeInvitado/check.svg" alt="Check Lista" class="check">
                     <p>Visualiza  datos importantes como la dirección y la fecha en la que se encontró.</p>
                 </div>
 
                 <div class="reason">
-                    <img src="http://localhost/FindMyPet/imagenes/homeInvitado/check.svg" alt="Check Lista" class="check">
+                    <img src="imagenes/homeInvitado/check.svg" alt="Check Lista" class="check">
                     <p>Contacta con los usuarios a través del chat de FindMyPet.</p>
                 </div>
             </div>
@@ -58,7 +58,7 @@
 
         <div class="screenshot">
             <div class="reasons-screenshot">
-                <img src="http://localhost/FindMyPet/imagenes/homeInvitado/WebAppScreenshot.svg" alt="Captura Ejemplo FindMyPet Web">
+                <img src="imagenes/homeInvitado/WebAppScreenshot.svg" alt="Captura Ejemplo FindMyPet Web">
             </div>
         </div>
     </div>
@@ -66,11 +66,11 @@
     <div class="new-FindMyPet" id="new-FindMyPet">
         <div class="new-images">
             <div class="image1">
-                <img src="http://localhost/FindMyPet/imagenes/homeInvitado/NewFindMyPet" alt="Imagen New FIndMyPet">
+                <img src="imagenes/homeInvitado/NewFindMyPet" alt="Imagen New FIndMyPet">
             </div>
 
             <div class="image2">
-                <img src="http://localhost/FindMyPet/imagenes/homeInvitado/Cat.svg" alt="Gato Home Invitado">
+                <img src="imagenes/homeInvitado/Cat.svg" alt="Gato Home Invitado">
             </div>
         </div>
 
@@ -95,7 +95,7 @@
                 </div>
 
                 <div class="new-content-button">
-                    <a href="http://localhost/FindMyPet/registro.php" class="new-content-button-ref">Registrarme</a>
+                    <a href="registro.php" class="new-content-button-ref">Registrarme</a>
                 </div>
             </div>
         </div>
@@ -111,21 +111,21 @@
                 <ul class="direct-access-list">
                     <li class="direct-access-item">
                         <div class="direct-access-item-tex">
-                            <a href="http://localhost/FindMyPet/login.php">Iniciar Sesión</a> 
+                            <a href="login.php">Iniciar Sesión</a> 
                         </div>
 
                         <div class="direct-access-item-icon">
-                            <img src="http://localhost/FindMyPet/imagenes/homeInvitado/user.svg" alt="Icono Usuario">
+                            <img src="imagenes/homeInvitado/user.svg" alt="Icono Usuario">
                         </div>
                     </li>
 
                     <li class="direct-access-item">
                         <div class="direct-access-item-tex">
-                            <a href="http://localhost/FindMyPet/registro.php">Registrarse</a>
+                            <a href="registro.php">Registrarse</a>
                         </div>
 
                         <div class="direct-access-item-icon">
-                            <img src="http://localhost/FindMyPet/imagenes/homeInvitado/box-archive.svg" alt="Icono Registro">
+                            <img src="imagenes/homeInvitado/box-archive.svg" alt="Icono Registro">
                         </div>
                     </li>
 
@@ -135,14 +135,14 @@
                         </div>
 
                         <div class="direct-access-item-icon">
-                            <img src="http://localhost/FindMyPet/imagenes/homeInvitado/question.svg" alt="Icono Pregunta">
+                            <img src="imagenes/homeInvitado/question.svg" alt="Icono Pregunta">
                         </div>
                     </li>
                 </ul>
             </div>
 
             <div class="footer-logo">
-                <img src="http://localhost/FindMyPet/imagenes/homeInvitado/FindMyPet.svg" alt="Logo Footer">
+                <img src="imagenes/homeInvitado/FindMyPet.svg" alt="Logo Footer">
             </div>
 
             <div class="contact-us">
@@ -157,7 +157,7 @@
                 <ul class="contact-us-list">
                     <li class="contact-us-list-item">
                         <div class="contact-us-list-item-icon">
-                            <img src="http://localhost/FindMyPet/imagenes/homeInvitado/phone.svg" alt="Icono Teléfono">
+                            <img src="imagenes/homeInvitado/phone.svg" alt="Icono Teléfono">
                         </div>
 
                         <div class="contact-us-list-item-text">
@@ -167,7 +167,7 @@
 
                     <li class="contact-us-list-item">
                         <div class="contact-us-list-item-icon">
-                            <img src="http://localhost/FindMyPet/imagenes/homeInvitado/mail.svg" alt="Icono Correo">
+                            <img src="imagenes/homeInvitado/mail.svg" alt="Icono Correo">
                         </div>
 
                         <div class="contact-us-list-item-text">
@@ -181,7 +181,7 @@
         <div class="bottom-footer">
             <div class="logo-copy">
                 <div class="logo-footer">
-                    <img src="http://localhost/FindMyPet/imagenes/homeInvitado/FindMyPet-Small-Footer.svg" alt="Logo Footer Bottom">
+                    <img src="imagenes/homeInvitado/FindMyPet-Small-Footer.svg" alt="Logo Footer Bottom">
                 </div>
 
                 <div class="copyright-footer">
@@ -195,11 +195,11 @@
                 </div>
 
                 <div class="social-media-icons">
-                    <img src="http://localhost/FindMyPet/imagenes/homeInvitado/twitter.svg" alt="Twitter Logo">
-                    <img src="http://localhost/FindMyPet/imagenes/homeInvitado/facebook.svg" alt="Facebook Logo">
-                    <img src="http://localhost/FindMyPet/imagenes/homeInvitado/linkedin.svg" alt="Linkedin Logo">
-                    <img src="http://localhost/FindMyPet/imagenes/homeInvitado/instagram.svg" alt="Instagram Logo">
-                    <img src="http://localhost/FindMyPet/imagenes/homeInvitado/pinterest.svg" alt="Pinterest Logo">
+                    <img src="imagenes/homeInvitado/twitter.svg" alt="Twitter Logo">
+                    <img src="imagenes/homeInvitado/facebook.svg" alt="Facebook Logo">
+                    <img src="imagenes/homeInvitado/linkedin.svg" alt="Linkedin Logo">
+                    <img src="imagenes/homeInvitado/instagram.svg" alt="Instagram Logo">
+                    <img src="imagenes/homeInvitado/pinterest.svg" alt="Pinterest Logo">
                 </div>
             </div>
         </div>
