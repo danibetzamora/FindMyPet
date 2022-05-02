@@ -102,7 +102,7 @@
             ?>
                 <div class="caja-enviar-mensaje">
                     <form method="post" >
-                        <input type="text" name="mensaje", placeholder="Escribe el mensaje..." class="input-text"></textarea>
+                        <input autocomplete="off"  type="text" name="mensaje", placeholder="Escribe el mensaje..." class="input-text"></textarea>
                         <input type="submit", name="enviar", value="Enviar" class="button-send">
                     </form>
                 </div>

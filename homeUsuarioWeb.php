@@ -139,7 +139,7 @@
                         array_multisort($columna_distancia, SORT_ASC, $table);
                     }
                     foreach ($table as &$row) {
-                        if(isset($distancia_flag) && $row["distancia"] > $_POST['range']+2) continue;
+                        //if(isset($distancia_flag) && $row["distancia"] > $_POST['range']+2) continue;
                         $separarFecha= explode(" ",$row["fecha"]);
                         $fechaSep = $separarFecha[0];
                         $horaSep = $separarFecha[1];

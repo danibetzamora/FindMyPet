@@ -8,6 +8,10 @@ $sql = "INSERT INTO denuncia(id,date_upload,id_post,id_usuario,tipo_post) VALUES
 $result=$connection->query($sql);
 
 $connection->close();
-if ($tipoPost == 0)header("Location: homeUsuarioWeb.php");
-header("Location: buscados.php");
+if ($tipoPost == 0){
+header("Location: homeUsuarioWeb.php");
+}else {
+    header("Location: buscados.php");
+}
+
 ?> 
