@@ -61,8 +61,9 @@ if (isset($_POST['publicar'])) {
                 </div>
         </div>
     </header>
-    <p>Introduzca los datos del animal que ha encontrado</p>
-    <form  enctype="multipart/form-data" method ="POST" action="" name ="publicar">
+
+    <p class="mensajeDatosEncontrados">Introduzca los datos del animal que ha encontrado</p>
+    <form  class= "formEncontrados" enctype="multipart/form-data" method ="POST" action="" name ="publicar">
     <div class="contentEncontrado">
         <div class="datos">
             <div class="f1">

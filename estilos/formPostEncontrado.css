@@ -1,6 +1,6 @@
 body{
     
-    height: 100%;
+    height: 55rem;
     width: 100%;
     margin: 0%;
     padding: 0%;
@@ -8,7 +8,14 @@ body{
     color: #2D2B40
     
 }
-
+header{
+    height: 10%;
+    margin-top: 1%;
+    margin: 1em;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Poppins', sans-serif;
+}
 
 body p{
     margin-left: 5%;
@@ -18,21 +25,31 @@ body p{
 
 }
 
+.mensajeDatosEncontrados{
+    height: 5%;
+}
+
 .contentEncontrado{
     height: 120%;
     width: 90%;
     margin: auto;
 }
 
+.formEncontrados{
+    height: 85%;
+}
+
 
 
 .datos{
+    height:70%;
     border: 1px solid rgb(206, 206, 206);
     border-radius: 6px;
     overflow: auto;
 }
 
 .datos p{
+    margin-top: 20%;
     font-size: 1rem;
     margin-left: 0;
     font-weight: 400;
@@ -63,14 +80,14 @@ body p{
     color:grey;
 }
 .f1{
-    height: 5rem;
+    height: 10rem;
     margin: auto;
     display: flex;
 
     justify-content: center;
 }
 .f2{
-    height: 5rem;
+    height: 10rem;
     
     display: flex;
 }
@@ -110,6 +127,10 @@ body p{
     margin-left: 0rem;
     margin-top: 0.5rem;
 
+}
+
+.fechas .inp{
+    height: 2.05rem;
 }
 
 .day{

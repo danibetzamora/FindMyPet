@@ -59,8 +59,8 @@ if (isset($_POST['publicar'])){
                 </div>
         </div>
     </header>
-    <p>Introduzca los datos del animal que ha perdido</p>
-    <form  enctype="multipart/form-data" method ="POST" action="" name ="publicar">
+    <p class="mensajePostBuscado">Introduzca los datos del animal que ha perdido</p>
+    <form  class= "formBuscado" enctype="multipart/form-data" method ="POST" action="" name ="publicar">
     <div class="contentEncontrado">
         <div class="datos">
             <div class="f1">
@@ -134,7 +134,7 @@ if (isset($_POST['publicar'])){
                 </div>
                 <div class="c3f1" style= "display:flex;width:33%" >
                     <div   >
-                    <p>Sexo</p>
+                    <p class="sexo" >Sexo</p>
                     <select required name="sexo" >
                         <option disabled selected>Sexo</option>
                         <option>Indefinido</option>
@@ -144,7 +144,7 @@ if (isset($_POST['publicar'])){
                     </select>
                     </div>
                     <div style= "width:67%">
-                    <p>Nombre</p>
+                    <p class="nombre" >Nombre</p>
                     <input required minlength="3" autocomplete="new-text" class ="inp" type="new-message-input"  name="nombre"placeholder="Introduzca el nombre del animal ">
                     </div>
                 </div>
