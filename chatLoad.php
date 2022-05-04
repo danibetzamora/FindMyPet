@@ -1,7 +1,7 @@
 <?php
     include_once "api/config.php";
     session_start();
-    if (isset($_SESSION['chat_id'])){
+    if (isset($_SESSION['chat_id'], $_SESSION['user'])){
         $user = $_SESSION['user'];
 
         /*$sql = "SELECT * FROM `mensaje` JOIN chat ON chat.usuario_uno ='$user[0]' and
