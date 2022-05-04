@@ -5,10 +5,14 @@ include('config.php');
 session_start();
 if(!isset($_SESSION["user"])) header("Location: homeInvitado.php");
 $idUsuario = $_SESSION["user"]["id"];
-$sql = "SELECT foto, nombre  FROM usuario WHERE id = '$idUsuario' ";
+$sql = "SELECT foto, nombre, ubicacion, email , apellidos, fecha_nacimiento  FROM usuario WHERE id = '$idUsuario' ";
 $result=$connection->query($sql);
 $row = $result->fetch_assoc();
 $fotoUsuario = $row["foto"];
+$Umail=$row["email"];
+$Ubicacion=$row["ubicacion"];
+$Uapellidos=$row["apellidos"];
+$Unacimiento=$row["fecha_nacimiento"];
 
 
 
@@ -123,32 +127,37 @@ if (isset($_POST['modificar'])) {
             </div>
             <div class="f2" >
                 <div class="nombre">
-                    <p>Nombre</p>
-                    <input  autocomplete="new-text" class="inp" type="text" name="fnombre" >
+                    <p style= width:20% >Nombre</p>
+                    <?php echo "<input  style=width:80% autocomplete=\"new-text\" class=\"inp\" type=\"text\" name=\"fnombre\" placeholder=\"". $nombreUsuario. "\">"?>
+                     
                 </div>
                 <div class="direccion">
-                    <p>Dirección</p>
-                    <input  autocomplete="new-text" class="inp" type="text" name="fdir" >
+                    <p style= width:20%>Dirección</p>
+                    
+                    <?php echo "<input style= width:80% autocomplete=\"new-text\" class=\"inp\" type=\"text\" name=\"fdir\" placeholder=\"". $Ubicacion. "\">"?>
                 </div>
             </div>
             <div class="f3">
                 <div class="apellidos">
-                    <p>Apellidos</p>
-                    <input  autocomplete="new-text" class="inp" type="text" name="fape" >
+                    <p style= width:20%>Apellidos</p>
+                    
+                    <?php echo "<input  style= width:80% autocomplete=\"new-text\" class=\"inp\" type=\"text\" name=\"fape\" placeholder=\"". $Uapellidos. "\">"?>
                 </div>
                 <div class="fecha">
-                    <p>Fecha</p>
-                    <input  class="inp" name ="ffecha" type="date">
+                    <p style= width:20%>Fecha</p>
+                    
+                    <?php echo "<input  style= width:80% autocomplete=\"new-text\" class=\"inp\" type=\"text\" name=\"ffecha\" placeholder=\"". $Unacimiento. "\">"?>
                 </div>
             </div>
             <div class="f4">
             <div class="email">
-                    <p>Correo Electrónico</p>
-                    <input  autocomplete="new-text" class="inp" type="text" name="fcorreo" >
+                    <p style= width:20%>Correo Electrónico</p>
+                    
+                    <?php echo "<input style= width:80% autocomplete=\"new-text\" class=\"inp\" type=\"text\" name=\"fcorreo\" placeholder=\"". $Umail. "\">"?>
                 </div>
                 <div class="contraseña">
-                    <p>Contraseña</p>
-                    <input  autocomplete="new-text" class="inp" type="text" name="fcon" >
+                    <p style= width:20%>Contraseña</p>
+                    <input  style= width:80% autocomplete="new-text" class="inp" type="text" name="fcon" placeholder="**********" >
                 </div>
             </div>
             <div class="f5"></div>
