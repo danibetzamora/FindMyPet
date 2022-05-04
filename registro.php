@@ -8,7 +8,7 @@
 </script>
 <?php
 
-include('config.php');
+include('api/config.php');
 if (isset($_POST['Registrarme'])) {
     
 $nombre = $_POST['fnombre'];

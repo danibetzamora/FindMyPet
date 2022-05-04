@@ -1,6 +1,6 @@
 <?php
 
-include('../config.php');
+include('../api/config.php');
 session_start();
 if(!isset($_SESSION["user"])) header("Location: homeInvitado.php");
 $idUsuario = $_SESSION["user"]["id"];

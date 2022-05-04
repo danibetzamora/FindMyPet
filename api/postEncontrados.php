@@ -1,5 +1,6 @@
 <?php
     if(!isset($_SESSION["user"])) header("Location: homeInvitado.php");
+
     function getListPost(){
         include('config.php');
         $sql = "SELECT post_encontrado.*, usuario.nombre, usuario.apellidos,
@@ -54,6 +55,21 @@
             $query = $connection->query("INSERT INTO foto_post_encontrado VALUES (null ,$idPost,'$pathPhoto') ");
             
         } 
+        return $r;
     }
+    function updatePost($idPost){
+
+    }
+    function deletePost($idPost){
+        $sql1 = "DELETE  FROM post_encontrado WHERE id = $idPost ";
+        $result=$connection->query($sql1);
+        $sql2 = "DELETE  FROM foto_post_encontrado WHERE post = $idPost ";
+        $result2=$connection->query($sql2);
+        $sql3 = "DELETE  FROM denuncia WHERE id_post = $idPost ";
+        $result3=$connection->query($sql3);
+        $connection->close();
+        return $result;
+    }
+
 
 ?>
