@@ -51,7 +51,7 @@
         </header>
         <div id="container">
             <div id="aside">
-                <form id="filter" action="homeUsuarioWeb.php" method="POST">
+                <form id="filter" action="buscados.php" method="POST">
                     <div class="filtertext">
                         <label>Distancia</label><br>
                         <input  style ="font-size:10px;"id="slidebar" type="range" name="range" min="0" max="100" value="0" class="slider"><br>
