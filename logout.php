@@ -1,5 +1,5 @@
 <?php
-include('config.php');
+include('api/config.php');
 $_SESSION = array();
 session_start();
 unset($_SESSION['user']);

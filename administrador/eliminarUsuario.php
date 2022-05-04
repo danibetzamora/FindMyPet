@@ -1,5 +1,5 @@
 <?php 
-include('../config.php');
+include('../api/config.php');
 $idPost =  $_GET["id"];
 
 $sql1 = "DELETE  FROM usuario WHERE id = '$idPost' ";

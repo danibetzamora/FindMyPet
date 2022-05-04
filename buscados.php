@@ -4,7 +4,7 @@
     include("api/postBuscados.php");
     include("api/usuarios.php");
 
-    include("config.php");
+    include("api/config.php");
     include("distancias.php");
     $result = getListPost();
 

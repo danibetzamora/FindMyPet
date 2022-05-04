@@ -1,5 +1,5 @@
 <?php 
-include('../config.php');
+include('../api/config.php');
 $idPost = intval($_GET["id"]);
 $sql1 = "DELETE  FROM post_buscar WHERE id = '$idPost' ";
 $result=$connection->query($sql1);

@@ -1,5 +1,5 @@
 <?php
-    include_once "config.php";
+    include_once "api/config.php";
     global $error;
     session_start();
     $view_chat = false;
