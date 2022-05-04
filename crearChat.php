@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("config.php");
+    include("api/config.php");
 
     $user = $_SESSION['user'];
     $idpost =  $_GET["idpost"];

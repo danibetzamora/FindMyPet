@@ -1,5 +1,5 @@
 <?php 
-include('config.php');
+include('api/config.php');
 $idPost =  $_GET["idpost"];
 $idUsario =  $_GET["idusuario"];
 $tipoPost =  $_GET["tipopost"];

@@ -1,5 +1,5 @@
 <?php
-include ('config.php');
+include ('api/config.php');
 global $error;
 
 $error = false;

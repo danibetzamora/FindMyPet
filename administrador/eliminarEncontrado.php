@@ -1,5 +1,5 @@
 <?php 
-include('../config.php');
+include('../api/config.php');
 $idPost =  $_GET["id"];
 $idPost = intval($idPost);
 $sql1 = "DELETE  FROM post_encontrado WHERE id = $idPost ";
