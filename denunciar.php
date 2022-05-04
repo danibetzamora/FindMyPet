@@ -2,7 +2,7 @@
     session_start();
 
     if(isset($_SESSION['user'], $_GET['idpost'], $_GET['idusuario'], $_GET['tipopost'])){
-        include('config.php');
+        include('api/config.php');
         $idPost =  $_GET["idpost"];
         $idUsario =  $_GET["idusuario"];
         $tipoPost =  $_GET["tipopost"];
