@@ -47,12 +47,8 @@ if (isset($_POST['Registrarme'])) {
     <div id ="main-container" >
         <div id ="principal" >
             <div id = "titulo">
-                <div id="huella1" ><img  style = "width:50%" src ="imagenes/huella.png"></div>
-                <div id="huella2" ><img  style = "width:50%" src ="imagenes/huella.png"></div>
-                <div id="huella3" ><img  style = "width:50%" src ="imagenes/huella.png"></div>
-                <div id="huella4" ><img  style = "width:50%" src ="imagenes/huella.png"></div>
                 <div  id="contenedor-foto-titulo"><img src="imagenes/FindMyPet.svg"></div>
-                <div id = "contenedor-texto-titulo"><h3 >Ayuda a nuestros mas fieles compañeros a estar de vuelta con sus adorados dueños</h3></div>
+                <div id = "contenedor-texto-titulo"><h3 >Ayuda a nuestros más fieles compañeros a estar de vuelta con sus adorados dueños</h3></div>
             </div>
             <div id="contenedor-foto"><img  id ="foto-animales" src="imagenes/perrosPortada.svg"></div>
         </div>
@@ -76,15 +72,14 @@ if (isset($_POST['Registrarme'])) {
                     <input class="campo" pattern ="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required minlength="8"  required autocomplete="new-password" type="password" id="fcon" name="fcon" placeholder="Incluya una mayuscula y un número"><br>
                     <label for="fconn">Contraseña:</label><br>
                     <input class="campo" pattern ="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required minlength="8"  required autocomplete="new-password"  type="password" id="fconn" name="fconn" placeholder="Repita la contraseña"><br>
-                    <div style="text-align: center;">
+                    <div class="form-buttons" style="text-align: center;">
                         <button id="boton-registro" name="Registrarme" type="submit" value="Registrarme">Registrarme</button><br>
                         <a href="login.php"><button id="boton-login"  name="Logear" type="button" value="Iniciar sesión">Iniciar sesión</button></a>
                     </div>
                   </form> 
             </div>
         </div>
+
+        <div id="contenedor-foto-footer"><img  id ="foto-animales" src="imagenes/perrosPortada.svg"></div>
     </div>
-    
-
 </body>
-
