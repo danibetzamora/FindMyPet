@@ -1,17 +1,16 @@
 <?php
-include ('api/config.php');
-global $error;
 
+include 'api/usuarios.php';
+global $error;
 $error = false;
 
 if(isset($_POST['Login'])){
     $email = $_POST['fcorreo'];
     $password = SHA1($_POST['fpass']);
 
-    $query = "SELECT * FROM `usuario` WHERE `email` = '$email' AND `contrasena` = '$password';";
-    $con = mysqli_query ($connection, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($connection));
-    if (mysqli_num_rows($con) > 0){
-        $user = mysqli_fetch_array($con);
+    $result = verifyPassword($email, $password);
+    if (mysqli_num_rows($result) > 0){
+        $user = mysqli_fetch_array($result);
         session_start();
         $_SESSION["user"] = $user;
         if ($user["rol"]==1)header('Location:homeUsuarioWeb.php');

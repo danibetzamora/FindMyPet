@@ -8,38 +8,31 @@
 </script>
 <?php
 
-include('api/config.php');
+include 'api/usuarios.php';
 if (isset($_POST['Registrarme'])) {
-    
-$nombre = $_POST['fnombre'];
-$apellidos = $_POST['fape'];
-$email = $_POST['fcorreo'];
-$dir = $_POST['fdir'];
-$fecha = $_POST['ffecha'];
-$con = $_POST['fcon'];
-$con2 = $_POST['fconn'];
-$con_hash = SHA1($con);
-$fecha_act= date('Y-m-d H:i:s'); 
-$q="SELECT * FROM usuario WHERE email='$email'";
-if ($con != $con2){
-    echo '<div id ="bc" style ="width:30vw;height:18vh;background-color:#FFFFFF;border-radius:6px;border:solid 1.5px #E5E5E5;text-align:center;display:flex;flex-direction:column;justify-content:center;position:fixed;bottom:5vh;right:10vw;"><p style="font-family:Inter;color:#2D2B40;font-size: 1.2vw" class="error">Las contraseñas no coinciden</p><br><div><button style="width:13vw;padding:0.3vw;font-family:Inter;color:#2D2B40;font-size: 0.8vw;background-color:#FCDA68;#FCDA68;border-radius:12px;border:none;color:#ffffff" onclick= "borrarBotonCon()" >Intentar de nuevo</button></div></div>';
-}else {
-    $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection)); 
-if (mysqli_num_rows($r)> 0) {
-    echo '<div id ="ba" style ="width:30vw;height:18vh;background-color:#FFFFFF;border-radius:6px;border:solid 1.5px #E5E5E5;text-align:center;display:flex;flex-direction:column;justify-content:center;position:fixed;bottom:5vh;right:10vw;"><p style="font-family:Inter;color:#2D2B40;font-size: 1.2vw" class="error">Ese correo ya esta siendo utilizado </p><br><div><button style="width:13vw;padding:0.3vw;font-family:Inter;color:#2D2B40;font-size: 0.8vw;background-color:#FCDA68;#FCDA68;border-radius:12px;border:none;color:#ffffff" onclick= "borrarBoton()" >Intentar de nuevo</button></div></div>';
- }
- if (mysqli_num_rows($r)== 0) {
-     $q="INSERT INTO usuario(id,email,fecha_nacimiento,fecha_registro,contrasena,ubicacion,foto,activo,rol,nombre,apellidos) VALUES (null,'$email','$fecha','$fecha_act','$con_hash','$dir','imagenes/fotoPerfilGenerica.png',0,1,'$nombre','$apellidos')";  
-     $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection)); 
 
-     if ($r) {
-        header("Location:login.php");
-     } else {
-         //echo '<p class="error">Something went wrong!</p>';
-     }
- }
-}
+    $nombre = $_POST['fnombre'];
+    $apellidos = $_POST['fape'];
+    $email = $_POST['fcorreo'];
+    $dir = $_POST['fdir'];
+    $fecha = $_POST['ffecha'];
+    $con = $_POST['fcon'];
+    $con2 = $_POST['fconn'];
+    $con_hash = SHA1($con);
+    $fecha_act = date('Y-m-d H:i:s');
+    $q = "SELECT * FROM usuario WHERE email='$email'";
 
+    if ($con != $con2) {
+        echo '<div id ="bc" style ="width:30vw;height:18vh;background-color:#FFFFFF;border-radius:6px;border:solid 1.5px #E5E5E5;text-align:center;display:flex;flex-direction:column;justify-content:center;position:fixed;bottom:5vh;right:10vw;"><p style="font-family:Inter;color:#2D2B40;font-size: 1.2vw" class="error">Las contraseñas no coinciden</p><br><div><button style="width:13vw;padding:0.3vw;font-family:Inter;color:#2D2B40;font-size: 0.8vw;background-color:#FCDA68;#FCDA68;border-radius:12px;border:none;color:#ffffff" onclick= "borrarBotonCon()" >Intentar de nuevo</button></div></div>';
+    } else if (!verifyEmail($email)) {
+        echo '<div id ="ba" style ="width:30vw;height:18vh;background-color:#FFFFFF;border-radius:6px;border:solid 1.5px #E5E5E5;text-align:center;display:flex;flex-direction:column;justify-content:center;position:fixed;bottom:5vh;right:10vw;"><p style="font-family:Inter;color:#2D2B40;font-size: 1.2vw" class="error">Ese correo ya esta siendo utilizado </p><br><div><button style="width:13vw;padding:0.3vw;font-family:Inter;color:#2D2B40;font-size: 0.8vw;background-color:#FCDA68;#FCDA68;border-radius:12px;border:none;color:#ffffff" onclick= "borrarBoton()" >Intentar de nuevo</button></div></div>';
+    } else {
+        $result = addUsuario($nombre, $apellidos, $email, $dir, $fecha, $con_hash, $fecha_act);
+        if ($result) header("Location:login.php");
+        else {
+            //echo '<p class="error">Something went wrong!</p>';
+        }
+    }
 }
 
 ?>
