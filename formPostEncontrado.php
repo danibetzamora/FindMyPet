@@ -3,7 +3,6 @@
 session_start();
 if(!isset($_SESSION["user"])) header("Location: homeInvitado.php");
 
-include('api/config.php');
 include("api/usuario.php");
 include("api/postEncontrados.php");
 

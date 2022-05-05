@@ -23,6 +23,7 @@
         while ($row = $ejecutar -> fetch_array()){
             $id_chat = $row['id'];
         }
+
         $date = date('Y-m-d h:i:s', time());
         $sql = "INSERT INTO mensaje (date, texto, emisor, chat) VALUES (?, ?,
                                                         ?, ?)";

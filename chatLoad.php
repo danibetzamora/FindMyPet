@@ -1,6 +1,5 @@
 <?php
     session_start();
-    include_once "api/config.php";
     include_once "api/chat.php";
     if (isset($_SESSION['chat_id'], $_SESSION['user'])){
 
