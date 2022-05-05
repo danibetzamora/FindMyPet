@@ -60,3 +60,32 @@
 
         return $result;
     }
+
+function getUsuarioPostId($idpost, $tabla){
+    include  ('config.php');
+
+    $sql_id_usuario_post = "SELECT usuario FROM $tabla WHERE id = ?;";
+    $stmt=$connection->prepare($sql_id_usuario_post);
+    $stmt->bind_param("i", $idpost);
+    $stmt->execute();
+    $result=$stmt->get_result();
+
+    while ($row = $result -> fetch_assoc()){
+        $id_usuario = $row['usuario'];
+    }
+
+    return $id_usuario;
+}
+
+function createChat($user, $id_usuario){
+    include ('config.php');
+
+    $date = date('Y-m-d h:i:s', time());
+    $sql = "INSERT INTO chat (fecha, usuario_uno, usuario_dos) VALUES (?, ?, ?)";
+    $stmt=$connection->prepare($sql);
+    $stmt->bind_param("sii", $date, $user[0], $id_usuario);
+    $stmt->execute();
+    $result=$stmt->get_result();
+
+    return $result;
+}
