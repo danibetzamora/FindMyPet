@@ -1,11 +1,14 @@
 <?php
     function getFotoUsuario ( $idUsuario ){
         include('config.php');
-        $sql= "SELECT foto  FROM usuario WHERE id = '$idUsuario' ";
-        $result=$connection->query($sql);
-        $row = $result->fetch_assoc();
-        $row = $row["foto"];
-        return $row;
+        $sql= "SELECT foto  FROM usuario WHERE id = ? ";
+        $stmt = $connection->prepare($sql);
+        $stmt->bind_param("s", $idUsuario);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_assoc();
+        $result = $result["foto"];
+        return $result;
     }
 
     function addUsuario($nombre, $apellidos, $email, $dir, $fecha, $con_hash, $fecha_act){
@@ -28,7 +31,6 @@
         $stmt->execute();
         $result = $stmt->get_result();
         return (mysqli_num_rows($result)==0);
-
     }
 
     function verifyPassword($email, $password){

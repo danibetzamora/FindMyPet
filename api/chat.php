@@ -5,13 +5,14 @@
         include ('config.php');
         $user = $_SESSION['user'];
 
-        //$query = "SELECT * FROM `chat` WHERE `usuario_uno` = '$user[0]';";
-        $query_users_chat = "SELECT * FROM usuario JOIN chat ON usuario_uno = '$user[0]' OR usuario_dos = '$user[0]'
-                            WHERE (usuario.id = chat.usuario_dos OR usuario.id = chat.usuario_uno) AND usuario.id != '$user[0]';";
-
-        $users = $connection->query($query_users_chat);
-
-        return $users;
+        $sql = "SELECT * FROM usuario JOIN chat ON usuario_uno = ? OR usuario_dos = ?
+                            WHERE (usuario.id = chat.usuario_dos OR usuario.id = chat.usuario_uno) 
+                            AND usuario.id != ?";
+        $stmt = $connection->prepare($sql);
+        $stmt->bind_param("iii", $user['id'], $user['id'], $user['id']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result;
     }
 
     function sendMessage($msg, $sql_chat){
@@ -23,12 +24,14 @@
             $id_chat = $row['id'];
         }
         $date = date('Y-m-d h:i:s', time());
-        $sql = "INSERT INTO mensaje (date, texto, emisor, chat) VALUES ('$date', '$msg',
-                                                        '$user[0]', '$_GET[id]')";
+        $sql = "INSERT INTO mensaje (date, texto, emisor, chat) VALUES (?, ?,
+                                                        ?, ?)";
+        $stmt=$connection->prepare($sql);
+        $stmt->bind_param("ssii", $date, $msg, $user['id'], $_GET['id']);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-        $ejecutar = $connection->query($sql);
-
-        return $ejecutar;
+        return $result;
 
     }
 
@@ -43,12 +46,17 @@
 
     function getMessages(){
         include ('config.php');
-
         $user = $_SESSION['user'];
 
-        $sql = "SELECT * FROM mensaje JOIN chat ON (chat.usuario_uno = ".$user[0]." OR chat.usuario_dos = ".$user[0].") WHERE mensaje.chat = chat.id ORDER BY mensaje.date ASC;";
+        $sql = "SELECT * FROM mensaje 
+                JOIN chat ON (chat.usuario_uno = ?
+                OR chat.usuario_dos = ?) 
+                WHERE mensaje.chat = chat.id 
+                ORDER BY mensaje.date ASC";
+        $stmt=$connection->prepare($sql);
+        $stmt->bind_param("ii", $user['id'], $user['id']);
+        $stmt->execute();
+        $result=$stmt->get_result();
 
-        $ejecutar = $connection -> query($sql);
-
-        return $ejecutar;
+        return $result;
     }

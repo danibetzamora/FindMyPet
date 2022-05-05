@@ -1,6 +1,6 @@
 <?php
 
-include 'api/usuarios.php';
+include 'api/usuario.php';
 global $error;
 $error = false;
 

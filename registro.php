@@ -8,7 +8,7 @@
 </script>
 <?php
 
-include 'api/usuarios.php';
+include 'api/usuario.php';
 if (isset($_POST['Registrarme'])) {
 
     $nombre = $_POST['fnombre'];
@@ -20,7 +20,6 @@ if (isset($_POST['Registrarme'])) {
     $con2 = $_POST['fconn'];
     $con_hash = SHA1($con);
     $fecha_act = date('Y-m-d H:i:s');
-    $q = "SELECT * FROM usuario WHERE email='$email'";
 
     if ($con != $con2) {
         echo '<div id ="bc" style ="width:30vw;height:18vh;background-color:#FFFFFF;border-radius:6px;border:solid 1.5px #E5E5E5;text-align:center;display:flex;flex-direction:column;justify-content:center;position:fixed;bottom:5vh;right:10vw;"><p style="font-family:Inter;color:#2D2B40;font-size: 1.2vw" class="error">Las contraseñas no coinciden</p><br><div><button style="width:13vw;padding:0.3vw;font-family:Inter;color:#2D2B40;font-size: 0.8vw;background-color:#FCDA68;#FCDA68;border-radius:12px;border:none;color:#ffffff" onclick= "borrarBotonCon()" >Intentar de nuevo</button></div></div>';

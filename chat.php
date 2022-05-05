@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include_once "api/config.php";
+    include_once "api/usuario.php";
     include_once "api/chat.php";
     global $error;
     $view_chat = false;
@@ -9,10 +9,7 @@
     $error = false;
     $user = $_SESSION["user"];
 
-    $sql2 = "SELECT foto  FROM usuario WHERE id = '$user[0]' ";
-    $result2=$connection->query($sql2);
-    $row2 = $result2->fetch_assoc();
-    $row2 = $row2["foto"];
+    $fotoUsuario = getFotoUsuario($user['id']);
 
     if(isset($_GET['id'])){
         $view_chat = true;
@@ -58,7 +55,7 @@
         </nav>
 
         <div class="user-image">
-            <img onclick="menu();" src=<?php echo $row2 ?> alt="User profile image">
+            <img onclick="menu();" src=<?php echo $fotoUsuario ?> alt="User profile image">
             <div id = "menud" class="menu">
                 <a href="perfilUsuario.php">Perfil</a>
                 <a href="">Mis Posts</a>
