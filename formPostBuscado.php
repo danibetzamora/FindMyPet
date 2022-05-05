@@ -132,22 +132,24 @@ if (isset($_POST['publicar'])){
                             <option>Anolis</option>
                     </select>
                 </div>
-                <div class="c3f1" style= "display:flex;width:33%" >
-                    <div   >
-                    <p class="sexo" >Sexo</p>
-                    <select required name="sexo" >
-                        <option disabled selected>Sexo</option>
-                        <option>Indefinido</option>
-                        <option>Macho</option>
-                        <option >Hembra</option>
+                <div class="c3" style= "display:flex;width:33%" >
+                    <div class="c3f1" style= "width:25%">
+                        <p class="sexo" >Sexo</p>
+                        <select required name="sexo" >
+                            <option disabled selected>Sexo</option>
+                            <option>Indefinido</option>
+                            <option>Macho</option>
+                            <option >Hembra</option>
                         
-                    </select>
+                        </select>
                     </div>
-                    <div style= "width:67%">
+                    <div class="c3f2" style= "width:75%">
                     <p class="nombre" >Nombre</p>
                     <input required minlength="3" autocomplete="new-text" class ="inp" type="new-message-input"  name="nombre"placeholder="Introduzca el nombre del animal ">
                     </div>
+                    
                 </div>
+                
 
             </div>
             <div class="f2">

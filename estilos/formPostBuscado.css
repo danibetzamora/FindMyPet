@@ -110,10 +110,14 @@ header{
 }
 
 .c3f1{
-    
+    margin-top: 21%;
     width: 33%;
     
     
+}
+
+.c3f2{
+    margin-top: 21%;
 }
 .c3f1c1{
     width: 33%;
@@ -178,11 +182,11 @@ header{
 
 
 .sexo{
-    margin-top: 5rem;
+    margin-top: 0 !important;
 }
 
 .nombre{
-    margin-top: 5rem;
+    margin-top: 0 !important;
 }
 .day{
     width: 26%;
