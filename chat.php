@@ -1,30 +1,19 @@
 <?php
-    include_once "api/config.php";
-    global $error;
     session_start();
+    include_once "api/usuario.php";
+    include_once "api/chat.php";
+    global $error;
     $view_chat = false;
     if(!isset($_SESSION["user"])) header("Location: homeInvitado.php");
 
     $error = false;
     $user = $_SESSION["user"];
 
-    $query = "SELECT * FROM `chat` WHERE `usuario_uno` = '$user[0]';";
-    $query_users_chat = "SELECT * FROM usuario JOIN chat ON usuario_uno = '$user[0]' OR usuario_dos = '$user[0]'
-                            WHERE (usuario.id = chat.usuario_dos OR usuario.id = chat.usuario_uno) AND usuario.id != '$user[0]';";
-    //$query_users_chat = "SELECT * FROM `usuario` as u JOIN `chat` ON chat.usuario_dos = '$user[0]' OR chat.usuario_uno = '$user[0]' WHERE u.id = chat.id;";
-    //$query_users_chat = "SELECT * FROM `usuario` JOIN `chat` ON chat.usuario_dos = usuario.id AND chat.usuario_uno = '$user[0]';";
-
-    //$chats = $connection->query($query);
-    $users = $connection->query($query_users_chat);
-    $sql2 = "SELECT foto  FROM usuario WHERE id = '$user[0]' ";
-    $result2=$connection->query($sql2);
-    $row2 = $result2->fetch_assoc();
-    $row2 = $row2["foto"];
+    $fotoUsuario = getFotoUsuario($user['id']);
 
     if(isset($_GET['id'])){
         $view_chat = true;
-        $_SESSION['chat_id'] = $_GET['id'];
-        $sql_get_chat = "SELECT id FROM chat WHERE usuario_uno = '$user[0]' AND usuario_dos = ".$_GET['id'];
+        $sql_get_chat = getChat($_GET['id']);
     }
 ?>
 
@@ -66,7 +55,7 @@
         </nav>
 
         <div class="user-image">
-            <img onclick="menu();" src=<?php echo $row2 ?> alt="User profile image">
+            <img onclick="menu();" src=<?php echo $fotoUsuario ?> alt="User profile image">
             <div id = "menud" class="menu">
                 <a href="perfilUsuario.php">Perfil</a>
                 <a href="">Mis Posts</a>
@@ -78,6 +67,7 @@
     
         <div class="container-users">
             <?php
+                $users = getListChat();
                 if ($users->num_rows > 0) {
                     while ($row = $users->fetch_assoc()) {
                         echo '<a href="chat.php?id='.$row['id'].'">
@@ -115,21 +105,10 @@
             <?php
                 if (isset($_POST['enviar'])){
                     $msg = $_POST['mensaje'];
-
-                    $ejecutar = $connection->query($sql_get_chat);
-
-                    while ($row = $ejecutar -> fetch_array()){
-                        $id_chat = $row['id'];
-                    }
-                    $date = date('Y-m-d h:i:s', time());
-                    $sql = "INSERT INTO mensaje (date, texto, emisor, chat) VALUES ('$date', '$msg',
-                                                        '$user[0]', '$_GET[id]')";
-
-                    $ejecutar = $connection->query($sql);
+                    $ejecutar = sendMessage($msg, $sql_get_chat);
                     if($ejecutar){
                         header("location: chat.php?id=".$_GET['id']);
                     }
-
                 }
             ?>
         </div>

@@ -2,10 +2,9 @@
     session_start();
     if(!isset($_SESSION["user"])) header("Location: homeInvitado.php");
     include("api/postBuscados.php");
-    include("api/usuarios.php");
-
-    include("api/config.php");
+    include("api/usuario.php");
     include("distancias.php");
+
     $result = getListPost();
 
     if(isset($_POST["range"]) && $_POST["range"]!=0){

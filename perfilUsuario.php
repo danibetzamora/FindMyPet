@@ -4,21 +4,15 @@
 include('api/config.php');
 session_start();
 if(!isset($_SESSION["user"])) header("Location: homeInvitado.php");
-$idUsuario = $_SESSION["user"]["id"];
-$sql = "SELECT foto, nombre, ubicacion, email , apellidos, fecha_nacimiento  FROM usuario WHERE id = '$idUsuario' ";
-$result=$connection->query($sql);
-$row = $result->fetch_assoc();
-$fotoUsuario = $row["foto"];
-$Umail=$row["email"];
-$Ubicacion=$row["ubicacion"];
-$Uapellidos=$row["apellidos"];
-$Unacimiento=$row["fecha_nacimiento"];
+$user = $_SESSION["user"];
+$idUsuario = $user['id'];
+$fotoUsuario = $user["foto"];
+$Umail=$user["email"];
+$Ubicacion=$user["ubicacion"];
+$Uapellidos=$user["apellidos"];
+$Unacimiento=$user["fecha_nacimiento"];
 
-
-
-
-
-$nombreUsuario = $row["nombre"];
+$nombreUsuario = $user["nombre"];
 if (isset($_POST['modificar'])) {
     $nombre = $_POST['fnombre'];
     $dir = $_POST['fdir'];
@@ -26,43 +20,30 @@ if (isset($_POST['modificar'])) {
     $fecha = $_POST['ffecha'];
     $email = $_POST['fcorreo'];
     $con = $_POST['fcon'];
-    
 
-    
-    
     if($nombre != null){
-        
     $q="UPDATE usuario SET nombre = '$nombre' WHERE id = '$idUsuario'"; 
     $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
-
     }
 
     if($dir != null){
-        
         $q="UPDATE usuario SET ubicacion = '$dir' WHERE id = '$idUsuario'"; 
         $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
-    
     }
 
     if($apellidos != null){
-        
         $q="UPDATE usuario SET apellidos = '$apellidos' WHERE id = '$idUsuario'"; 
         $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
-        
     }
     
     if($fecha != null){
-        
         $q="UPDATE usuario SET fecha_nacimiento = '$fecha' WHERE id = '$idUsuario'"; 
         $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
-            
     }
 
     if($email != null){
-        
         $q="UPDATE usuario SET email = '$email' WHERE id = '$idUsuario'"; 
         $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
-                
     }
 
     if($con != null){
@@ -70,13 +51,7 @@ if (isset($_POST['modificar'])) {
         
         $q="UPDATE usuario SET contrasena = '$con_hash' WHERE id = '$idUsuario'"; 
         $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
-                    
     }
-
-    
-
-    
-
 }
 
 ?>
