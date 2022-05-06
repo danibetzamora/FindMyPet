@@ -1,0 +1,32 @@
+
+[{"Perro":"Terrier"},{"Perro":"Husky"},{"Perro":"Pit bull"},{"Perro":"Stafford"},{"Perro":"Beagle"},{"Perro":"Doberman"},{"Perro":"Labrador"},
+    {"Perro":"San bernardo"},{"Perro":"Caniche"},{"Perro":"Yorkshire"},{"Perro":"Salchicha"},{"Perro":"Shiba"},{"Perro":"Galgo"},{"Perro":"Vizsla"},
+    {"Gato":"Egipcio"},{"Gato":"Persa"},{"Gato":"Siamés"},{"Gato":"Siberiano"},{"Gato":"Bengala"},
+    {"Pájaro":"Pájaro"},{"Animal":"Caballo"},{"Animal":"Conejo"},{"Animal":"Reptil"}
+             ]               
+                            
+                            
+                            
+                            
+                           
+                            
+                            
+                            
+                            
+                            <option>Periquito</option>
+                            <option>Canario</option>
+                            <option>Mirlo</option>
+                            <option>Agaporni</option>
+                            <option>Ninfa</option>
+                            <option>Cacatua</option>
+                            <option>Loro</option>
+                            <option>Mini Lop</option>
+                            <option>Holandés</option>
+                            <option>Arlequín</option>
+                            <option>Gigante</option>
+                            <option>Lagarto</option>
+                            <option>Serpiente</option>
+                            <option>Iguana</option>
+                            <option>Tortuga</option>
+                            <option>Camaleón</option>
+                            <option>Anolis</option>

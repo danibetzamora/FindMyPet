@@ -75,13 +75,25 @@ if (isset($_POST['publicar'])) {
 
                         
                         <?php
-                        $animalListJson = '{"Perro":0,"Gato":1,"Pájaro":2,"Caballo":3,"Conejo":4,"Reptil":5}';
                         
-                        $animalList = json_decode($animalListJson);
                         
 
-                        foreach($animalList as $key => $value) {
-                        echo "<option>" . $key . "</option>" ;
+                        $file = file_get_contents("./json/animals.json");
+
+                        $animalList = json_decode($file, True);
+                        var_dump($animalList);
+
+                        
+
+                        
+
+                        foreach($animalList as $number => $array) {
+                            foreach($array as $key => $value){
+                                echo "<option>" . $value . "</option>" ;
+
+
+                            }
+                        
                         }
                         
                         ?>

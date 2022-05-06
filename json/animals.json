@@ -1,9 +1,5 @@
 
 
-[{"perro":1},
-{"gato":2},
-{"tortuga":3},
-{"cobaya":4},
-{"hamster":5}
+[{"Animal":"Perro"},{"Animal":"Gato"},{"Animal":"Pájaro"},{"Animal":"Caballo"},{"Animal":"Conejo"},{"Animal":"Reptil"}
 ]
 
