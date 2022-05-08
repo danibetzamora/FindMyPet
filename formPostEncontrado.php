@@ -10,7 +10,6 @@ include("api/postEncontrados.php");
 $idUsuario = $_SESSION["user"]["id"];
 $fotoUsuario= getFotoUsuario($idUsuario);
 
-
 if (isset($_POST['publicar'])) {
     $fecha = $_POST['fecha'];
     $fechaGenerada= date('Y-m-d H:i:s'); 
