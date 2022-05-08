@@ -19,11 +19,17 @@
         </div>
 
         <nav>
-            <a href="#new-FindMyPet">¿Nuevo en FindMyPet?</a>
-            <img src="imagenes/homeInvitado/Line.png" alt="Línea Separadora" class="line">
+            <a id="newLinkFMP" href="#new-FindMyPet">¿Nuevo en FindMyPet?</a>
+            <img id="headerStick" src="imagenes/homeInvitado/Line.png" alt="Línea Separadora" class="line">
             <a href="registro.php">Registrarse</a>
             <a href="login.php" class="Login">Iniciar Sesión</a>
         </nav>
+
+        <div id="responsive-menu">
+            <div class="fas fa-bars"></div>
+        </div>
+        
+        <script src="https://kit.fontawesome.com/62ea397d3a.js"></script>
     </header>
 
     <div class="reasons-FindMyPet">

@@ -24,7 +24,7 @@
     <title>Chat</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilos/chat.css">
-    <link rel="stylesheet" href="componentes/header.css">
+    <link rel="stylesheet" href="estilos/header.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript">
         function ajax(){

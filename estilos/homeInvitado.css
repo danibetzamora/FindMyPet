@@ -1,6 +1,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     width: 100vw;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -24,6 +25,7 @@ a {
 }
 
 header {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -31,11 +33,26 @@ header {
     background-color: #FCDA68;
 }
 
+.header-title {
+    width: 40%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header-title-logo {
+    margin-left: 2%;
+    margin-top: 2%;
+    width: 15em;
+}
+
+/*
 .header-title-logo {
     margin-left: 1em;
     margin-top: 0.4em;
     height: 4em;
 }
+*/
 
 nav {
     display: flex;
@@ -47,6 +64,17 @@ nav {
 
 .line {
     height: 3em;
+}
+
+#responsive-menu {
+    width: 15%;
+    display: none;
+}
+
+#responsive-menu div {
+    font-size: 2.5em;
+    color:  #000;
+    cursor: pointer;
 }
 
 .reasons-FindMyPet{
@@ -294,4 +322,33 @@ footer {
     height: 1.5em;
 }
 
+@media (max-width: 1500px) {
+    .reasons-FindMyPet {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 1000px) {
+    nav {
+        justify-content: flex-end;
+        gap: 5%;
+    }
+
+    #newLinkFMP {
+        display: none;
+    }
+
+    #headerStick {
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
+    nav {
+        display: none;
+    }
+    #responsive-menu {
+        display: block;
+    }
+}
 
