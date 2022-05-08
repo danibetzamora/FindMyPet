@@ -4,17 +4,15 @@
 include('api/config.php');
 session_start();
 if(!isset($_SESSION["user"])) header("Location: homeInvitado.php");
-$idUsuario = $_SESSION["user"]["id"];
-$sql = "SELECT foto, nombre  FROM usuario WHERE id = '$idUsuario' ";
-$result=$connection->query($sql);
-$row = $result->fetch_assoc();
-$fotoUsuario = $row["foto"];
+$user = $_SESSION["user"];
+$idUsuario = $user['id'];
+$fotoUsuario = $user["foto"];
+$Umail=$user["email"];
+$Ubicacion=$user["ubicacion"];
+$Uapellidos=$user["apellidos"];
+$Unacimiento=$user["fecha_nacimiento"];
 
-
-
-
-
-$nombreUsuario = $row["nombre"];
+$nombreUsuario = $user["nombre"];
 if (isset($_POST['modificar'])) {
     $nombre = $_POST['fnombre'];
     $dir = $_POST['fdir'];
@@ -22,43 +20,30 @@ if (isset($_POST['modificar'])) {
     $fecha = $_POST['ffecha'];
     $email = $_POST['fcorreo'];
     $con = $_POST['fcon'];
-    
 
-    
-    
     if($nombre != null){
-        
     $q="UPDATE usuario SET nombre = '$nombre' WHERE id = '$idUsuario'"; 
     $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
-
     }
 
     if($dir != null){
-        
         $q="UPDATE usuario SET ubicacion = '$dir' WHERE id = '$idUsuario'"; 
         $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
-    
     }
 
     if($apellidos != null){
-        
         $q="UPDATE usuario SET apellidos = '$apellidos' WHERE id = '$idUsuario'"; 
         $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
-        
     }
     
     if($fecha != null){
-        
         $q="UPDATE usuario SET fecha_nacimiento = '$fecha' WHERE id = '$idUsuario'"; 
         $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
-            
     }
 
     if($email != null){
-        
         $q="UPDATE usuario SET email = '$email' WHERE id = '$idUsuario'"; 
         $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
-                
     }
 
     if($con != null){
@@ -66,13 +51,7 @@ if (isset($_POST['modificar'])) {
         
         $q="UPDATE usuario SET contrasena = '$con_hash' WHERE id = '$idUsuario'"; 
         $r = mysqli_query ($connection, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($connection));
-                    
     }
-
-    
-
-    
-
 }
 
 ?>
@@ -123,32 +102,37 @@ if (isset($_POST['modificar'])) {
             </div>
             <div class="f2" >
                 <div class="nombre">
-                    <p>Nombre</p>
-                    <input  autocomplete="new-text" class="inp" type="text" name="fnombre" >
+                    <p style= width:20% >Nombre</p>
+                    <?php echo "<input  style=width:80% autocomplete=\"new-text\" class=\"inp\" type=\"text\" name=\"fnombre\" placeholder=\"". $nombreUsuario. "\">"?>
+                     
                 </div>
                 <div class="direccion">
-                    <p>Dirección</p>
-                    <input  autocomplete="new-text" class="inp" type="text" name="fdir" >
+                    <p style= width:20%>Dirección</p>
+                    
+                    <?php echo "<input style= width:80% autocomplete=\"new-text\" class=\"inp\" type=\"text\" name=\"fdir\" placeholder=\"". $Ubicacion. "\">"?>
                 </div>
             </div>
             <div class="f3">
                 <div class="apellidos">
-                    <p>Apellidos</p>
-                    <input  autocomplete="new-text" class="inp" type="text" name="fape" >
+                    <p style= width:20%>Apellidos</p>
+                    
+                    <?php echo "<input  style= width:80% autocomplete=\"new-text\" class=\"inp\" type=\"text\" name=\"fape\" placeholder=\"". $Uapellidos. "\">"?>
                 </div>
                 <div class="fecha">
-                    <p>Fecha</p>
-                    <input  class="inp" name ="ffecha" type="date">
+                    <p style= width:20%>Fecha</p>
+                    
+                    <?php echo "<input  style= width:80% autocomplete=\"new-text\" class=\"inp\" type=\"text\" name=\"ffecha\" placeholder=\"". $Unacimiento. "\">"?>
                 </div>
             </div>
             <div class="f4">
             <div class="email">
-                    <p>Correo Electrónico</p>
-                    <input  autocomplete="new-text" class="inp" type="text" name="fcorreo" >
+                    <p style= width:20%>Correo Electrónico</p>
+                    
+                    <?php echo "<input style= width:80% autocomplete=\"new-text\" class=\"inp\" type=\"text\" name=\"fcorreo\" placeholder=\"". $Umail. "\">"?>
                 </div>
                 <div class="contraseña">
-                    <p>Contraseña</p>
-                    <input  autocomplete="new-text" class="inp" type="text" name="fcon" >
+                    <p style= width:20%>Contraseña</p>
+                    <input  style= width:80% autocomplete="new-text" class="inp" type="text" name="fcon" placeholder="**********" >
                 </div>
             </div>
             <div class="f5"></div>

@@ -1,6 +1,7 @@
 button:hover{
     cursor:pointer;
 }
+
 input:invalid{
     animation: shake 300ms;
 }
@@ -10,159 +11,253 @@ input:invalid{
     75%{ transform: translateX(4px); }
     
 }
+
 body{
-    overflow:hidden;
-    height: 100%;
-    width: 100%;
-    margin: 0%;
-    padding: 0%;
+    min-height: 90vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    /*overflow: hidden;*/
     font-family:'Inter';
 }
-#main-container{
-    height: 100%;
+#main-container {
+    min-height: 90vh;
     width: 100%;
-    margin: 0%;
-    padding: 0%;
+    margin: 0;
+    padding: 0;
     display:flex;
 }
-#principal{
+#principal {
+    position: relative;
     width: 50%;
-    min-height: 100vh;
+    min-height: 90vh;
     background-color: #FCDA68;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    background-image: url(../imagenes/Fondo-Huellas.svg);
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
-#titulo{
+#titulo {
     height:50%;
-}
-#contenedor-foto-titulo{
-    width: 100% ;
-    height:50%;
+    width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
-#contenedor-foto-titulo img{
-    max-width:50%;
+
+#contenedor-texto-titulo {
+    width: 70%;
 }
-#contenedor-texto-titulo{
-    width: 60%;
-    margin:auto;
-}
-#contenedor-texto-titulo h3{
+
+#contenedor-texto-titulo h3 {
     color: #ffffff;
     text-align: center;
-    font-size:1.5vw;
+    font-size:1.6rem;
     font-weight:600;
 }
-#contenedor-foto{
+
+#contenedor-foto {
     width: 100% ;
     height:50%;
     display: flex;
     justify-content: center;
-    margin-bottom: 0px;
 }
-#foto-animales{
+
+#foto-animales {
     max-width:80%;
-}
-#formulario{
-    background-color: #ffffff;
+}   
+
+#formulario {
     width: 50%;
-    min-height: 100vh;  
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1%;
+}   
+
+#cabecera-formulario {
+    width: 90%;
 }
-#cabecera-formulario{
+
+#cabecera-formulario p {
     text-align: center;
-    height:15vh;
-}
-#cabecera-formulario p{
     font-weight:500;
-    font-size: 1.4vw;
+    font-size: 1.6rem;
     color: #2D2B40;
-    margin-top:6vh;
 }
-#form{
-    height:40vh;
-    width:100%;
-    display:flex;
-    font-size: 0.8vw;
-    align-content:center;
+
+#form {
+    height: 100%;
+    width: 100%;
+    margin-top: 1%;
+    display: flex;
+    justify-content: center;
 }
-form{
-    margin:auto;
-    margin-top:-6vh;
+
+form {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
-.campo{
-    font-size:0.7vw;
-    margin-top:0.5vh;
-    margin-bottom: 2vh;
+
+form label {
+    height: 1.5%;
+}
+
+.campo {
+    width: 100%;
+    height: 5%;
+    padding: 2%;
+    font-size:0.9rem;
     border:none;
     border-radius:6px;
     background-color:#EFEFEF;
-    width: 40vw;
-    padding:0.6vw;
     outline:none;
 }
-#campo-date{
-    font-size: 0.70vw;
+
+#campo-date {
+    width: 100%;
+    height: 5%;
     font-family:'Inter';
-    margin-top:0.5vh;
-    margin-bottom: 2vh;
+    font-size:0.9rem;
     border:none;
     border-radius:6px;
     background-color:#EFEFEF;
-    width: 40vw;padding:0.35vw;
-    outline:none;color: grey;
+    outline:none;
+    color: grey;
+    padding: 2%;
 }
-#boton-registro{
-    margin-bottom: 2vh;
-    margin-top:1.4vh;
+
+.form-buttons {
+    width: 100%;
+    margin-top: 1.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#boton-registro {
+    width: 50%;
+    padding: 1.5%;
+    font-size: 1rem;
+    text-align: center;
     border:none;
     border-radius:15px;
-    width: 20vw;
     background-color: #FCDA68;
-    padding: 0.4vw;
     color: #ffffff;
-    font-size: 0.90vw;
 }
-#boton-login{
-    margin-bottom: 2vh;
-    border:solid 0.1vw;
+
+.form-buttons a {
+    width: 100%;
+}
+
+#boton-login {
+    width: 50%;
+    padding: 1.5%;
+    font-size: 1rem;
+    text-align: center;
     border-radius:15px;
-    border-color:#FCDA68;
-    width: 20vw;
+    border: 1.5px solid #FCDA68;
     background-color: #ffffff;
-    padding: 0.4vw;
     color: #2D2B40;
-    font-size: 0.80vw;
 }
-#huella1{
-    position:fixed;
-    top:20vh;
-    left:-3vw;
-    width:10vw;
-    height:10vh;
-    transform: rotate(120deg);
+
+#contenedor-foto-footer {
+    display: none;
 }
-#huella2{
-    position:fixed;
-    top:50vh;
-    right:55vw;
-    width:10vw;
-    height:10vh;
-    transform: rotate(60deg);
+
+@media (max-width: 1350px) {
+    #main-container {
+        flex-direction: column;
+    }
+
+    #principal {
+        width: 100%;
+        min-height: 20%;
+        padding: 2%;
+        background-image: none;
+    }
+
+    #contenedor-foto-titulo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #contenedor-foto-titulo img {
+        width: 16em;
+        padding-top: 2%;
+    }
+
+    #contenedor-texto-titulo h3 {
+        font-size: 1.2rem;
+    }
+
+    #contenedor-texto-titulo {
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #contenedor-foto {
+        display: none;
+    }
+
+    #formulario {
+        width: 100%;
+    }
+
+    #cabecera-formulario p {
+        font-size: 1.2rem;
+    }
+
+    .form-buttons {
+        margin-top: 5%;
+    }
+
+    #boton-registro {
+        width: 30em;
+    }
+
+    #boton-login {
+        width: 30em;
+    }
+
+    #contenedor-foto-footer {
+        display: flex;
+        justify-content: center;
+        min-height: 37vh;
+        width: 100%;
+    }
+
+    #foto-animales {
+        max-width: 30em;
+    }
 }
-#huella3{
-    position:fixed;
-    top:92vh;
-    right:92vw;
-    width:10vw;
-    height:10vh;
-}
-#huella4{
-    position:fixed;
-    top:-4vh;
-    right:45.2vw;
-    width:10vw;
-    height:10vh;
-    transform: rotate(-30deg);
+
+@media (max-width: 900px) {
+    #boton-registro {
+        width: 15em;
+    }
+
+    #boton-login {
+        width: 15em;
+    }
+
+    #foto-animales {
+        max-width: 20em;
+    }
 }

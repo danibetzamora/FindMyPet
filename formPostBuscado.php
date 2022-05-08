@@ -3,8 +3,7 @@
 session_start();
 if(!isset($_SESSION["user"])) header("Location: homeInvitado.php");
 
-include('api/config.php');
-include("api/usuarios.php");
+include("api/usuario.php");
 include("api/postBuscados.php");
 
 $idUsuario = $_SESSION["user"]["id"];
@@ -75,17 +74,28 @@ if (isset($_POST['publicar'])){
 
                         
                         <?php
-                        $animalListJson = '{"Perro":0,"Gato":1,"Pájaro":2,"Caballo":3,"Conejo":4,"Reptil":5}';
                         
-                        $animalList = json_decode($animalListJson);
                         
 
-                        foreach($animalList as $key => $value) {
-                        echo "<option>" . $key . "</option>" ;
+                        $file = file_get_contents("./json/animals.json");
+
+                        $animalList = json_decode($file, True);
+                        var_dump($animalList);
+
+                        
+
+                        
+
+                        foreach($animalList as $number => $array) {
+                            foreach($array as $key => $value){
+                                echo "<option>" . $value . "</option>" ;
+
+
+                            }
+                        
                         }
                         
                         ?>
-
                     </select>
                 </div>
                 <div class="c2">
@@ -95,59 +105,55 @@ if (isset($_POST['publicar'])){
                     <option>Indefinido</option>
                     <option disabled selected>Selecciona una opción</option>
                             <option>Indefinido</option>
-                            <option>Terrier</option>
-                            <option>Husky</option>
-                            <option>Pit bull</option>
-                            <option>Stafford</option>
-                            <option>Beagle</option>
-                            <option>Doberman</option>
-                            <option>Labrador</option>
-                            <option>San bernardo</option>
-                            <option>Caniche</option>
-                            <option>Yorkshire</option>
-                            <option>Salchicha</option>
-                            <option>Shiba</option>
-                            <option>Galgo</option>
-                            <option>Vizsla</option>
-                            <option>Egipcio</option>
-                            <option>Persa</option>
-                            <option>Siamés</option>
-                            <option>Siberiano</option>
-                            <option>Bengala</option>
-                            <option>Periquito</option>
-                            <option>Canario</option>
-                            <option>Mirlo</option>
-                            <option>Agaporni</option>
-                            <option>Ninfa</option>
-                            <option>Cacatua</option>
-                            <option>Loro</option>
-                            <option>Mini Lop</option>
-                            <option>Holandés</option>
-                            <option>Arlequín</option>
-                            <option>Gigante</option>
-                            <option>Lagarto</option>
-                            <option>Serpiente</option>
-                            <option>Iguana</option>
-                            <option>Camaleón</option>
-                            <option>Anolis</option>
+                            <?php
+                        
+                        
+
+                        $file = file_get_contents("./json/razas.json");
+
+                        $razasList = json_decode($file, True);
+                        //var_dump($razasList);
+
+                        
+
+                        
+
+                        foreach($razasList as $number => $array) {
+                            var_dump($number);
+                            foreach($array as $animal => $breed ){
+                                var_dump($breed);
+                                foreach($breed as $pos => $breedName ){
+                                    echo "<option>" . $breedName . "</option>" ;
+
+                                }
+                                
+
+
+                            }
+                        
+                        }
+                        
+                        ?>
                     </select>
                 </div>
-                <div class="c3f1" style= "display:flex;width:33%" >
-                    <div   >
-                    <p class="sexo" >Sexo</p>
-                    <select required name="sexo" >
-                        <option disabled selected>Sexo</option>
-                        <option>Indefinido</option>
-                        <option>Macho</option>
-                        <option >Hembra</option>
+                <div class="c3" style= "display:flex;width:33%" >
+                    <div class="c3f1" style= "width:25%">
+                        <p class="sexo" >Sexo</p>
+                        <select required name="sexo" >
+                            <option disabled selected>Sexo</option>
+                            <option>Indefinido</option>
+                            <option>Macho</option>
+                            <option >Hembra</option>
                         
-                    </select>
+                        </select>
                     </div>
-                    <div style= "width:67%">
+                    <div class="c3f2" style= "width:75%">
                     <p class="nombre" >Nombre</p>
                     <input required minlength="3" autocomplete="new-text" class ="inp" type="new-message-input"  name="nombre"placeholder="Introduzca el nombre del animal ">
                     </div>
+                    
                 </div>
+                
 
             </div>
             <div class="f2">
