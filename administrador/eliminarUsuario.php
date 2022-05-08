@@ -6,5 +6,5 @@ $sql1 = "DELETE  FROM usuario WHERE id = '$idPost' ";
 $result=$connection->query($sql1);
 $connection->close();
 
-header("Location: usuario.php");
+header("Location: usuarios.php");
 ?> 
