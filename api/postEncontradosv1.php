@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {   
     $datos = json_decode(file_get_contents('php://input'));
-    echo (datos->raza);
+    echo ('datos->raza');
     $input = $_POST;
     $fecha = $_POST['fecha'];
     $fechaGenerada= date('Y-m-d H:i:s'); 

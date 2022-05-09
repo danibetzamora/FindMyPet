@@ -29,8 +29,18 @@
             <div class="fas fa-bars"></div>
         </div>
         
-        <script src="https://kit.fontawesome.com/62ea397d3a.js"></script>
     </header>
+
+    <div class="nav-responsive" id="nav-responsive">
+        <div class="nav-responsive-inside">
+            <a href="#new-FindMyPet">¿Nuevo en FindMyPet?</a>
+            <a href="registro.php">Registrarse</a>
+            <a href="login.php" class="Login">Iniciar Sesión</a>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/62ea397d3a.js"></script>
+    <script src="scripts/menu-responsive.js"></script>
 
     <div class="reasons-FindMyPet">
         <div class="reasons">
@@ -64,7 +74,8 @@
 
         <div class="screenshot">
             <div class="reasons-screenshot">
-                <img src="imagenes/homeInvitado/WebAppScreenshot.svg" alt="Captura Ejemplo FindMyPet Web">
+                <img src="imagenes/homeInvitado/WebAppScreenshot.svg" class="screenshot1" alt="Captura Ejemplo FindMyPet Web">
+                <img src="imagenes/homeInvitado/screenshot.svg" class="screenshot2" alt="Captura Ejemplo FindMyPet Web">
             </div>
         </div>
     </div>
@@ -104,6 +115,10 @@
                     <a href="registro.php" class="new-content-button-ref">Registrarme</a>
                 </div>
             </div>
+        </div>
+
+        <div class="image2">
+                <img src="imagenes/homeInvitado/Cat.svg" class="foto-gato" alt="Gato Home Invitado">
         </div>
     </div>
 

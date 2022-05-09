@@ -76,6 +76,16 @@ form {
     height: 73%;
     width: 10%;
 }
+/*
+@media (max-width: 700px) {
+    .container-users {
+        width: 90%;
+    }
+    
+    #container-chat {
+        display: none;
+    }
+}
 
 /*
 body {

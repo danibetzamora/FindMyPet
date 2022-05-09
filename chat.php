@@ -65,7 +65,7 @@
     </header>
     <div class="main-container">
     
-        <div class="container-users">
+        <div class="container-users" id="container-users">
             <?php
                 $users = getListChat();
                 if ($users->num_rows > 0) {
@@ -117,6 +117,25 @@
 
 </body>
 </html>
+
+<!--script>
+    chat = document.getElementById('container-chat');
+    contacts = document.getElementById('container-users');
+    openedChat = false;
+
+    contacts.addEventListener("click", ()=>{
+        if (!openedChat) {
+            chat.style.display = "block";
+            contacts.style.display = "none";
+            openedChat = true;
+        } else {
+            chat.style.display = "none";
+            contacts.style.display = "block";
+            openedChat = false;
+        }
+    
+    })
+</script-->
 
 <script>
     var slider = document.getElementById("slidebar");
