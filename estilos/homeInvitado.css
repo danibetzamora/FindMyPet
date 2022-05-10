@@ -383,17 +383,17 @@ footer {
 
 @keyframes desaparecer {
     0% {
-        margin-left: 0%;
+        margin-left: -100%;
     }
     100% {
-        margin-left: -100%;
+        margin-left: 0%;
     }
 }
 
 @media (max-width: 1500px) {
     .reasons-FindMyPet {
         flex-direction: column;
-        width: 60vw;
+        width: 85vw;
     }
 
     .reasons {
@@ -402,6 +402,14 @@ footer {
 
     .reasons-title {
          text-align: center;
+    }
+
+    .reasons-content {
+        align-items: center;
+    }
+
+    .reason {
+        width: 100%;
     }
 
     .screenshot {

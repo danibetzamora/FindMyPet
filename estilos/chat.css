@@ -33,6 +33,10 @@ body {
     border-radius: 7px;
 }
 
+.container-users a:hover {
+    background-color: #FCDA68;
+}
+
 #container-chat {
     width: 80%;
     height: 75vh;
@@ -43,14 +47,60 @@ body {
 }
 
 #caja-chat {
-    height: 90%;
+    height: 85%;
 }
 
 #chat {
     width: 100%;
     height: 100%;
+    scrollbar-width: 0;
     overflow-y: scroll;
+    
 }
+
+::-webkit-scrollbar {display: none;}
+
+
+/*
+#datos-chat {
+    display:flex; 
+    justify-content:flex-end; 
+    width:98%; 
+    height:10%; 
+    gap:2rem; 
+    align-items: center;
+}
+
+#message-sent {
+    background-color:#AEF67D; 
+    height:50%; 
+    display:flex; 
+    align-items: center; 
+    font-weight: bold; 
+    padding: 0.3em; 
+    border: 2px solid #EFEFEF; 
+    border-radius: 8px;
+}
+
+#message-received {
+    background-color:#FFFFFF; 
+    height:50%; 
+    display:flex; 
+    align-items: center; 
+    font-weight: bold; 
+    padding: 0.3em; 
+    border: 2px solid #EFEFEF; 
+    border-radius: 8px;
+}
+
+.date {
+    height:50%; 
+    display:flex; 
+    align-items: 
+    center; 
+    font-size: small;
+}
+*/
 
 .caja-enviar-mensaje {
     height: 15%;
@@ -73,9 +123,47 @@ form {
 }
 
 .button-send {
-    height: 73%;
+    height: 72.9%;
     width: 10%;
+    border: solid 1px #000;
 }
+
+.button-send:hover {
+    background-color: #FCDA68;
+}
+
+@media (max-width: 700px) {
+    .container-users {
+        width: 25%;
+    }
+
+    #container-chat {
+        width: 70%;
+    }
+
+    #chat {
+        overflow-x: hidden;
+    }
+
+    .input-text {
+        width: 70%;
+    }
+
+    .button-send {
+        width: 30%;
+    }
+}
+/*
+#chatecito {
+    display: none;
+}
+
+@media (max-width: 700px) {
+    #chatecito {
+        display: none;
+    }
+}
+
 /*
 @media (max-width: 700px) {
     .container-users {

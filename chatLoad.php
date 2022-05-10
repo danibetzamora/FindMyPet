@@ -8,14 +8,72 @@
         while ($row = $ejecutar -> fetch_array()):
             if($row['chat'] == $_SESSION['chat_id']){
                 if($row['emisor'] == $_SESSION['user']['id']){?>
-                    <div id="datos-chat" style="display:flex; justify-content:flex-end; width:98%; height:10%; gap:2rem; align-items: center;">
-                        <span style="background-color:#AEF67D; height:50%; display:flex; align-items: center; font-weight: bold; padding: 0.3em; border: 2px solid #EFEFEF; border-radius: 8px;"><?php echo $row['texto']; ?></span>
-                        <span style="height:50%; display:flex; align-items: center; font-size: small;"><?php echo $row['date']; ?></span>
+                    <style>
+                        #datos-chat1 {
+                            display:flex; 
+                            justify-content:flex-end; 
+                            width:98%; 
+                            min-height:4em; 
+                            gap:2rem; 
+                            align-items: center;
+                            margin-top: 1em;
+                        }
+                        #message-sent {
+                            background-color:#FCDA68; 
+                            min-height:50%; 
+                            max-width: 50%;
+                            display:flex; 
+                            align-items: center; 
+                            font-weight: bold; 
+                            padding: 0.5em; 
+                            border: 2px solid #EFEFEF; 
+                            border-radius: 8px;
+                        }
+                        #datos-chat2 {
+                            display:flex; 
+                            justify-content:flex-start; 
+                            width:95%; 
+                            min-height:4em; 
+                            gap:2rem; 
+                            align-items: center;
+                            margin-left: 1em;
+                            margin-top: 1em;
+                        }
+                        #message-received {
+                            background-color:#FFFFFF; 
+                            min-height:50%; 
+                            max-width: 50%;
+                            display:flex; 
+                            align-items: center; 
+                            font-weight: bold; 
+                            padding: 0.5em; 
+                            border: 2px solid #EFEFEF; 
+                            border-radius: 8px;
+                        }
+                        .date {
+                            height:50%; 
+                            display:flex; 
+                            align-items: 
+                            center; 
+                            font-size: small;
+                        }
+                        @media (max-width: 700px) {
+                            #datos-chat2 {
+                                margin-left: 0.4em;
+                            }
+                            .date {
+                                display: none;
+                            }
+                        }
+                    </style>
+                    <div id="datos-chat1">
+                        <span id="message-sent"><?php echo $row['texto']; ?></span>
+                        <span class="date"><?php echo $row['date']; ?></span>
                     </div>
                 <?php }else{ ?>
-                    <div id="datos-chat" style="display:flex; justify-content:flex-start; width:95%; height:10%; gap:2rem; align-items: center; margin-left: 1em;">
-                        <span style="background-color:#FFFFFF; height:50%; display:flex; align-items: center; font-weight: bold; padding: 0.3em; border: 2px solid #EFEFEF; border-radius: 8px;"><?php echo $row['texto']; ?></span>
-                        <span style="height:50%; display:flex; align-items: center; font-size: small;"><?php echo $row['date']; ?></span>
+                    <div id="datos-chat2">
+                        <span id="message-received"><?php echo $row['texto']; ?></span>
+                        <span class="date"><?php echo $row['date']; ?></span>
                     </div>
             <?php } ?>
         <?php

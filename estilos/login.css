@@ -13,7 +13,7 @@ input:invalid{
 }
 
 body{
-    min-height: 90vh;
+    min-height: 100vh;
     width: 100vw;
     margin: 0;
     padding: 0;
@@ -21,8 +21,9 @@ body{
     /*overflow: hidden;*/
     font-family:'Inter';
 }
+
 #main-container {
-    min-height: 90vh;
+    min-height: 100vh;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -84,15 +85,102 @@ body{
 
 #cabecera-formulario {
     width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#cabecera-titulo {
+    width: 80%;
+    font-size: 2rem;
+    text-align: center;
 }
 
 #cabecera-formulario p {
     text-align: center;
     font-weight:500;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
+    color: #2D2B40;
+    margin: 0;
+}
+
+#form {
+    height: 80%;
+    width: 100%;
+    margin-top: 1%;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+form label {
+    height: 4%;
+    margin-top: 1.5em;
+}
+
+form input {
+    width: 100%;
+    height: 5%;
+    padding: 1%;
+    font-size:0.9rem;
+    border:none;
+    border-radius:6px;
+    background-color:#EFEFEF;
+    outline:none;
+}
+
+#buttons {
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#boton-login {
+    width: 50%;
+    padding: 1.5%;
+    font-size: 1rem;
+    text-align: center;
+    border:none;
+    border-radius:15px;
+    background-color: #FCDA68;
+    color: #ffffff;
+}
+
+#buttons a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+#boton-registro {
+    width: 50%;
+    padding: 1.5%;
+    font-size: 1rem;
+    text-align: center;
+    border-radius:15px;
+    border: 1.5px solid #FCDA68;
+    background-color: #ffffff;
     color: #2D2B40;
 }
 
+#contenedor-foto-footer {
+    display: none;
+}
+
+/*
 #form {
     height: 100%;
     width: 100%;
@@ -176,6 +264,7 @@ form label {
 #contenedor-foto-footer {
     display: none;
 }
+*/
 
 @media (max-width: 1350px) {
     #main-container {
@@ -218,28 +307,34 @@ form label {
 
     #formulario {
         width: 100%;
+        min-height: 50vh;
     }
 
     #cabecera-formulario p {
         font-size: 1.2rem;
     }
 
-    .form-buttons {
-        margin-top: 5%;
+    form input {
+        width: 100%;
+        padding: 2%;
     }
 
-    #boton-registro {
-        width: 30em;
+    #buttons {
+        margin-top: 5%;
     }
 
     #boton-login {
         width: 30em;
     }
 
+    #boton-registro {
+        width: 30em;
+    }
+
     #contenedor-foto-footer {
         display: flex;
         justify-content: center;
-        min-height: 37vh;
+        min-height: 40vh;
         width: 100%;
     }
 
@@ -249,20 +344,32 @@ form label {
 }
 
 @media (max-width: 900px) {
-    #formulario {
-        min-height: 0;
-        height: 84vh;
+    #form {
+        margin-top: 2em;
+    }
+
+    form input {
+        width: 90%;
+        padding: 4%;
+    }
+
+    #buttons {
+        margin-top: 2em;
+    }
+
+    #buttons button {
+        padding: 2.5%;
     }
 
     #boton-registro {
-        width: 15em;
+        width: 20em;
     }
 
     #boton-login {
-        width: 15em;
+        width: 20em;
     }
 
     #foto-animales {
-        max-width: 20em;
+        max-width: 25em;
     }
 }
