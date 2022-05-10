@@ -1,20 +1,34 @@
 body{
     
-    height: 55rem;
-    width: 100%;
-    margin: 0%;
-    padding: 0%;
+    height: 100vh;
+    width: 98vw;
     font-family: 'Inter';
     color: #2D2B40
     
 }
-header{
-    height: 10%;
-    margin-top: 1%;
-    margin: 1em;
-    display: flex;
-    justify-content: space-between;
-    font-family: 'Poppins', sans-serif;
+
+.menu{
+    width: 120px;
+    height: 170px;
+    background-color: #EFEFEF;
+    border-radius: 10px;
+    display:flex ;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Inter';
+    display:none;
+    position:absolute;
+    margin-top:50px;
+}
+.menu a{
+    margin: auto;
+}
+.user-image{
+    width:120px;
+    display:flex;
+    flex-direction:column;
+    
 }
 
 body p{
@@ -23,6 +37,11 @@ body p{
     font-weight: 500;
     margin-bottom: 1%;
 
+}
+
+.container {
+    width: 100%;
+    height: 100%;
 }
 
 .mensajeDatosEncontrados{
@@ -190,27 +209,4 @@ body p{
     border:none;
     border-radius: 2rem;
     cursor: pointer;
-}
-.menu{
-    width: 120px;
-    height: 170px;
-    background-color: #EFEFEF;
-    border-radius: 10px;
-    display:flex ;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    font-family: 'Inter';
-    display:none;
-    position:absolute;
-    margin-top:50px;
-}
-.menu a{
-    margin: auto;
-}
-.user-image{
-    width:120px;
-    display:flex;
-    flex-direction:column;
-    
 }

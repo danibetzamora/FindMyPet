@@ -31,23 +31,43 @@
 <body>
     <div id="main-content">
         <header>
-            <nav>
-                <a href="homeUsuarioWeb.php">Encontrados</a>
-                <a href="buscados.php">Buscados</a>
-                <a href="formPostEncontrado.php">Encontré</a>
-                <a href="formPostBuscado.php">Estoy Buscando</a>
-                <a href="chat.php">Chats</a>
-            </nav>
+            <div class="normal-nav">
+                <div id="responsive-menu">
+                    <div class="fas fa-bars"></div>
+                </div>
 
-            <div class="user-image">
-                <img onclick="menu();" src=<?php echo $fotoUsuario ?> alt="User profile image">
-                <div id = "menud" class="menu">
-                    <a href="perfilUsuario.php">Perfil</a>
-                    <a href="">Mis Posts</a>
-                    <a href="logout.php">Cerrar Sesión</a>
+                <nav>
+                    <a href="homeUsuarioWeb.php">Encontrados</a>
+                    <a href="buscados.php">Buscados</a>
+                    <a href="formPostEncontrado.php">Encontré</a>
+                    <a href="formPostBuscado.php">Estoy Buscando</a>
+                    <a href="chat.php">Chats</a>
+                </nav>
+
+                <div class="user-image">
+                    <img onclick="menu();" src=<?php echo $fotoUsuario ?> alt="User profile image">
+                    <div id = "menud" class="menu">
+                        <a href="perfilUsuario.php">Perfil</a>
+                        <a href="">Mis Posts</a>
+                        <a href="logout.php">Cerrar Sesión</a>
+                    </div>
                 </div>
             </div>
+
+            <div id="responsive-nav">
+                <div class="responsive-nav-inside">
+                    <a href="homeUsuarioWeb.php">Encontrados</a>
+                    <a href="buscados.php">Buscados</a>
+                    <a href="formPostEncontrado.php">Encontré</a>
+                    <a href="formPostBuscado.php">Estoy Buscando</a>
+                    <a href="chat.php">Chats</a>
+                </div>
+            </div>
+
+            <script src="scripts/header-responsive.js"></script>
+            <script src="https://kit.fontawesome.com/62ea397d3a.js"></script>
         </header>
+
         <div id="container">
             <div id="aside">
                 <form id="filter" action="buscados.php" method="POST">

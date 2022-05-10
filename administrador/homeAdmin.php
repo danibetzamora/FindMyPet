@@ -28,26 +28,71 @@ $result=$connection->query($sql);
     <link rel="stylesheet" href="../estilos/header.css">
     <script src="scripts/select.js"> </script>
     <title>Administrador</title>
+
+    <style>
+        .menu{
+            width: 120px;
+            height: 170px;
+            background-color: #EFEFEF;
+            border-radius: 10px;
+            display:flex ;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            font-family: 'Inter';
+            display:none;
+            position:absolute;
+            margin-top: -1em;
+        }
+        .menu a{
+            margin: auto;
+        }
+        .user-image{
+            width:120px;
+            display:flex;
+            flex-direction:column;
+            
+        }
+    </style>
     
 </head>
 <body>
     <header>
-        <nav>
-            <a href="homeAdmin.php">Denuncias</a>
-            <a href="postEncontrados.php">Encontrados</a>
-            <a href="postBuscados.php">Buscados</a>
-            <a href="usuarios.php">Usuarios</a>
-        </nav>
+        <div class="normal-nav">
+            <div id="responsive-menu">
+                <div class="fas fa-bars"></div>
+            </div>
 
-        <div class="user-image">
-            <img  onclick="menu();" src=<?php echo $fotoUsuario?> alt="User profile image">
-                <div id = "menud" class="menu" >
+            <nav>
+                <a href="homeAdmin.php">Denuncias</a>
+                <a href="postEncontrados.php">Encontrados</a>
+                <a href="postBuscados.php">Buscados</a>
+                <a href="usuarios.php">Usuarios</a>
+            </nav>
+
+            <div class="user-image">
+                <img onclick="menu();" src=<?php echo $fotoUsuario ?> alt="User profile image">
+                <div id = "menud" class="menu">
                     <a href="">Perfil</a>
                     <a href="../homeUsuarioWeb">Modo Usuario</a>
                     <a href="../logout.php">Cerrar Sesión</a>
                 </div>
+            </div>
         </div>
+
+        <div id="responsive-nav">
+            <div class="responsive-nav-inside">
+                <a href="homeAdmin.php">Denuncias</a>
+                <a href="postEncontrados.php">Encontrados</a>
+                <a href="postBuscados.php">Buscados</a>
+                <a href="usuarios.php">Usuarios</a>
+            </div>
+        </div>
+
+        <script src="../scripts/header-responsive.js"></script>
+        <script src="https://kit.fontawesome.com/62ea397d3a.js"></script>
     </header>
+    
     <div style= "display:flex;flex-direction:column;aling-content:center;justify-content:center;flex:wrap:wrap;align-items:center;">
         <?php
         while($row = $result->fetch_assoc()) {

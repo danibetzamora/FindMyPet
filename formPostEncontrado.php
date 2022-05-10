@@ -42,138 +42,159 @@ if (isset($_POST['publicar'])) {
 </head>
 <body>
     <header>
-        <nav>
-            <a href="homeUsuarioWeb.php">Encontrados</a>
-            <a href="buscados.php">Buscados</a>
-            <a href="">Encontré</a>
-            <a href="formPostBuscado.php">Estoy Buscando</a>
-            <a href="chat.php">Chats</a>
-        </nav>
+        <div class="normal-nav">
+            <div id="responsive-menu">
+                <div class="fas fa-bars"></div>
+            </div>
 
-        <div class="user-image">
-            <img  onclick="menu();" src=<?php echo $fotoUsuario?> alt="User profile image">
+            <nav>
+                <a href="homeUsuarioWeb.php">Encontrados</a>
+                <a href="buscados.php">Buscados</a>
+                <a href="formPostEncontrado.php">Encontré</a>
+                <a href="formPostBuscado.php">Estoy Buscando</a>
+                <a href="chat.php">Chats</a>
+            </nav>
+
+            <div class="user-image">
+                <img onclick="menu();" src=<?php echo $fotoUsuario ?> alt="User profile image">
                 <div id = "menud" class="menu">
                     <a href="perfilUsuario.php">Perfil</a>
                     <a href="">Mis Posts</a>
                     <a href="logout.php">Cerrar Sesión</a>
                 </div>
+            </div>
         </div>
+
+        <div id="responsive-nav">
+            <div class="responsive-nav-inside">
+                <a href="homeUsuarioWeb.php">Encontrados</a>
+                <a href="buscados.php">Buscados</a>
+                <a href="formPostEncontrado.php">Encontré</a>
+                <a href="formPostBuscado.php">Estoy Buscando</a>
+                <a href="chat.php">Chats</a>
+            </div>
+        </div>
+
+        <script src="scripts/header-responsive.js"></script>
+        <script src="https://kit.fontawesome.com/62ea397d3a.js"></script>
     </header>
 
-    <p class="mensajeDatosEncontrados">Introduzca los datos del animal que ha encontrado</p>
-    <form  class= "formEncontrados" enctype="multipart/form-data" method ="POST" action="" name ="publicar">
-    <div class="contentEncontrado">
-        <div class="datos">
-            <div class="f1">
-                <div class="c1">
-                    <p>Animal</p>
+    <div class="container">
+        <p class="mensajeDatosEncontrados">Introduzca los datos del animal que ha encontrado</p>
+        <form  class= "formEncontrados" enctype="multipart/form-data" method ="POST" action="" name ="publicar">
+        <div class="contentEncontrado">
+            <div class="datos">
+                <div class="f1">
+                    <div class="c1">
+                        <p>Animal</p>
 
-                    <select required name="animal" id="selectAnimales">
-                        <option disabled selected>Selecciona una opción</option>
+                        <select required name="animal" id="selectAnimales">
+                            <option disabled selected>Selecciona una opción</option>
 
-                        
-                        <?php
-                        
-                        
+                            
+                            <?php
+                            
+                            
 
-                        $file = file_get_contents("./json/animals.json");
+                            $file = file_get_contents("./json/animals.json");
 
-                        $animalList = json_decode($file, True);
-                        var_dump($animalList);
+                            $animalList = json_decode($file, True);
+                            var_dump($animalList);
 
-                        
+                            
 
-                        
+                            
 
-                        foreach($animalList as $number => $array) {
-                            foreach($array as $key => $value){
-                                echo "<option>" . $value . "</option>" ;
+                            foreach($animalList as $number => $array) {
+                                foreach($array as $key => $value){
+                                    echo "<option>" . $value . "</option>" ;
 
-
-                            }
-                        
-                        }
-                        
-                        ?>
-
-                    </select>
-                </div>
-                <div class="c2">
-                    <p>Raza</p>
-                    <select required name="raza" id="selectRazas" >
-                    <option disabled selected>Selecciona una opción</option>
-                    <option>Indefinido</option>
-                    <?php
-                        
-                        
-
-                        $file = file_get_contents("./json/razas.json");
-
-                        $razasList = json_decode($file, True);
-                        //var_dump($razasList);
-
-                        
-
-                        
-
-                        foreach($razasList as $number => $array) {
-                            var_dump($number);
-                            foreach($array as $animal => $breed ){
-                                var_dump($breed);
-                                foreach($breed as $pos => $breedName ){
-                                    echo "<option>" . $breedName . "</option>" ;
 
                                 }
-                                
-
-
+                            
                             }
-                        
-                        }
-                        
-                        ?>
-                    
-                    </select>
-                </div>
-                <div class="c3">
-                    <p>Sexo</p>
-                    <select required name="sexo" >
+                            
+                            ?>
+
+                        </select>
+                    </div>
+                    <div class="c2">
+                        <p>Raza</p>
+                        <select required name="raza" id="selectRazas" >
                         <option disabled selected>Selecciona una opción</option>
                         <option>Indefinido</option>
-                        <option>Macho</option>
-                        <option >Hembra</option>
+                        <?php
+                            
+                            
+
+                            $file = file_get_contents("./json/razas.json");
+
+                            $razasList = json_decode($file, True);
+                            //var_dump($razasList);
+
+                            
+
+                            
+
+                            foreach($razasList as $number => $array) {
+                                var_dump($number);
+                                foreach($array as $animal => $breed ){
+                                    var_dump($breed);
+                                    foreach($breed as $pos => $breedName ){
+                                        echo "<option>" . $breedName . "</option>" ;
+
+                                    }
+                                    
+
+
+                                }
+                            
+                            }
+                            
+                            ?>
                         
-                    </select>
-                </div>
+                        </select>
+                    </div>
+                    <div class="c3">
+                        <p>Sexo</p>
+                        <select required name="sexo" >
+                            <option disabled selected>Selecciona una opción</option>
+                            <option>Indefinido</option>
+                            <option>Macho</option>
+                            <option >Hembra</option>
+                            
+                        </select>
+                    </div>
 
-            </div>
-            <div class="f2">
-                <div class="c1">
-                    <p>Lugar de encuentro</p>
-                    <input required minlength="8" autocomplete="new-text" class ="inp" type="text" name="direccion" placeholder="Introduzca aquí ">
                 </div>
-                <div class="c2">
-                    <p>Descripción de los hechos</p>
-                    <input required minlength="8" autocomplete="new-text" class ="inp" type="new-message-input"  name="descripcion"placeholder="Introduzca aquí ">
+                <div class="f2">
+                    <div class="c1">
+                        <p>Lugar de encuentro</p>
+                        <input required minlength="8" autocomplete="new-text" class ="inp" type="text" name="direccion" placeholder="Introduzca aquí ">
+                    </div>
+                    <div class="c2">
+                        <p>Descripción de los hechos</p>
+                        <input required minlength="8" autocomplete="new-text" class ="inp" type="new-message-input"  name="descripcion"placeholder="Introduzca aquí ">
 
-                
-                </div>
-                <div class="c3">
-                    <p >Fecha</p>
-                    <div  class="fechas">
-                        <input required  class="inp" name ="fecha" type="date">
+                    
+                    </div>
+                    <div class="c3">
+                        <p >Fecha</p>
+                        <div  class="fechas">
+                            <input required  class="inp" name ="fecha" type="date">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div   style="border:1px solid #EFEFEF;text-align: center" class="f3">
-                <input  required style="margin-top: 6%;"  type="file" multiple name="fotos" value="fotos">
-            </div>
-            <div class="f4">
-                <button name="publicar" type="submit" value="publicar">publicar</button>
+                <div   style="border:1px solid #EFEFEF;text-align: center" class="f3">
+                    <input  required style="margin-top: 6%;"  type="file" multiple name="fotos" value="fotos">
+                </div>
+                <div class="f4">
+                    <button name="publicar" type="submit" value="publicar">publicar</button>
 
-            </div>
+                </div>
+        </div>
+        </form>
     </div>
-    </form>
 </body>
 </html>
 <script>
