@@ -2,7 +2,7 @@
 
 include 'api/usuario.php';
 global $error;
-$error = false;
+$error = 0;
 
 if(isset($_POST['Login'])){
     $email = $_POST['fcorreo'];
@@ -10,15 +10,15 @@ if(isset($_POST['Login'])){
 
     $result = verifyPassword($email, $password);
     if (mysqli_num_rows($result) > 0){
-        $user = mysqli_fetch_array($result);
-        session_start();
-        $_SESSION["user"] = $user;
-        if ($user["rol"]==1)header('Location:homeUsuarioWeb.php');
-        else header('Location:administrador/homeAdmin.php');
-    }else{
-        $error = true;
-    }
-
+        $authResult = verifyAuth($email);
+        if($authResult==1){
+            $user = mysqli_fetch_array($result);
+            session_start();
+            $_SESSION["user"] = $user;
+            if ($user["rol"]==1)header('Location:homeUsuarioWeb.php');
+            else header('Location:administrador/homeAdmin.php');
+        } else $error = 2;
+    }else $error = 1;
 }
 
 ?>
@@ -51,7 +51,8 @@ if(isset($_POST['Login'])){
 
             <div id="form">
                 <form method="post" action="">
-                    <div id="error-login"><?php if ($error){echo '<p style="color: red; text-align: center"> Usuario o contraseña no son correctos.</p>';} ?></div>
+                <div id="error-login"><?php if ($error==1){echo '<p style="color: red; text-align: center"> Usuario o contraseña no son correctos.</p>';}
+                                            if ($error==2){echo '<p style="color: red; text-align: center"> Cuenta no activada, compruebe su direccion de correo.</p>';}?></div>
                     <label for="fcorreo">Correo electrónico</label><br>
                     <input required minlength="8" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" autocomplete="new-text" type="text" id="fcorreo" name="fcorreo" placeholder="Introduzca su correo"><br>
                     <label for="fpass">Contraseña</label><br>
