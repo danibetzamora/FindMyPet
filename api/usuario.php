@@ -46,9 +46,9 @@
         $codigo_de_verificacion=$result['verificacion'];
 
 
-        $enlace_de_verificacion = "http://localhost:63342/FindMyPet/verificacion.php?id=$id&verificacion=$codigo_de_verificacion";
+        $enlace_de_verificacion = "http://localhost/FindMyPet/verificacion.php?id=$id&verificacion=$codigo_de_verificacion";
 
-        $sujeto = 'Activacion de cuenta de FindMyPet';
+        $sujeto = 'Activacion de cuenta - FindMyPet';
         $mensaje = "Por favor, haga click en el siguiente enlace para verificar su cuenta:
                     \r\n$enlace_de_verificacion
                     \r\nMuchas gracias!";
