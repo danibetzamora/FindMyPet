@@ -48,7 +48,7 @@
 
         $enlace_de_verificacion = "http://localhost:63342/FindMyPet/verificacion.php?id=$id&verificacion=$codigo_de_verificacion";
 
-        $sujeto = 'Please activate your account';
+        $sujeto = 'Activacion de cuenta de FindMyPet';
         $mensaje = "Por favor, haga click en el siguiente enlace para verificar su cuenta:
                     \r\n$enlace_de_verificacion
                     \r\nMuchas gracias!";
@@ -70,7 +70,7 @@
 
             //Recipients
             $mail->setFrom('findmypet.noreply@gmail.com', 'FindMyPet');
-            $mail->addAddress('alberto.fidalgo101@alu.ulpgc.es');
+            $mail->addAddress($email);
 
             //Attachments
 
