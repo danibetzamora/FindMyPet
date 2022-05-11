@@ -11,3 +11,13 @@ desplegable.addEventListener("click", ()=>{
         opened = false;
     }
 })
+
+window.addEventListener("resize", ()=>{
+    if (document.documentElement.clientWidth > 1250) {
+        aside.style.display = "flex";
+    }
+
+    if (document.documentElement.clientWidth < 1250) {
+        aside.style.display = "none";
+    }
+})

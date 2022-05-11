@@ -14,3 +14,10 @@ openNavButton.addEventListener("click", ()=>{
     }
     
 })
+
+window.addEventListener("resize", ()=>{
+    if (document.documentElement.clientWidth > 1250) {
+        nav.style.display = "none";
+        openedNav = false;
+    }
+})

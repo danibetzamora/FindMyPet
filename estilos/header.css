@@ -159,8 +159,8 @@ nav a:hover{
 
 .responsive-nav-inside {
     height: 100%;
-    margin-left: -1em;
-    margin-right: -1em;
+    margin-left: -2em;
+    margin-right: -2em;
     display: none;
     border-top: solid 1px #000;
     border-right: solid 1px #000;
