@@ -69,6 +69,12 @@
         </header>
 
         <div id="container">
+            <div class="mostrar-filtros">
+                <h1>Filtros FindMyPet</h1>
+
+                <div id="selector-image"><img src="imagenes/sort-down-solid.svg" alt="Selector"></div>
+            </div>
+
             <div id="aside">
                 <form id="filter" action="buscados.php" method="POST">
                     <div class="filtertext">
@@ -143,7 +149,7 @@
                     </div>
                     <div class="filtertext">
                         <label>Fecha</label><br>
-                        <input type="date" name="fecha"><br>
+                        <input class="date" type="date" name="fecha"><br>
                     </div>
                     <button class="botonamarillo" name="Filtrar" type="submit" value="Filtrar">Filtrar</button><br>
                 </form>
@@ -196,6 +202,8 @@
         </div>
     </div>
 </body>
+
+<script src="scripts/desplegable.js"></script>
 
 <script>
     var slider = document.getElementById("slidebar");

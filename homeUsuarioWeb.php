@@ -73,12 +73,17 @@
         </header>
 
         <div id="container">
+            <div class="mostrar-filtros">
+                <h1>Filtros FindMyPet</h1>
+
+                <div id="selector-image"><img src="imagenes/sort-down-solid.svg" alt="Selector"></div>
+            </div>
             <div id="aside">
                 <form id="filter" action="homeUsuarioWeb.php" method="POST">
                     <div class="filtertext">
                         <label>Distancia</label><br>
-                        <input  style ="font-size:10px;"id="slidebar" type="range" name="range" min="0" max="100" value="0" class="slider"><br>
-                        <span   style ="font-size:15px;font-weight:400" id="demo"></span> Km<br>
+                        <input id="slidebar" type="range" name="range" min="0" max="100" value="0" class="slider"><br>
+                        <span id="demo"></span> Km<br>
                     </div>
                     <div class="filtertext">
                         <label>Animal</label><br>
@@ -147,9 +152,9 @@
                     </div>
                     <div class="filtertext">
                         <label>Fecha</label><br>
-                        <input type="date" name="fecha"><br>
+                        <input type="date" name="fecha" class="date"><br>
                     </div>
-                    <button class="botonamarillo" name="Filtrar" type="submit" value="Filtrar">Filtrar</button><br>
+                    <button class="botonamarillo" name="Filtrar" type="submit" value="Filtrar">Filtrar</button>
                 </form>
             </div>
             <div id="list">
@@ -200,6 +205,8 @@
         </div>
     </div>
 </body>
+
+<script src="scripts/desplegable.js"></script>
 
 <script>
     var slider = document.getElementById("slidebar");
