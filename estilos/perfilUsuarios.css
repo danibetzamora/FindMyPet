@@ -1,0 +1,277 @@
+body{
+    
+    height: 100%;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Inter';
+    color: #2D2B40
+    
+}
+
+
+body p{
+    margin-left: 5%;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 1%;
+
+}
+
+.contentEncontrado{
+    height: 120%;
+    width: 90%;
+    margin: auto;
+}
+
+
+
+.datos{
+    border: 1px solid rgb(206, 206, 206);
+    border-radius: 6px;
+    overflow: auto;
+}
+
+.datos p{
+    font-size: 1rem;
+    margin-left: 4rem;
+    font-weight: 400;
+    margin-bottom: 0%;
+    margin-right: 2rem;
+}
+
+
+
+.datos .inp{
+    height: 1.7rem;
+    width: 80%;
+    border-radius: 4px;
+    border: none;
+    background-color: #EFEFEF;
+    font-size: 0.80rem;
+    font-weight: 400;
+    outline:none;
+    color:grey;
+    margin-right: 4rem;
+
+}
+.f1{
+    height: 18rem;
+    margin: auto;
+    display: flex;
+
+    justify-content: flex-start;
+
+    align-items: center;
+}
+
+
+.f1 p{
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: #2B2C3E;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+
+
+}
+
+.f1 img{
+
+    max-height: 80%;
+    margin-left: 3rem;
+}
+.f2{
+    height: 4rem;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.f7 button{
+    color: #fff;
+    background-color: #fcda69;
+    margin-top: 1.2rem;
+    width: 35rem;
+    height: 1.5rem;
+    border:none;
+    border-radius: 2rem;
+    cursor: pointer;
+
+
+
+}
+
+.nombre{
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+.nombre p{
+    margin-right: 4.5rem;
+}
+
+.nombre input{
+    width: 90% !important;;
+}
+
+
+.apellidos input{
+    width: 90% !important;;
+}
+
+
+.apellidos p{
+    margin-right: 4.01rem;
+}
+
+.email p{
+    margin-right: 3.8rem;
+
+}
+
+.direccion{
+    display: flex;
+    align-items: center;
+    width: 50%;
+
+}
+.apellidos{
+    display: flex;
+    align-items: center;
+    width: 50%;
+
+}
+.fecha{
+    display: flex;
+    align-items: center;
+    width: 50%;
+
+}
+.email{
+    display: flex;
+    align-items: center;
+    width: 50%;
+
+}
+.contraseña{
+    display: flex;
+    align-items: center;
+    width: 50%;
+
+}
+
+
+.f3{height: 4rem;
+    
+    display: flex;
+
+}
+.f4{height: 4rem;
+    
+    display: flex;
+
+}
+.f5{height: 4rem;
+    
+    display: flex;
+
+}
+.f6{height: 4rem;
+    
+    display: flex;
+
+}
+
+.f7{height: 4rem;
+    
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+
+
+.fechas{
+    
+    display: flex;
+    
+
+    
+}
+.fechas select{
+    margin-left: 0;
+    width: 60%;
+    margin-right: 20%;
+}
+.fechas p{
+    font-size: 00.80rem;
+    font-weight: 400;
+    width: 2rem;
+    margin-left: 0rem;
+    margin-top: 0.5rem;
+
+}
+
+.day{
+    width: 26%;
+    font-size: 0.80rem;
+    font-weight: 400;
+    display: flex;
+}
+
+.month{
+    width: 35%;
+    font-size: 0.80rem;
+    font-weight: 400;
+    display: flex;
+}
+
+.year{
+    width: 29%;
+    font-size: 0.80rem;
+    font-weight: 300;
+    display: flex;
+}
+
+.daySelect{
+    width: 10%;
+}
+
+.monthSelect{
+    width: 20%;
+}
+
+.yearSelect{
+    width: 15%;
+}
+
+
+
+.menu{
+    width: 120px;
+    height: 170px;
+    background-color: #EFEFEF;
+    border-radius: 10px;
+    display:flex ;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Inter';
+    display:none;
+    position:absolute;
+    margin-top:50px;
+}
+.menu a{
+    margin: auto;
+}
+.user-image{
+    width:120px;
+    display:flex;
+    flex-direction:column;
+    
+}

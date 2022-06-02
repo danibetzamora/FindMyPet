@@ -1,0 +1,283 @@
+body {
+    height: 100vh;
+    font-family: 'Inter';
+}
+
+.menu{
+    width: 120px;
+    height: 170px;
+    background-color: #EFEFEF;
+    border-radius: 10px;
+    display:flex ;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Inter';
+    display:none;
+    position:absolute;
+    margin-top:50px;
+}
+.menu a{
+    margin: auto;
+}
+.user-image{
+    width:120px;
+    display:flex;
+    flex-direction:column;
+    
+}
+
+.main-container {
+    height: 82vh;
+    margin: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-users {
+    width: 15%;
+    height: 75vh;
+    border: 3px solid #EFEFEF;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+.container-users a {
+    width: 90%;
+    background-color: #EFEFEF;
+    text-align: center;
+    margin-top: 5%;
+    border-radius: 7px;
+}
+
+.container-users a:hover {
+    background-color: #FCDA68;
+}
+
+#container-chat {
+    width: 80%;
+    height: 75vh;
+    border: 3px solid #EFEFEF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#caja-chat {
+    height: 85%;
+}
+
+#chat {
+    width: 100%;
+    height: 100%;
+    scrollbar-width: 0;
+    overflow-y: scroll;
+    
+}
+
+::-webkit-scrollbar {display: none;}
+
+
+/*
+#datos-chat {
+    display:flex; 
+    justify-content:flex-end; 
+    width:98%; 
+    height:10%; 
+    gap:2rem; 
+    align-items: center;
+}
+
+#message-sent {
+    background-color:#AEF67D; 
+    height:50%; 
+    display:flex; 
+    align-items: center; 
+    font-weight: bold; 
+    padding: 0.3em; 
+    border: 2px solid #EFEFEF; 
+    border-radius: 8px;
+}
+
+#message-received {
+    background-color:#FFFFFF; 
+    height:50%; 
+    display:flex; 
+    align-items: center; 
+    font-weight: bold; 
+    padding: 0.3em; 
+    border: 2px solid #EFEFEF; 
+    border-radius: 8px;
+}
+
+.date {
+    height:50%; 
+    display:flex; 
+    align-items: 
+    center; 
+    font-size: small;
+}
+*/
+
+.caja-enviar-mensaje {
+    height: 15%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+form {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 80%;
+    width: 100%;
+}
+
+.input-text {
+    height: 65%;
+    width: 90%;
+}
+
+.button-send {
+    height: 72.9%;
+    width: 10%;
+    border: solid 1px #000;
+}
+
+.button-send:hover {
+    background-color: #FCDA68;
+}
+
+@media (max-width: 700px) {
+    .container-users {
+        width: 25%;
+    }
+
+    #container-chat {
+        width: 70%;
+    }
+
+    #chat {
+        overflow-x: hidden;
+    }
+
+    .input-text {
+        width: 70%;
+    }
+
+    .button-send {
+        width: 30%;
+    }
+}
+/*
+#chatecito {
+    display: none;
+}
+
+@media (max-width: 700px) {
+    #chatecito {
+        display: none;
+    }
+}
+
+/*
+@media (max-width: 700px) {
+    .container-users {
+        width: 90%;
+    }
+    
+    #container-chat {
+        display: none;
+    }
+}
+
+/*
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.main-container {
+    height: 100vh;
+
+}
+
+
+.container {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+
+.darker {
+    border-color: #ccc;
+    background-color: #ddd;
+}
+
+
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+.container img {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+
+.container img.right {
+    float: right;
+    margin-left: 20px;
+    margin-right:0;
+}
+
+
+.time-right {
+    float: right;
+    color: #aaa;
+}
+
+
+.time-left {
+    float: left;
+    color: #999;
+}
+
+html, body{
+    height: 100%;
+}
+
+.container-users{
+    width: 20%;
+    background-color: #dedede;
+    margin: 1% 1%;
+    float: left;
+}
+
+.container-chat{
+    width: 75%;
+    margin: 1% 1%;
+    float: right;
+}
+
+.contenedor{
+    height: 49%;
+    background-color: #6A737C;
+    margin: 1% 1%;
+}
+*/

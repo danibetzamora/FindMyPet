@@ -1,14 +1,35 @@
 body{
     
-    height: 100%;
-    width: 100%;
-    margin: 0%;
-    padding: 0%;
+    height: 100vh;
+    width: 98vw;
     font-family: 'Inter';
     color: #2D2B40
     
 }
 
+.menu{
+    width: 120px;
+    height: 170px;
+    background-color: #EFEFEF;
+    border-radius: 10px;
+    display:flex ;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Inter';
+    display:none;
+    position:absolute;
+    margin-top:50px;
+}
+.menu a{
+    margin: auto;
+}
+.user-image{
+    width:120px;
+    display:flex;
+    flex-direction:column;
+    
+}
 
 body p{
     margin-left: 5%;
@@ -18,21 +39,36 @@ body p{
 
 }
 
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.mensajeDatosEncontrados{
+    height: 5%;
+}
+
 .contentEncontrado{
     height: 120%;
     width: 90%;
     margin: auto;
 }
 
+.formEncontrados{
+    height: 85%;
+}
+
 
 
 .datos{
+    height:70%;
     border: 1px solid rgb(206, 206, 206);
     border-radius: 6px;
     overflow: auto;
 }
 
 .datos p{
+    margin-top: 20%;
     font-size: 1rem;
     margin-left: 0;
     font-weight: 400;
@@ -63,14 +99,14 @@ body p{
     color:grey;
 }
 .f1{
-    height: 5rem;
+    height: 10rem;
     margin: auto;
     display: flex;
 
     justify-content: center;
 }
 .f2{
-    height: 5rem;
+    height: 10rem;
     
     display: flex;
 }
@@ -110,6 +146,10 @@ body p{
     margin-left: 0rem;
     margin-top: 0.5rem;
 
+}
+
+.fechas .inp{
+    height: 2.05rem;
 }
 
 .day{
@@ -169,27 +209,4 @@ body p{
     border:none;
     border-radius: 2rem;
     cursor: pointer;
-}
-.menu{
-    width: 120px;
-    height: 170px;
-    background-color: #EFEFEF;
-    border-radius: 10px;
-    display:flex ;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    font-family: 'Inter';
-    display:none;
-    position:absolute;
-    margin-top:50px;
-}
-.menu a{
-    margin: auto;
-}
-.user-image{
-    width:120px;
-    display:flex;
-    flex-direction:column;
-    
 }

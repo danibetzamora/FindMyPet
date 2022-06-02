@@ -1,6 +1,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     width: 100vw;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -24,6 +25,7 @@ a {
 }
 
 header {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -31,11 +33,26 @@ header {
     background-color: #FCDA68;
 }
 
+.header-title {
+    width: 40%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header-title-logo {
+    margin-left: 2%;
+    margin-top: 2%;
+    width: 15em;
+}
+
+/*
 .header-title-logo {
     margin-left: 1em;
     margin-top: 0.4em;
     height: 4em;
 }
+*/
 
 nav {
     display: flex;
@@ -49,10 +66,62 @@ nav {
     height: 3em;
 }
 
+#responsive-menu {
+    width: 15%;
+    display: none;
+}
+
+#responsive-menu div {
+    font-size: 2.5em;
+    color:  #000;
+    cursor: pointer;
+}
+
+#responsive-menu div:hover {
+    color: #FFF;
+}
+
+.nav-responsive {
+    height: 30vh;
+    width: 100%;
+    display: none;
+}
+
+.nav-responsive-inside {
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: #FFF;
+    border-top: solid 1px #000;
+    border-right: solid 1px #000;
+    border-bottom: solid 1px #000;
+}
+
+.nav-responsive-inside a:hover {
+    /*
+    padding: 2%;
+    background-color: #FFFF;
+    border-radius: 12px;
+    */
+    color: #FCDA68;
+}
+
+/*
 .reasons-FindMyPet{
     margin-top: 4em;
     margin-left: 3em;
     margin-right: 3em;
+    display: flex;
+    justify-content: center;
+}
+*/
+
+.reasons-FindMyPet{
+    width: 90vw;
+    min-height: 85vh;
+    margin-top: 4em;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     justify-content: center;
 }
@@ -78,6 +147,7 @@ nav {
 
 .reasons-content {
     height: 60vh;
+    width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -97,6 +167,10 @@ nav {
 
 .screenshot {
     border: 3px solid #EFEFEF;
+}
+
+.screenshot2 {
+    display: none;
 }
 
 .new-FindMyPet a:hover {
@@ -168,6 +242,10 @@ nav {
     padding: 0.5em;
     border-radius: 20px;
     text-align: center;
+}
+
+.foto-gato {
+    display: none;
 }
 
 footer a:hover {
@@ -294,4 +372,237 @@ footer {
     height: 1.5em;
 }
 
+@keyframes aparecer {
+    0% {
+        margin-left: -100%;
+    }
+    100% {
+        margin-left: 0%;
+    }
+}
+
+@keyframes desaparecer {
+    0% {
+        margin-left: -100%;
+    }
+    100% {
+        margin-left: 0%;
+    }
+}
+
+@media (max-width: 1500px) {
+    .reasons-FindMyPet {
+        flex-direction: column;
+        width: 85vw;
+    }
+
+    .reasons {
+        align-items: center;
+    }
+
+    .reasons-title {
+         text-align: center;
+    }
+
+    .reasons-content {
+        align-items: center;
+    }
+
+    .reason {
+        width: 100%;
+    }
+
+    .screenshot {
+        border-top: none;
+    }
+
+    .reasons-screenshot {
+        display: flex;
+        justify-content: center;
+    }
+
+    .screenshot1 {
+        display: none;
+    }
+
+    .screenshot2 {
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+
+    .new-FindMyPet {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .new-images {
+        display: none;
+    }
+
+    .new-text {
+        width: 80%;
+        align-items: center;
+        padding: 0;
+        margin-top: 2em;
+    }
+
+    .new-titles {
+        text-align: center;
+        width: 100%;
+    }
+
+    .new-titles h1 {
+        font-size: 2em;
+    }
+
+    .new-titles h2 {
+        font-size: 1.2em;
+    }
+
+    .new-content-title h4 {
+        font-size: 1em;
+    }
+
+    .new-content {
+        width: 100%;
+    }
+
+    .new-content-paragraph p {
+        width: 100%;
+    }
+
+    .new-content-button {
+        width: 25%;
+    }
+
+    .image2 {
+        margin-top: 1.5em;
+        display: flex;
+        justify-content: center;
+    }
+
+    .foto-gato {
+        display: block;
+        width: 90%;
+        height: 90%;
+    }
+
+    footer {
+        background-image: none;
+    }
+
+    .social-media {
+        width: 50%;
+        justify-content: flex-end;
+    }
+
+}
+
+@media (max-width: 1000px) {
+    nav {
+        justify-content: flex-end;
+        gap: 5%;
+    }
+
+    #newLinkFMP {
+        display: none;
+    }
+
+    #headerStick {
+        display: none;
+    }
+
+    .reasons-FindMyPet {
+        flex-direction: column;
+        width: 85vw;
+    }
+
+    .main-footer {
+        flex-direction: column;
+    }
+
+    .direct-access {
+        width: 100%;
+        align-items: center;
+    }
+
+    .direct-access-list {
+        width: 100%;
+        align-items: center;
+    }
+
+    .footer-logo {
+        display: none;
+    }
+    /*
+    .contact-us {
+        margin-top: 1em;
+        width: 100%;
+        align-items: center;
+    }
+
+    .contact-us-street {
+        text-align: center;
+    }
+
+    .contact-us-list {
+        width: 100%;
+        align-items: center;
+    }
+
+    .contact-us-list-item {
+        width: 80%;
+        justify-content: center;
+    }
+    */
+
+    .contact-us {
+        display: none;
+    }
+
+    .social-media {
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
+    nav {
+        display: none;
+    }
+
+    #responsive-menu {
+        display: block;
+    }
+
+    .nav-responsive-inside {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .new-content-button {
+        width: 50%;
+    }
+
+    .bottom-footer {
+        width: 100%;
+        justify-content: center;
+        margin: 0;
+        padding-bottom: 2em;
+    }
+
+    .logo-copy {
+        width: 100%;
+        margin-top: 3   em;
+        align-items: center;
+    }
+
+    .copyright-footer {
+        width: 90%;
+        text-align: center;
+    }
+
+}
 
